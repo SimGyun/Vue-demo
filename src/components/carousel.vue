@@ -7,7 +7,7 @@
         <div style="margin:0 auto;" id="spanCnt">
             <div class="clear-both"></div>
         </div>
-    </div>       
+    </div>
 </div>
 </template>
 
@@ -59,11 +59,11 @@
 	  for(let i=1;i<imgCnt;i++){
 	     spanNodes[i].className='positive'
 	  }
-	  this.waitForNext()	
+	  this.waitForNext()
 	},
 	methods: {
 		  waitForNext() {
-		    setInterval(this.next,1000 * 3) 
+		    setInterval(this.next,1000 * 3)
 		  },
 		  next() {
 		    this.currentIndex+=1
@@ -93,7 +93,7 @@
 <style >
 .show span{
     display: block;
-    border-radius: 50%;   
+    border-radius: 50%;
     width: 15px;
     height: 15px;
     float: left;
@@ -105,7 +105,7 @@
     height: 200px;
 }
 .show-icon {
-    /*margin-top: -30px;*/
+    height: 30px;
     position: relative;
     width: 75px;
     margin: -30px auto 0 auto;

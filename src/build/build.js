@@ -69,6 +69,14 @@
 	
 	var _details2 = _interopRequireDefault(_details);
 	
+	var _news = __webpack_require__(60);
+	
+	var _news2 = _interopRequireDefault(_news);
+	
+	var _newsDatail = __webpack_require__(65);
+	
+	var _newsDatail2 = _interopRequireDefault(_newsDatail);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	//install router
@@ -79,18 +87,26 @@
 	var router = new _vueRouter2.default();
 	
 	router.map({
-		'/home': {
-			name: 'home',
-			component: _home2.default
-		},
-		'/details': {
-			name: 'details',
-			component: _details2.default
-		}
+	    '/home': {
+	        name: 'home',
+	        component: _home2.default
+	    },
+	    '/details': {
+	        name: 'details',
+	        component: _details2.default
+	    },
+	    '/news': {
+	        name: "news",
+	        component: _news2.default
+	    },
+	    '/newsDetail': {
+	        newsDetail: 'newsDetail',
+	        component: _newsDatail2.default
+	    }
 	});
 	
 	router.redirect({
-		'*': '/home'
+	    '*': '/news'
 	});
 	
 	router.start(App, '#app');
@@ -13340,7 +13356,13 @@
 /* 24 */,
 /* 25 */,
 /* 26 */,
-/* 27 */,
+/* 27 */
+/***/ function(module, exports) {
+
+	var core = module.exports = {version: '1.2.6'};
+	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
+
+/***/ },
 /* 28 */,
 /* 29 */,
 /* 30 */,
@@ -13521,7 +13543,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\r\n.show span{\r\n    display: block;\r\n    border-radius: 50%;   \r\n    width: 15px;\r\n    height: 15px;\r\n    float: left;\r\n    margin:4px;\r\n    z-index: 2;\r\n}\r\n.show img{\r\n    width: 100%;\r\n    height: 200px;\r\n}\r\n.show-icon {\r\n    /*margin-top: -30px;*/\r\n    position: relative;\r\n    width: 75px;\r\n    margin: -30px auto 0 auto;\r\n}\r\n.active{\r\n    background-color: #F7F7F7;\r\n}\r\n.positive{\r\n    background-color: rgba(255,255,255,.5);\r\n}\r\n.clear-both {\r\n\tclear: both;\r\n}\r\n", "", {"version":3,"sources":["/./src/components/carousel.vue?505bb708"],"names":[],"mappings":";AA6FA;IACA,eAAA;IACA,mBAAA;IACA,YAAA;IACA,aAAA;IACA,YAAA;IACA,WAAA;IACA,WAAA;CACA;AACA;IACA,YAAA;IACA,cAAA;CACA;AACA;IACA,sBAAA;IACA,mBAAA;IACA,YAAA;IACA,0BAAA;CACA;AACA;IACA,0BAAA;CACA;AACA;IACA,uCAAA;CACA;AACA;CACA,YAAA;CACA","file":"carousel.vue","sourcesContent":["<template>\r\n\t<div class=\"show\">\r\n    <div>\r\n        <img :src=\"slideUrl\">\r\n    </div>\r\n    <div class=\" show-icon\" :style=\"{width: showWidth+'px'}\" >\r\n        <div style=\"margin:0 auto;\" id=\"spanCnt\">\r\n            <div class=\"clear-both\"></div>\r\n        </div>\r\n    </div>       \r\n</div>\r\n</template>\r\n\r\n<script >\r\n\texport default {\r\n\r\n\tdata () {\r\n\t\treturn {\r\n\t\t  \t\tshowImg:[\r\n\t\t            {\r\n\t\t              name:'高级汤料',\r\n\t\t              des:'你还不来买我吗！',\r\n\t\t              url:'../assets/img/health02.jpg'\r\n\t\t            },\r\n\t\t            {\r\n\t\t              name:'家用汤料',\r\n\t\t              des:　'你在我心中是最美',\r\n\t\t              url:'../assets/img/health01.jpg',\r\n\t\t            },\r\n\t\t            {\r\n\t\t              name:'养生花茶',\r\n\t\t              des:'拒绝春日绵绵好睡眠花茶250g',\r\n\t\t              url:'../assets/img/health03.png'\r\n\t\t            }\r\n\t\t        ],\r\n\t\t        slideUrl:'',\r\n\t\t        currentIndex:0,\r\n\t\t        count:0,\r\n\t\t        circles:[]\r\n\t\t}\r\n\t},\r\n\tready () {\r\n\t  this.slideUrl=this.showImg[this.currentIndex].url\r\n\t  let imgCnt=this.showImg.length\r\n\t  this.count=imgCnt\r\n\t  let fragmentHtml=\" \"\r\n\t  let parentNode=document.getElementById('spanCnt')\r\n\r\n\t  //动态添加幻灯片的小圆圈\r\n\t  for(let i=0;i<imgCnt;i++){\r\n\t    fragmentHtml+='<span>'+ '</span>'\r\n\t  }\r\n\t  parentNode.innerHTML=fragmentHtml\r\n\t  //设置小圆圈的状态\r\n\t  let spanNodes=parentNode.getElementsByTagName(\"span\")\r\n\t      this.circles=spanNodes\r\n\t      spanNodes[0].className='active'\r\n\r\n\t  for(let i=1;i<imgCnt;i++){\r\n\t     spanNodes[i].className='positive'\r\n\t  }\r\n\t  this.waitForNext()\t\r\n\t},\r\n\tmethods: {\r\n\t\t  waitForNext() {\r\n\t\t    setInterval(this.next,1000 * 3) \r\n\t\t  },\r\n\t\t  next() {\r\n\t\t    this.currentIndex+=1\r\n\t\t    if(this.currentIndex >= this.count){\r\n\t\t      this.currentIndex=0\r\n\t\t    }\r\n\t\t    this.handleImg(this.currentIndex)\r\n\t\t  },\r\n\t\t  handleImg(index) {\r\n\t\t    this.slideUrl=this.showImg[index].url\r\n\t\t    this.circles[index].className='active'\r\n\t\t    for(let i=0;i<this.count;i++){\r\n\t\t      if(i!==index){\r\n\t\t        this.circles[i].className='positive'\r\n\t\t      }\r\n\t\t    }\r\n\t\t  }\r\n\t\t},\r\n\t\tcomputed: {\r\n\t\t\tshowWidth () {\r\n\t\t\t  return this.showImg.length*25\r\n\t\t\t},\r\n\t\t}\r\n\t}\r\n</script>\r\n\r\n<style >\r\n.show span{\r\n    display: block;\r\n    border-radius: 50%;   \r\n    width: 15px;\r\n    height: 15px;\r\n    float: left;\r\n    margin:4px;\r\n    z-index: 2;\r\n}\r\n.show img{\r\n    width: 100%;\r\n    height: 200px;\r\n}\r\n.show-icon {\r\n    /*margin-top: -30px;*/\r\n    position: relative;\r\n    width: 75px;\r\n    margin: -30px auto 0 auto;\r\n}\r\n.active{\r\n    background-color: #F7F7F7;\r\n}\r\n.positive{\r\n    background-color: rgba(255,255,255,.5);\r\n}\r\n.clear-both {\r\n\tclear: both;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\r\n.show span{\r\n    display: block;\r\n    border-radius: 50%;\r\n    width: 15px;\r\n    height: 15px;\r\n    float: left;\r\n    margin:4px;\r\n    z-index: 2;\r\n}\r\n.show img{\r\n    width: 100%;\r\n    height: 200px;\r\n}\r\n.show-icon {\r\n    height: 30px;\r\n    position: relative;\r\n    width: 75px;\r\n    margin: -30px auto 0 auto;\r\n}\r\n.active{\r\n    background-color: #F7F7F7;\r\n}\r\n.positive{\r\n    background-color: rgba(255,255,255,.5);\r\n}\r\n.clear-both {\r\n\tclear: both;\r\n}\r\n", "", {"version":3,"sources":["/./src/components/carousel.vue?10c638b3"],"names":[],"mappings":";AA6FA;IACA,eAAA;IACA,mBAAA;IACA,YAAA;IACA,aAAA;IACA,YAAA;IACA,WAAA;IACA,WAAA;CACA;AACA;IACA,YAAA;IACA,cAAA;CACA;AACA;IACA,aAAA;IACA,mBAAA;IACA,YAAA;IACA,0BAAA;CACA;AACA;IACA,0BAAA;CACA;AACA;IACA,uCAAA;CACA;AACA;CACA,YAAA;CACA","file":"carousel.vue","sourcesContent":["<template>\r\n\t<div class=\"show\">\r\n    <div>\r\n        <img :src=\"slideUrl\">\r\n    </div>\r\n    <div class=\" show-icon\" :style=\"{width: showWidth+'px'}\" >\r\n        <div style=\"margin:0 auto;\" id=\"spanCnt\">\r\n            <div class=\"clear-both\"></div>\r\n        </div>\r\n    </div>\r\n</div>\r\n</template>\r\n\r\n<script >\r\n\texport default {\r\n\r\n\tdata () {\r\n\t\treturn {\r\n\t\t  \t\tshowImg:[\r\n\t\t            {\r\n\t\t              name:'高级汤料',\r\n\t\t              des:'你还不来买我吗！',\r\n\t\t              url:'../assets/img/health02.jpg'\r\n\t\t            },\r\n\t\t            {\r\n\t\t              name:'家用汤料',\r\n\t\t              des:　'你在我心中是最美',\r\n\t\t              url:'../assets/img/health01.jpg',\r\n\t\t            },\r\n\t\t            {\r\n\t\t              name:'养生花茶',\r\n\t\t              des:'拒绝春日绵绵好睡眠花茶250g',\r\n\t\t              url:'../assets/img/health03.png'\r\n\t\t            }\r\n\t\t        ],\r\n\t\t        slideUrl:'',\r\n\t\t        currentIndex:0,\r\n\t\t        count:0,\r\n\t\t        circles:[]\r\n\t\t}\r\n\t},\r\n\tready () {\r\n\t  this.slideUrl=this.showImg[this.currentIndex].url\r\n\t  let imgCnt=this.showImg.length\r\n\t  this.count=imgCnt\r\n\t  let fragmentHtml=\" \"\r\n\t  let parentNode=document.getElementById('spanCnt')\r\n\r\n\t  //动态添加幻灯片的小圆圈\r\n\t  for(let i=0;i<imgCnt;i++){\r\n\t    fragmentHtml+='<span>'+ '</span>'\r\n\t  }\r\n\t  parentNode.innerHTML=fragmentHtml\r\n\t  //设置小圆圈的状态\r\n\t  let spanNodes=parentNode.getElementsByTagName(\"span\")\r\n\t      this.circles=spanNodes\r\n\t      spanNodes[0].className='active'\r\n\r\n\t  for(let i=1;i<imgCnt;i++){\r\n\t     spanNodes[i].className='positive'\r\n\t  }\r\n\t  this.waitForNext()\r\n\t},\r\n\tmethods: {\r\n\t\t  waitForNext() {\r\n\t\t    setInterval(this.next,1000 * 3)\r\n\t\t  },\r\n\t\t  next() {\r\n\t\t    this.currentIndex+=1\r\n\t\t    if(this.currentIndex >= this.count){\r\n\t\t      this.currentIndex=0\r\n\t\t    }\r\n\t\t    this.handleImg(this.currentIndex)\r\n\t\t  },\r\n\t\t  handleImg(index) {\r\n\t\t    this.slideUrl=this.showImg[index].url\r\n\t\t    this.circles[index].className='active'\r\n\t\t    for(let i=0;i<this.count;i++){\r\n\t\t      if(i!==index){\r\n\t\t        this.circles[i].className='positive'\r\n\t\t      }\r\n\t\t    }\r\n\t\t  }\r\n\t\t},\r\n\t\tcomputed: {\r\n\t\t\tshowWidth () {\r\n\t\t\t  return this.showImg.length*25\r\n\t\t\t},\r\n\t\t}\r\n\t}\r\n</script>\r\n\r\n<style >\r\n.show span{\r\n    display: block;\r\n    border-radius: 50%;\r\n    width: 15px;\r\n    height: 15px;\r\n    float: left;\r\n    margin:4px;\r\n    z-index: 2;\r\n}\r\n.show img{\r\n    width: 100%;\r\n    height: 200px;\r\n}\r\n.show-icon {\r\n    height: 30px;\r\n    position: relative;\r\n    width: 75px;\r\n    margin: -30px auto 0 auto;\r\n}\r\n.active{\r\n    background-color: #F7F7F7;\r\n}\r\n.positive{\r\n    background-color: rgba(255,255,255,.5);\r\n}\r\n.clear-both {\r\n\tclear: both;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -13544,7 +13566,7 @@
 	//         <div style="margin:0 auto;" id="spanCnt">
 	//             <div class="clear-both"></div>
 	//         </div>
-	//     </div>      
+	//     </div>
 	// </div>
 	// </template>
 	//
@@ -13626,7 +13648,7 @@
 	// <style >
 	// .show span{
 	//     display: block;
-	//     border-radius: 50%;  
+	//     border-radius: 50%;
 	//     width: 15px;
 	//     height: 15px;
 	//     float: left;
@@ -13638,7 +13660,7 @@
 	//     height: 200px;
 	// }
 	// .show-icon {
-	//     /*margin-top: -30px;*/
+	//     height: 30px;
 	//     position: relative;
 	//     width: 75px;
 	//     margin: -30px auto 0 auto;
@@ -13660,7 +13682,502 @@
 /* 59 */
 /***/ function(module, exports) {
 
-	module.exports = "\n\t<div class=\"show\">\n    <div>\n        <img :src=\"slideUrl\">\n    </div>\n    <div class=\" show-icon\" :style=\"{width: showWidth+'px'}\" >\n        <div style=\"margin:0 auto;\" id=\"spanCnt\">\n            <div class=\"clear-both\"></div>\n        </div>\n    </div>       \n</div>\n";
+	module.exports = "\n\t<div class=\"show\">\n    <div>\n        <img :src=\"slideUrl\">\n    </div>\n    <div class=\" show-icon\" :style=\"{width: showWidth+'px'}\" >\n        <div style=\"margin:0 auto;\" id=\"spanCnt\">\n            <div class=\"clear-both\"></div>\n        </div>\n    </div>\n</div>\n";
+
+/***/ },
+/* 60 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(61)
+	__vue_script__ = __webpack_require__(63)
+	if (__vue_script__ &&
+	    __vue_script__.__esModule &&
+	    Object.keys(__vue_script__).length > 1) {
+	  console.warn("[vue-loader] src/components/news.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(64)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) {
+	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
+	}
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "/Users/simgyun/Desktop/Vue/src/components/news.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 61 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(62);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(9)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./news.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./news.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 62 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(8)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\n.news-header{\n    background-color: #09CC7B;\n    height: 42px;\n    line-height: 42px;\n    text-align: center;\n    color:#fff;\n    font-size: 18px;\n    font-weight: 700;\n}\n.weui_navbar.news-navbar{\n    color:#333;\n    position: relative;\n    top: auto;\n    background-color: #fff;\n}\n.weui_navbar.news-navbar:after{\n    border:none;\n}\n.weui_navbar.news-navbar .weui_navbar_item{\n    border: none;\n}\n.weui_navbar.news-navbar .weui_navbar_item:after{\n    border: none;\n}\n.news-list{\n    width: 95%;\n    margin: 0 auto;\n}\n/* 每一项 */\n.news-list-cell{\n    border-bottom: 1px solid #E2E2E2;\n    overflow:hidden;\n    position:relative;\n}\n.nl-img{\n    display:block;\n    height:110px;\n    width:110px;\n    border-radius:4px;\n    float: left;\n    overflow: hidden;\n    margin:10px 10px 10px 0;\n}\n.nl-img img{\n    display: block;\n    height:100%;\n    width:100%;\n}\n.nl-info{\n    margin-top: 10px;\n    width:90%;\n}\n.nl-info h3{\n    font-size: 16px;\n    color:#333;\n    margin-bottom: 12px;\n}\n.nl-info p{\n    color:#666;\n    font-size: 12px;\n}\n.nl-info time{\n    position:absolute;\n    color:#999;\n    font-size: 12px;\n    right: 10px;\n    bottom:10px;\n    height:12px;\n    line-height: 12px;\n}\n", "", {"version":3,"sources":["/./src/components/news.vue?5820cfbe"],"names":[],"mappings":";AAkEA;IACA,0BAAA;IACA,aAAA;IACA,kBAAA;IACA,mBAAA;IACA,WAAA;IACA,gBAAA;IACA,iBAAA;CACA;AACA;IACA,WAAA;IACA,mBAAA;IACA,UAAA;IACA,uBAAA;CACA;AACA;IACA,YAAA;CACA;AACA;IACA,aAAA;CACA;AACA;IACA,aAAA;CACA;AACA;IACA,WAAA;IACA,eAAA;CACA;AACA,SAAA;AACA;IACA,iCAAA;IACA,gBAAA;IACA,kBAAA;CACA;AACA;IACA,cAAA;IACA,aAAA;IACA,YAAA;IACA,kBAAA;IACA,YAAA;IACA,iBAAA;IACA,wBAAA;CACA;AACA;IACA,eAAA;IACA,YAAA;IACA,WAAA;CACA;AACA;IACA,iBAAA;IACA,UAAA;CACA;AACA;IACA,gBAAA;IACA,WAAA;IACA,oBAAA;CACA;AACA;IACA,WAAA;IACA,gBAAA;CACA;AACA;IACA,kBAAA;IACA,WAAA;IACA,gBAAA;IACA,YAAA;IACA,YAAA;IACA,YAAA;IACA,kBAAA;CACA","file":"news.vue","sourcesContent":["\n<script>\n    import carousel from \"./carousel.vue\";\n\n    export default {\n\n        data () {\n            return {\n                newsSort:[\"类别1\",\"类别2\",\"类别3\",\"类别4\",],\n                newsCell:[\n                    {\n                        href:\"../assets/img/news-cell-img.jpg\",\n                        title:\"这里是标题信息这里是标题信息这里是标题信息\",\n                        info:\"这里是概要这里是概要这里是概要这里是概要这里是概要这里是概要\",\n                        time:\"2016-03-17\"\n\n                    },{\n                        href:\"../assets/img/news-cell-img.jpg\",\n                        title:\"这里是标题信息这里是标题信息这里是标题信息\",\n                        info:\"这里是概要这里是概要这里是概要这里是概要这里是概要这里是概要\",\n                        time:\"2016-03-17\"\n\n                    },{\n                        href:\"../assets/img/news-cell-img.jpg\",\n                        title:\"这里是标题信息这里是标题信息这里是标题信息\",\n                        info:\"这里是概要这里是概要这里是概要这里是概要这里是概要这里是概要\",\n                        time:\"2016-03-17\"\n\n                    },\n                ]\n            }\n        },\n        methods: {\n            alt: function() {\n                alert('this.msg is' + this.msg)\n            }\n        },\n        components:{\n            carousel\n        }\n    }\n\n</script>\n<template>\n    <div class=\"news-header\">资讯</div>\n    <div class=\"weui_navbar news-navbar\">\n        <div class=\"weui_navbar_item weui_bar_item_on\" v-for=\"sort in newsSort\">\n            {{sort}}\n        </div>\n    </div>\n    <carousel></carousel>\n    <div class=\"news-list\" >\n        <div class=\"news-list-cell\" v-for=\"cellInfo in newsCell\">\n            <a class=\"nl-img\"><img :src=\"cellInfo.href\" alt=\"\"></a>\n            <div class=\"nl-info\">\n            <h3>{{cellInfo.title}}</h3>\n            <p>{{cellInfo.info}}</p>\n            <time>{{cellInfo.time}}</time>\n            </div>\n        </div>\n    </div>\n\n</template>\n\n\n<style>\n    .news-header{\n        background-color: #09CC7B;\n        height: 42px;\n        line-height: 42px;\n        text-align: center;\n        color:#fff;\n        font-size: 18px;\n        font-weight: 700;\n    }\n    .weui_navbar.news-navbar{\n        color:#333;\n        position: relative;\n        top: auto;\n        background-color: #fff;\n    }\n    .weui_navbar.news-navbar:after{\n        border:none;\n    }\n    .weui_navbar.news-navbar .weui_navbar_item{\n        border: none;\n    }\n    .weui_navbar.news-navbar .weui_navbar_item:after{\n        border: none;\n    }\n    .news-list{\n        width: 95%;\n        margin: 0 auto;\n    }\n    /* 每一项 */\n    .news-list-cell{\n        border-bottom: 1px solid #E2E2E2;\n        overflow:hidden;\n        position:relative;\n    }\n    .nl-img{\n        display:block;\n        height:110px;\n        width:110px;\n        border-radius:4px;\n        float: left;\n        overflow: hidden;\n        margin:10px 10px 10px 0;\n    }\n    .nl-img img{\n        display: block;\n        height:100%;\n        width:100%;\n    }\n    .nl-info{\n        margin-top: 10px;\n        width:90%;\n    }\n    .nl-info h3{\n        font-size: 16px;\n        color:#333;\n        margin-bottom: 12px;\n    }\n    .nl-info p{\n        color:#666;\n        font-size: 12px;\n    }\n    .nl-info time{\n        position:absolute;\n        color:#999;\n        font-size: 12px;\n        right: 10px;\n        bottom:10px;\n        height:12px;\n        line-height: 12px;\n    }\n</style>\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 63 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _carousel = __webpack_require__(55);
+	
+	var _carousel2 = _interopRequireDefault(_carousel);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	    data: function data() {
+	        return {
+	            newsSort: ["类别1", "类别2", "类别3", "类别4"],
+	            newsCell: [{
+	                href: "../assets/img/news-cell-img.jpg",
+	                title: "这里是标题信息这里是标题信息这里是标题信息",
+	                info: "这里是概要这里是概要这里是概要这里是概要这里是概要这里是概要",
+	                time: "2016-03-17"
+	
+	            }, {
+	                href: "../assets/img/news-cell-img.jpg",
+	                title: "这里是标题信息这里是标题信息这里是标题信息",
+	                info: "这里是概要这里是概要这里是概要这里是概要这里是概要这里是概要",
+	                time: "2016-03-17"
+	
+	            }, {
+	                href: "../assets/img/news-cell-img.jpg",
+	                title: "这里是标题信息这里是标题信息这里是标题信息",
+	                info: "这里是概要这里是概要这里是概要这里是概要这里是概要这里是概要",
+	                time: "2016-03-17"
+	
+	            }]
+	        };
+	    },
+	
+	    methods: {
+	        alt: function alt() {
+	            alert('this.msg is' + this.msg);
+	        }
+	    },
+	    components: {
+	        carousel: _carousel2.default
+	    }
+	};
+
+	// </script>
+	// <template>
+	//     <div class="news-header">资讯</div>
+	//     <div class="weui_navbar news-navbar">
+	//         <div class="weui_navbar_item weui_bar_item_on" v-for="sort in newsSort">
+	//             {{sort}}
+	//         </div>
+	//     </div>
+	//     <carousel></carousel>
+	//     <div class="news-list" >
+	//         <div class="news-list-cell" v-for="cellInfo in newsCell">
+	//             <a class="nl-img"><img :src="cellInfo.href" alt=""></a>
+	//             <div class="nl-info">
+	//             <h3>{{cellInfo.title}}</h3>
+	//             <p>{{cellInfo.info}}</p>
+	//             <time>{{cellInfo.time}}</time>
+	//             </div>
+	//         </div>
+	//     </div>
+	//
+	// </template>
+	//
+	//
+	// <style>
+	//     .news-header{
+	//         background-color: #09CC7B;
+	//         height: 42px;
+	//         line-height: 42px;
+	//         text-align: center;
+	//         color:#fff;
+	//         font-size: 18px;
+	//         font-weight: 700;
+	//     }
+	//     .weui_navbar.news-navbar{
+	//         color:#333;
+	//         position: relative;
+	//         top: auto;
+	//         background-color: #fff;
+	//     }
+	//     .weui_navbar.news-navbar:after{
+	//         border:none;
+	//     }
+	//     .weui_navbar.news-navbar .weui_navbar_item{
+	//         border: none;
+	//     }
+	//     .weui_navbar.news-navbar .weui_navbar_item:after{
+	//         border: none;
+	//     }
+	//     .news-list{
+	//         width: 95%;
+	//         margin: 0 auto;
+	//     }
+	//     /* 每一项 */
+	//     .news-list-cell{
+	//         border-bottom: 1px solid #E2E2E2;
+	//         overflow:hidden;
+	//         position:relative;
+	//     }
+	//     .nl-img{
+	//         display:block;
+	//         height:110px;
+	//         width:110px;
+	//         border-radius:4px;
+	//         float: left;
+	//         overflow: hidden;
+	//         margin:10px 10px 10px 0;
+	//     }
+	//     .nl-img img{
+	//         display: block;
+	//         height:100%;
+	//         width:100%;
+	//     }
+	//     .nl-info{
+	//         margin-top: 10px;
+	//         width:90%;
+	//     }
+	//     .nl-info h3{
+	//         font-size: 16px;
+	//         color:#333;
+	//         margin-bottom: 12px;
+	//     }
+	//     .nl-info p{
+	//         color:#666;
+	//         font-size: 12px;
+	//     }
+	//     .nl-info time{
+	//         position:absolute;
+	//         color:#999;
+	//         font-size: 12px;
+	//         right: 10px;
+	//         bottom:10px;
+	//         height:12px;
+	//         line-height: 12px;
+	//     }
+	// </style>
+
+	/* generated by vue-loader */
+	//
+	// <script>
+
+/***/ },
+/* 64 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class=\"news-header\">资讯</div>\n<div class=\"weui_navbar news-navbar\">\n    <div class=\"weui_navbar_item weui_bar_item_on\" v-for=\"sort in newsSort\">\n        {{sort}}\n    </div>\n</div>\n<carousel></carousel>\n<div class=\"news-list\" >\n    <div class=\"news-list-cell\" v-for=\"cellInfo in newsCell\">\n        <a class=\"nl-img\"><img :src=\"cellInfo.href\" alt=\"\"></a>\n        <div class=\"nl-info\">\n        <h3>{{cellInfo.title}}</h3>\n        <p>{{cellInfo.info}}</p>\n        <time>{{cellInfo.time}}</time>\n        </div>\n    </div>\n</div>\n\n";
+
+/***/ },
+/* 65 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(66)
+	__vue_script__ = __webpack_require__(68)
+	if (__vue_script__ &&
+	    __vue_script__.__esModule &&
+	    Object.keys(__vue_script__).length > 1) {
+	  console.warn("[vue-loader] src/components/newsDatail.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(71)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) {
+	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
+	}
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "/Users/simgyun/Desktop/Vue/src/components/newsDatail.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 66 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(67);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(9)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./newsDatail.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./newsDatail.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 67 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(8)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\n*{\n    box-sizing: border-box;\n}\n.det-container{\n    background-color:#eee;\n    position: absolute;\n    left: 0;\n    right: 0;\n    top:0;\n    bottom: 0;\n    z-index: -1;\n\n}\n.det-header{\n    background-color: #fff;\n    height: 42px;\n    line-height: 42px;\n    font-weight: 700;\n    overflow:hidden;\n}\n.det-icon{\n    display: block;\n    height: 22px;\n    line-height: 22px;\n    margin:10px 0;\n}\n.det-head-left{\n    float: left;\n}\n.det-head-left,.det-head-right{\n    width:30px;\n}\n.det-head-right{\n    float: right;\n}\n.det-main{\n    padding: 20px;\n}\n.det-title{\n    margin-bottom: 40px;\n}\n.det-article{\n    text-indent:2em;\n}\n.det-foot{\n    position: absolute;\n    bottom: 85px;\n    left: 0;\n    right: 0;\n    background-color:#fff;\n}\n.det-input{\n    float: left;\n    width: 70%;\n\n}\n.det-input input{\n    display: block;\n    width: 90%;\n    padding-left: 5%;\n    margin: 10px auto;\n    height: 30px;\n    line-height: 30px;\n    border: 1px solid #666;\n    border-radius: 5px;\n    outline: none;\n}\n.det-discuss{\n    float: left;\n    width: 30%;\n}\n.det-discuss div{\n    width: 50%;\n    float: left;\n    text-align: center;\n}\n.det-discuss span {\n    display: block;\n    height: 25px;\n    line-height: 25px;\n}\n.det-discuss span.det-icon {\n    margin: 0;\n}\n", "", {"version":3,"sources":["/./src/components/newsDatail.vue?7e2aa0fa"],"names":[],"mappings":";AAwEA;IAGA,uBAAA;CACA;AACA;IACA,sBAAA;IACA,mBAAA;IACA,QAAA;IACA,SAAA;IACA,MAAA;IACA,UAAA;IACA,YAAA;;CAEA;AACA;IACA,uBAAA;IACA,aAAA;IACA,kBAAA;IACA,iBAAA;IACA,gBAAA;CACA;AACA;IACA,eAAA;IACA,aAAA;IACA,kBAAA;IACA,cAAA;CACA;AACA;IACA,YAAA;CACA;AACA;IACA,WAAA;CACA;AACA;IACA,aAAA;CACA;AACA;IACA,cAAA;CACA;AACA;IACA,oBAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;IACA,mBAAA;IACA,aAAA;IACA,QAAA;IACA,SAAA;IACA,sBAAA;CACA;AACA;IACA,YAAA;IACA,WAAA;;CAEA;AACA;IACA,eAAA;IACA,WAAA;IACA,iBAAA;IACA,kBAAA;IACA,aAAA;IACA,kBAAA;IACA,uBAAA;IACA,mBAAA;IACA,cAAA;CACA;AACA;IACA,YAAA;IACA,WAAA;CACA;AACA;IACA,WAAA;IACA,YAAA;IACA,mBAAA;CACA;AACA;IACA,eAAA;IACA,aAAA;IACA,kBAAA;CACA;AACA;IACA,UAAA;CACA","file":"newsDatail.vue","sourcesContent":["<template>\n    <div class=\"det-container\">\n        <div class=\"det-header\">\n            <span class=\"det-icon det-head-left\">回</span>\n            <span class=\"det-icon det-head-right\">享</span>\n        </div>\n        <div class=\"det-main\">\n\n            <h2 class=\"det-title\">\n                这里是标题这里是标题这里是标题fg\n            </h2>\n            <article class=\"det-article\">\n                <p>\n                    啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将afg阿什来得及阿散井的理解啊速度dsf啊数量单价阿斯顿\n                </p>\n                <p>\n                    啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿\n                </p>\n\n                <p>\n                    啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿\n                </p>\n            </article>\n\n        </div>\n        <div class=\"det-foot\">\n            <div class=\"det-input\">\n                <input type=\"text\" placeholder=\"写评论...\" v-model=\"newTodo\" v-on:keyup.enter=\"addTodo\">\n            </div>\n            <div class=\"det-discuss\">\n                <div>\n                    <span>{{ todos.length }}</span>\n                    <span class=\"det-icon\">评</span>\n                </div>\n                <div>\n                    <span>0</span>\n                    <span class=\"det-icon\">赞</span>\n                </div>\n            </div>\n        </div>\n    </div>\n</template>\n\n\n<script>\n    export default {\n\n        data () {\n            return {\n                newTodo:\"\",\n                todos:[{text:\"还没有一条评论呢!快来添加吧！\"}],\n\n            }\n        },\n        methods : {\n            addTodo () {\n                let text = this.newTodo.trim();\n                if(text){\n                    this.todos.push({text:text});\n                    this.newTodo=\"\";\n                    sessionStorage.setItem(\"loaclTodo\", this.todos);\n                    var aaa = sessionStorage.getItem(\"loaclTodo\");\n                    console.log(JSON.stringify(aaa));\n                }\n            },\n            removeTodo (index) {\n                this.todos.splice(index,1);\n            }\n        }\n    }\n</script>\n<style>\n    *{\n        -webkit-box-sizing: border-box;\n        -moz-box-sizing: border-box;\n        box-sizing: border-box;\n    }\n    .det-container{\n        background-color:#eee;\n        position: absolute;\n        left: 0;\n        right: 0;\n        top:0;\n        bottom: 0;\n        z-index: -1;\n\n    }\n    .det-header{\n        background-color: #fff;\n        height: 42px;\n        line-height: 42px;\n        font-weight: 700;\n        overflow:hidden;\n    }\n    .det-icon{\n        display: block;\n        height: 22px;\n        line-height: 22px;\n        margin:10px 0;\n    }\n    .det-head-left{\n        float: left;\n    }\n    .det-head-left,.det-head-right{\n        width:30px;\n    }\n    .det-head-right{\n        float: right;\n    }\n    .det-main{\n        padding: 20px;\n    }\n    .det-title{\n        margin-bottom: 40px;\n    }\n    .det-article{\n        text-indent:2em;\n    }\n    .det-foot{\n        position: absolute;\n        bottom: 85px;\n        left: 0;\n        right: 0;\n        background-color:#fff;\n    }\n    .det-input{\n        float: left;\n        width: 70%;\n\n    }\n    .det-input input{\n        display: block;\n        width: 90%;\n        padding-left: 5%;\n        margin: 10px auto;\n        height: 30px;\n        line-height: 30px;\n        border: 1px solid #666;\n        border-radius: 5px;\n        outline: none;\n    }\n    .det-discuss{\n        float: left;\n        width: 30%;\n    }\n    .det-discuss div{\n        width: 50%;\n        float: left;\n        text-align: center;\n    }\n    .det-discuss span {\n        display: block;\n        height: 25px;\n        line-height: 25px;\n    }\n    .det-discuss span.det-icon {\n        margin: 0;\n    }\n</style>\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 68 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _stringify = __webpack_require__(69);
+	
+	var _stringify2 = _interopRequireDefault(_stringify);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// <template>
+	//     <div class="det-container">
+	//         <div class="det-header">
+	//             <span class="det-icon det-head-left">回</span>
+	//             <span class="det-icon det-head-right">享</span>
+	//         </div>
+	//         <div class="det-main">
+	//
+	//             <h2 class="det-title">
+	//                 这里是标题这里是标题这里是标题fg
+	//             </h2>
+	//             <article class="det-article">
+	//                 <p>
+	//                     啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将afg阿什来得及阿散井的理解啊速度dsf啊数量单价阿斯顿
+	//                 </p>
+	//                 <p>
+	//                     啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿
+	//                 </p>
+	//
+	//                 <p>
+	//                     啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿
+	//                 </p>
+	//             </article>
+	//
+	//         </div>
+	//         <div class="det-foot">
+	//             <div class="det-input">
+	//                 <input type="text" placeholder="写评论..." v-model="newTodo" v-on:keyup.enter="addTodo">
+	//             </div>
+	//             <div class="det-discuss">
+	//                 <div>
+	//                     <span>{{ todos.length }}</span>
+	//                     <span class="det-icon">评</span>
+	//                 </div>
+	//                 <div>
+	//                     <span>0</span>
+	//                     <span class="det-icon">赞</span>
+	//                 </div>
+	//             </div>
+	//         </div>
+	//     </div>
+	// </template>
+	//
+	//
+	// <script>
+	exports.default = {
+	    data: function data() {
+	        return {
+	            newTodo: "",
+	            todos: [{ text: "还没有一条评论呢!快来添加吧！" }]
+	
+	        };
+	    },
+	
+	    methods: {
+	        addTodo: function addTodo() {
+	            var text = this.newTodo.trim();
+	            if (text) {
+	                this.todos.push({ text: text });
+	                this.newTodo = "";
+	                sessionStorage.setItem("loaclTodo", this.todos);
+	                var aaa = sessionStorage.getItem("loaclTodo");
+	                console.log((0, _stringify2.default)(aaa));
+	            }
+	        },
+	        removeTodo: function removeTodo(index) {
+	            this.todos.splice(index, 1);
+	        }
+	    }
+	};
+	// </script>
+	// <style>
+	//     *{
+	//         -webkit-box-sizing: border-box;
+	//         -moz-box-sizing: border-box;
+	//         box-sizing: border-box;
+	//     }
+	//     .det-container{
+	//         background-color:#eee;
+	//         position: absolute;
+	//         left: 0;
+	//         right: 0;
+	//         top:0;
+	//         bottom: 0;
+	//         z-index: -1;
+	//
+	//     }
+	//     .det-header{
+	//         background-color: #fff;
+	//         height: 42px;
+	//         line-height: 42px;
+	//         font-weight: 700;
+	//         overflow:hidden;
+	//     }
+	//     .det-icon{
+	//         display: block;
+	//         height: 22px;
+	//         line-height: 22px;
+	//         margin:10px 0;
+	//     }
+	//     .det-head-left{
+	//         float: left;
+	//     }
+	//     .det-head-left,.det-head-right{
+	//         width:30px;
+	//     }
+	//     .det-head-right{
+	//         float: right;
+	//     }
+	//     .det-main{
+	//         padding: 20px;
+	//     }
+	//     .det-title{
+	//         margin-bottom: 40px;
+	//     }
+	//     .det-article{
+	//         text-indent:2em;
+	//     }
+	//     .det-foot{
+	//         position: absolute;
+	//         bottom: 85px;
+	//         left: 0;
+	//         right: 0;
+	//         background-color:#fff;
+	//     }
+	//     .det-input{
+	//         float: left;
+	//         width: 70%;
+	//
+	//     }
+	//     .det-input input{
+	//         display: block;
+	//         width: 90%;
+	//         padding-left: 5%;
+	//         margin: 10px auto;
+	//         height: 30px;
+	//         line-height: 30px;
+	//         border: 1px solid #666;
+	//         border-radius: 5px;
+	//         outline: none;
+	//     }
+	//     .det-discuss{
+	//         float: left;
+	//         width: 30%;
+	//     }
+	//     .det-discuss div{
+	//         width: 50%;
+	//         float: left;
+	//         text-align: center;
+	//     }
+	//     .det-discuss span {
+	//         display: block;
+	//         height: 25px;
+	//         line-height: 25px;
+	//     }
+	//     .det-discuss span.det-icon {
+	//         margin: 0;
+	//     }
+	// </style>
+
+	/* generated by vue-loader */
+
+/***/ },
+/* 69 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(70), __esModule: true };
+
+/***/ },
+/* 70 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var core = __webpack_require__(27);
+	module.exports = function stringify(it){ // eslint-disable-line no-unused-vars
+	  return (core.JSON && core.JSON.stringify || JSON.stringify).apply(JSON, arguments);
+	};
+
+/***/ },
+/* 71 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class=\"det-container\">\n    <div class=\"det-header\">\n        <span class=\"det-icon det-head-left\">回</span>\n        <span class=\"det-icon det-head-right\">享</span>\n    </div>\n    <div class=\"det-main\">\n\n        <h2 class=\"det-title\">\n            这里是标题这里是标题这里是标题fg\n        </h2>\n        <article class=\"det-article\">\n            <p>\n                啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将afg阿什来得及阿散井的理解啊速度dsf啊数量单价阿斯顿\n            </p>\n            <p>\n                啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿\n            </p>\n\n            <p>\n                啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿\n            </p>\n        </article>\n\n    </div>\n    <div class=\"det-foot\">\n        <div class=\"det-input\">\n            <input type=\"text\" placeholder=\"写评论...\" v-model=\"newTodo\" v-on:keyup.enter=\"addTodo\">\n        </div>\n        <div class=\"det-discuss\">\n            <div>\n                <span>{{ todos.length }}</span>\n                <span class=\"det-icon\">评</span>\n            </div>\n            <div>\n                <span>0</span>\n                <span class=\"det-icon\">赞</span>\n            </div>\n        </div>\n    </div>\n</div>\n";
 
 /***/ }
 /******/ ]);
