@@ -22,9 +22,6 @@
     </div>
     <div class=" show-icon" :style="{width: showWidth+'px'}" >
         <div style="margin:0 auto;" id="spanCnt">
-           <!--  <span class="active"></span>
-            <span class="positive"></span>
-            <span class="positive"></span> -->
             <div class="clear-both"></div>
         </div>
     </div>       

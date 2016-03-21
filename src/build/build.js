@@ -12607,7 +12607,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n#shouye {\n    background-color: #E0E0E0;\n    padding-bottom: 60px;\n}\n#shouye .weui_navbar_item {\n    padding: 5px 0;\n}\n.nav-icon{\n    width: 20px;\n    height: 20px;\n}\n.main-navbar span{\n    font-size: 10px;\n}\n.search-bar{\n    background-color: rgb(9,204,123);\n}\n.search-bar div , .search-input div{\n    display: inline-block;\n}\n.search-list{\n    margin: 10px 30px 10px 20px;\n}\n\n.search-input img {\n    width: 15px;\n    height: 15px;\n    padding:5px 5px 0 5px;\n}\n.search-input {\n    background-color: rgb(4,188,111);\n    width: 250px;\n}\n::-webkit-input-placeholder {\n    color:#F1EDED;\n}\n.show span{\n    display: block;\n    border-radius: 50%;   \n    width: 15px;\n    height: 15px;\n    float: left;\n    margin:4px;\n    z-index: 2;\n}\n.show img{\n    width: 100%;\n    height: 200px;\n}\n.show-icon {\n    /*margin-top: -30px;*/\n    position: relative;\n    width: 75px;\n    margin: -30px auto 0 auto;\n}\n.active{\n    background-color: #F7F7F7;\n}\n.positive{\n    background-color: rgba(255,255,255,.5);\n}\n.cate-grid.weui_grid_icon{\n    width: 60px;\n    height: 60px;\n}\n.cate-grid img {\n    border-radius: 50%;\n}\n.no-pd-btm.weui_grid{\n    padding-bottom: 0;\n}\n.no-pd-btm p {\n    color:#6D6B6B;\n}\n.m-t-sm {\n    margin-top: 9px;\n}\n.m-r-xm {\n    margin-right: 5px;\n}\n.pd-r-sm {\n    padding-right: 10px;\n}\n.pd-r-ssm {\n    padding-right: 5px;\n}\n.pd-l-sm {\n    padding-left: 5px;\n}\n.bgc-white {\n    background-color: white;\n}\n.sale-p{\n    margin:5px;\n}\n.cnt-area{\n    line-height: 30px;\n}\n.cnt-area span {\n    font-size: 18px;\n}\n.cnt {\n    display: inline-block;\n    width: 30px;\n    height: 30px;\n    background-color: red;\n    color:white;\n}\n.sale-img img {\n    width: 100%;\n    height: auto;\n}\n.sale-info {\n    background-color: #F7F6F6;\n    margin: 10px 5px 10px 10px;\n    width: 45%;\n    display: inline-block;\n}\n.sale-font {\n    font-size: 16px;\n}\n.dis-blk {\n    display: block;\n}\n.font-red {\n    color:red;\n}\n.font-l {\n    font-size: 18px;\n}\n.w-full {\n  width:100%;\n}\n.danger-text {\n  color:red;\n}\n", "", {"version":3,"sources":["/./src/components/home.vue?33c1ef78"],"names":[],"mappings":";AA0QA;IACA,0BAAA;IACA,qBAAA;CACA;AACA;IACA,eAAA;CACA;AACA;IACA,YAAA;IACA,aAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;IACA,iCAAA;CACA;AACA;IACA,sBAAA;CACA;AACA;IACA,4BAAA;CACA;;AAEA;IACA,YAAA;IACA,aAAA;IACA,sBAAA;CACA;AACA;IACA,iCAAA;IACA,aAAA;CACA;AACA;IACA,cAAA;CACA;AACA;IACA,eAAA;IACA,mBAAA;IACA,YAAA;IACA,aAAA;IACA,YAAA;IACA,WAAA;IACA,WAAA;CACA;AACA;IACA,YAAA;IACA,cAAA;CACA;AACA;IACA,sBAAA;IACA,mBAAA;IACA,YAAA;IACA,0BAAA;CACA;AACA;IACA,0BAAA;CACA;AACA;IACA,uCAAA;CACA;AACA;IACA,YAAA;IACA,aAAA;CACA;AACA;IACA,mBAAA;CACA;AACA;IACA,kBAAA;CACA;AACA;IACA,cAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;IACA,kBAAA;CACA;AACA;IACA,oBAAA;CACA;AACA;IACA,mBAAA;CACA;AACA;IACA,kBAAA;CACA;AACA;IACA,wBAAA;CACA;AACA;IACA,WAAA;CACA;AACA;IACA,kBAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;IACA,sBAAA;IACA,YAAA;IACA,aAAA;IACA,sBAAA;IACA,YAAA;CACA;AACA;IACA,YAAA;IACA,aAAA;CACA;AACA;IACA,0BAAA;IACA,2BAAA;IACA,WAAA;IACA,sBAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;IACA,eAAA;CACA;AACA;IACA,UAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;EACA,WAAA;CACA;AACA;EACA,UAAA;CACA","file":"home.vue","sourcesContent":["<template >\n<div id=\"shouye\">\n<!--顶部搜索-->\n<div class=\"search-bar\">\n    <div class=\"search-list\">\n      <img src=\"../assets/img/List.png\" class=\"nav-icon\">\n    </div>\n    <div class=\"search-input\">\n        <div class=\"search-img\">\n            <img src=\"../assets/img/search01.png\">\n        </div>\n        <div>\n            <input class=\"weui_input\" type=\"search\" placeholder=\"请输入商品\"/>\n        </div>\n        <div class=\"clear-both\"></div>\n    </div>\n</div>\n<!--图片轮播-->\n<div class=\"show\">\n    <div>\n        <img :src=\"slideUrl\">\n    </div>\n    <div class=\" show-icon\" :style=\"{width: showWidth+'px'}\" >\n        <div style=\"margin:0 auto;\" id=\"spanCnt\">\n           <!--  <span class=\"active\"></span>\n            <span class=\"positive\"></span>\n            <span class=\"positive\"></span> -->\n            <div class=\"clear-both\"></div>\n        </div>\n    </div>       \n</div>\n<!--小分类-->\n<div class=\"weui_grids m-t-sm bgc-white w-full\">\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"../assets/img/show02.jpg\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            汤料组合\n        </p>\n    </a>\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"../assets/img/show01.jpeg\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            家庭常用\n        </p>\n    </a>\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"../assets/img/show03.jpeg\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            办公常用\n        </p>\n    </a>\n</div>\n<!--特约专场-->\n<div class=\"weui_cells sale\" >\n    <div class=\"weui_cell\">\n        <div class=\"weui_cell_bd weui_cell_primary\">\n            <p class=\"sale-p\">特价专场</p>\n        </div>\n        <div class=\"weui_cell_ft\">\n            <div class=\"cnt-area\" v-show=\"showCntDown\">\n                <span class=\"pd-r-sm\">距离结束还有</span>\n                <span class=\"cnt text-center m-r-xm\">{{currentHours}}</span>:\n                <span class=\"cnt text-center m-r-xm\">{{currentMinutes}}</span>:\n                <span class=\"cnt text-center m-r-xm\">{{currentSeconds}}</span>\n            </div>\n            <div class=\"cnt-area danger-text\" v-else>已结束</div>\n        </div>\n    </div>\n</div>\n<!--特约专场缩略图-->\n<div class=\"sale-info\" v-for=\"sale in saleTab\" @click=\"goToDetails()\">\n    <div class=\"sale-img\">\n        <img :src=\"sale.url\">\n    </div>\n    <div class=\"sale-font pd-l-sm pd-r-ssm\">\n        <span class=\"sale-font-m pd-r-sm\">{{sale.name}}</span>\n        <span class=\"sale-font-m \">{{sale.des}}</span>\n        <span class=\"dis-blk font-red font-l\">¥{{sale.price}}</span> \n        <a href=\"#\" v-link=\"{path:'http://localhost:3000/#!/details'}\">测试</a>\n   </div>      \n</div>\n\n<!--热销推荐-->\n<div class=\"weui_cells sale\" >\n    <div class=\"weui_cell\">\n        <div class=\"weui_cell_bd weui_cell_primary\">\n            <p class=\"sale-p\">特约推荐</p>\n        </div>\n    </div>\n</div>\n<div class=\"sale-info\" v-for=\"sale in saleTab\">\n    <div class=\"sale-img\">\n        <img :src=\"sale.url\">\n    </div>\n    <div class=\"sale-font pd-l-sm pd-r-ssm\">\n        <span class=\"sale-font-m pd-r-sm\">{{sale.name}}</span>\n        <span class=\"sale-font-m \">{{sale.des}}</span>\n        <span class=\"dis-blk font-red font-l\">¥{{sale.price}}</span> \n   </div>      \n</div>\n\n</div>\n</template>\n\n<script>\n  export default {\n\n  data () {\n  \treturn {\n  \t\tshowImg:[\n            {\n              name:'高级汤料',\n              des:'你还不来买我吗！',\n              url:'../assets/img/health02.jpg'\n            },\n            {\n              name:'家用汤料',\n              des:　'你在我心中是最美',\n              url:'../assets/img/health01.jpg',\n            },\n            {\n              name:'养生花茶',\n              des:'拒绝春日绵绵好睡眠花茶250g',\n              url:'../assets/img/health03.png'\n            }\n      ],\n      saleTab:[\n            {\n              name:'宁夏枸杞',\n              des:'宁安堡中宁枸杞250g',\n              price:22.50,\n              url:'../assets/img/gouqi.png'\n            },\n            {\n              name:'忆江南',\n              des:'一级碧螺春礼盒250g',\n              price:29.6,\n              url: '../assets/img/tea.png'\n            }\n      ],\n        slideUrl:'',\n        currentIndex:0,\n        count:0,\n        circles:[],\n        currentHours:null,\n        currentMinutes:null,\n        currentSeconds:null,\n        cnt:0,\n        leftTime:null,\n        showCntDown:true\n  \t}\n  },\n  ready () {\n\n    this.slideUrl=this.showImg[this.currentIndex].url\n    let imgCnt=this.showImg.length\n    this.count=imgCnt\n    let fragmentHtml=\" \"\n    let parentNode=document.getElementById('spanCnt')\n\n    //动态添加幻灯片的小圆圈\n    for(let i=0;i<imgCnt;i++){\n      fragmentHtml+='<span>'+ '</span>'\n    }\n    parentNode.innerHTML=fragmentHtml\n    //设置小圆圈的状态\n    let spanNodes=parentNode.getElementsByTagName(\"span\")\n        this.circles=spanNodes\n        spanNodes[0].className='active'\n\n    for(let i=1;i<imgCnt;i++){\n       spanNodes[i].className='positive'\n    }\n    this.waitForNext()\n\n    //特卖场倒计时\n    let date = new Date()\n    let y=date.getFullYear()\n    let month=date.getMonth()\n    let day=date.getDate()\n    let h=date.getHours()\n    let endH=17\n\n      let nowTimeStamp=(date.getTime())/1000\n      let endDate = new Date(y,month,day,endH,0,0)\n      let endTimeStamp = (endDate.getTime())/1000\n      this.leftTime = endTimeStamp - nowTimeStamp\n      if(this.leftTime > 0){\n        this.showCountDown()\n      }else{\n        this.showCntDown=false\n      }\n    this.$watch('currentSeconds',function(){\n      if(this.leftTime <= 0) {\n        this.showCntDown=false\n      }\n    })\n  },\n  methods: {\n      waitForNext() {\n        setInterval(this.next,1000 * 3) \n      },\n      next() {\n        this.currentIndex+=1\n        if(this.currentIndex >= this.count){\n          this.currentIndex=0\n        }\n        this.handleImg(this.currentIndex)\n      },\n      handleImg(index) {\n        this.slideUrl=this.showImg[index].url\n        this.circles[index].className='active'\n        for(let i=0;i<this.count;i++){\n          if(i!==index){\n            this.circles[i].className='positive'\n          }\n        }\n      },\n      showCountDown() {\n          setInterval(this.countDown,1000)\n      },\n      countDown() {\n         let leftSeconds = this.leftTime\n         let leftMinutes = leftSeconds/60\n         let leftHour = Math.floor(leftSeconds/3600)\n         let minutes = Math.floor(leftMinutes - leftHour*60)\n         let seconds = Math.floor(leftSeconds - leftHour*3600 - minutes*60)\n         this.leftTime-=1\n         if(parseInt(leftHour)<10) {\n          leftHour='0'+leftHour\n          // parseInt(leftHour)\n         }\n         if(parseInt(minutes)<10){\n          minutes='0'+minutes\n          // parseInt(minutes)\n         }\n         if(parseInt(seconds)<10){\n          seconds='0'+seconds\n          // parseInt(seconds)\n         }\n         this.currentHours=leftHour\n         this.currentMinutes=minutes\n         this.currentSeconds=seconds\n    },\n    goToDetails(name,des,price) {\n\n        this.$route.router.go({name:'details'})\n    },\n},\n  computed: {\n    showWidth () {\n      return this.showImg.length*25\n    }\n  }\n}\n\n\n</script>\n\n<style>\n#shouye {\n    background-color: #E0E0E0;\n    padding-bottom: 60px;\n}\n#shouye .weui_navbar_item {\n    padding: 5px 0;\n}\n.nav-icon{\n    width: 20px;\n    height: 20px;\n}\n.main-navbar span{\n    font-size: 10px;\n}\n.search-bar{\n    background-color: rgb(9,204,123);\n}\n.search-bar div , .search-input div{\n    display: inline-block;\n}\n.search-list{\n    margin: 10px 30px 10px 20px;\n}\n\n.search-input img {\n    width: 15px;\n    height: 15px;\n    padding:5px 5px 0 5px;\n}\n.search-input {\n    background-color: rgb(4,188,111);\n    width: 250px;\n}\n::-webkit-input-placeholder {\n    color:#F1EDED;\n}\n.show span{\n    display: block;\n    border-radius: 50%;   \n    width: 15px;\n    height: 15px;\n    float: left;\n    margin:4px;\n    z-index: 2;\n}\n.show img{\n    width: 100%;\n    height: 200px;\n}\n.show-icon {\n    /*margin-top: -30px;*/\n    position: relative;\n    width: 75px;\n    margin: -30px auto 0 auto;\n}\n.active{\n    background-color: #F7F7F7;\n}\n.positive{\n    background-color: rgba(255,255,255,.5);\n}\n.cate-grid.weui_grid_icon{\n    width: 60px;\n    height: 60px;\n}\n.cate-grid img {\n    border-radius: 50%;\n}\n.no-pd-btm.weui_grid{\n    padding-bottom: 0;\n}\n.no-pd-btm p {\n    color:#6D6B6B;\n}\n.m-t-sm {\n    margin-top: 9px;\n}\n.m-r-xm {\n    margin-right: 5px;\n}\n.pd-r-sm {\n    padding-right: 10px;\n}\n.pd-r-ssm {\n    padding-right: 5px;\n}\n.pd-l-sm {\n    padding-left: 5px;\n}\n.bgc-white {\n    background-color: white;\n}\n.sale-p{\n    margin:5px;\n}\n.cnt-area{\n    line-height: 30px;\n}\n.cnt-area span {\n    font-size: 18px;\n}\n.cnt {\n    display: inline-block;\n    width: 30px;\n    height: 30px;\n    background-color: red;\n    color:white;\n}\n.sale-img img {\n    width: 100%;\n    height: auto;\n}\n.sale-info {\n    background-color: #F7F6F6;\n    margin: 10px 5px 10px 10px;\n    width: 45%;\n    display: inline-block;\n}\n.sale-font {\n    font-size: 16px;\n}\n.dis-blk {\n    display: block;\n}\n.font-red {\n    color:red;\n}\n.font-l {\n    font-size: 18px;\n}\n.w-full {\n  width:100%;\n}\n.danger-text {\n  color:red;\n}\n</style>"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n#shouye {\n    background-color: #E0E0E0;\n    padding-bottom: 60px;\n}\n#shouye .weui_navbar_item {\n    padding: 5px 0;\n}\n.nav-icon{\n    width: 20px;\n    height: 20px;\n}\n.main-navbar span{\n    font-size: 10px;\n}\n.search-bar{\n    background-color: rgb(9,204,123);\n}\n.search-bar div , .search-input div{\n    display: inline-block;\n}\n.search-list{\n    margin: 10px 30px 10px 20px;\n}\n\n.search-input img {\n    width: 15px;\n    height: 15px;\n    padding:5px 5px 0 5px;\n}\n.search-input {\n    background-color: rgb(4,188,111);\n    width: 250px;\n}\n::-webkit-input-placeholder {\n    color:#F1EDED;\n}\n.show span{\n    display: block;\n    border-radius: 50%;   \n    width: 15px;\n    height: 15px;\n    float: left;\n    margin:4px;\n    z-index: 2;\n}\n.show img{\n    width: 100%;\n    height: 200px;\n}\n.show-icon {\n    /*margin-top: -30px;*/\n    position: relative;\n    width: 75px;\n    margin: -30px auto 0 auto;\n}\n.active{\n    background-color: #F7F7F7;\n}\n.positive{\n    background-color: rgba(255,255,255,.5);\n}\n.cate-grid.weui_grid_icon{\n    width: 60px;\n    height: 60px;\n}\n.cate-grid img {\n    border-radius: 50%;\n}\n.no-pd-btm.weui_grid{\n    padding-bottom: 0;\n}\n.no-pd-btm p {\n    color:#6D6B6B;\n}\n.m-t-sm {\n    margin-top: 9px;\n}\n.m-r-xm {\n    margin-right: 5px;\n}\n.pd-r-sm {\n    padding-right: 10px;\n}\n.pd-r-ssm {\n    padding-right: 5px;\n}\n.pd-l-sm {\n    padding-left: 5px;\n}\n.bgc-white {\n    background-color: white;\n}\n.sale-p{\n    margin:5px;\n}\n.cnt-area{\n    line-height: 30px;\n}\n.cnt-area span {\n    font-size: 18px;\n}\n.cnt {\n    display: inline-block;\n    width: 30px;\n    height: 30px;\n    background-color: red;\n    color:white;\n}\n.sale-img img {\n    width: 100%;\n    height: auto;\n}\n.sale-info {\n    background-color: #F7F6F6;\n    margin: 10px 5px 10px 10px;\n    width: 45%;\n    display: inline-block;\n}\n.sale-font {\n    font-size: 16px;\n}\n.dis-blk {\n    display: block;\n}\n.font-red {\n    color:red;\n}\n.font-l {\n    font-size: 18px;\n}\n.w-full {\n  width:100%;\n}\n.danger-text {\n  color:red;\n}\n", "", {"version":3,"sources":["/./src/components/home.vue?2cd0ac66"],"names":[],"mappings":";AAuQA;IACA,0BAAA;IACA,qBAAA;CACA;AACA;IACA,eAAA;CACA;AACA;IACA,YAAA;IACA,aAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;IACA,iCAAA;CACA;AACA;IACA,sBAAA;CACA;AACA;IACA,4BAAA;CACA;;AAEA;IACA,YAAA;IACA,aAAA;IACA,sBAAA;CACA;AACA;IACA,iCAAA;IACA,aAAA;CACA;AACA;IACA,cAAA;CACA;AACA;IACA,eAAA;IACA,mBAAA;IACA,YAAA;IACA,aAAA;IACA,YAAA;IACA,WAAA;IACA,WAAA;CACA;AACA;IACA,YAAA;IACA,cAAA;CACA;AACA;IACA,sBAAA;IACA,mBAAA;IACA,YAAA;IACA,0BAAA;CACA;AACA;IACA,0BAAA;CACA;AACA;IACA,uCAAA;CACA;AACA;IACA,YAAA;IACA,aAAA;CACA;AACA;IACA,mBAAA;CACA;AACA;IACA,kBAAA;CACA;AACA;IACA,cAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;IACA,kBAAA;CACA;AACA;IACA,oBAAA;CACA;AACA;IACA,mBAAA;CACA;AACA;IACA,kBAAA;CACA;AACA;IACA,wBAAA;CACA;AACA;IACA,WAAA;CACA;AACA;IACA,kBAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;IACA,sBAAA;IACA,YAAA;IACA,aAAA;IACA,sBAAA;IACA,YAAA;CACA;AACA;IACA,YAAA;IACA,aAAA;CACA;AACA;IACA,0BAAA;IACA,2BAAA;IACA,WAAA;IACA,sBAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;IACA,eAAA;CACA;AACA;IACA,UAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;EACA,WAAA;CACA;AACA;EACA,UAAA;CACA","file":"home.vue","sourcesContent":["<template >\n<div id=\"shouye\">\n<!--顶部搜索-->\n<div class=\"search-bar\">\n    <div class=\"search-list\">\n      <img src=\"../assets/img/List.png\" class=\"nav-icon\">\n    </div>\n    <div class=\"search-input\">\n        <div class=\"search-img\">\n            <img src=\"../assets/img/search01.png\">\n        </div>\n        <div>\n            <input class=\"weui_input\" type=\"search\" placeholder=\"请输入商品\"/>\n        </div>\n        <div class=\"clear-both\"></div>\n    </div>\n</div>\n<!--图片轮播-->\n<div class=\"show\">\n    <div>\n        <img :src=\"slideUrl\">\n    </div>\n    <div class=\" show-icon\" :style=\"{width: showWidth+'px'}\" >\n        <div style=\"margin:0 auto;\" id=\"spanCnt\">\n            <div class=\"clear-both\"></div>\n        </div>\n    </div>       \n</div>\n<!--小分类-->\n<div class=\"weui_grids m-t-sm bgc-white w-full\">\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"../assets/img/show02.jpg\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            汤料组合\n        </p>\n    </a>\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"../assets/img/show01.jpeg\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            家庭常用\n        </p>\n    </a>\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"../assets/img/show03.jpeg\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            办公常用\n        </p>\n    </a>\n</div>\n<!--特约专场-->\n<div class=\"weui_cells sale\" >\n    <div class=\"weui_cell\">\n        <div class=\"weui_cell_bd weui_cell_primary\">\n            <p class=\"sale-p\">特价专场</p>\n        </div>\n        <div class=\"weui_cell_ft\">\n            <div class=\"cnt-area\" v-show=\"showCntDown\">\n                <span class=\"pd-r-sm\">距离结束还有</span>\n                <span class=\"cnt text-center m-r-xm\">{{currentHours}}</span>:\n                <span class=\"cnt text-center m-r-xm\">{{currentMinutes}}</span>:\n                <span class=\"cnt text-center m-r-xm\">{{currentSeconds}}</span>\n            </div>\n            <div class=\"cnt-area danger-text\" v-else>已结束</div>\n        </div>\n    </div>\n</div>\n<!--特约专场缩略图-->\n<div class=\"sale-info\" v-for=\"sale in saleTab\" @click=\"goToDetails()\">\n    <div class=\"sale-img\">\n        <img :src=\"sale.url\">\n    </div>\n    <div class=\"sale-font pd-l-sm pd-r-ssm\">\n        <span class=\"sale-font-m pd-r-sm\">{{sale.name}}</span>\n        <span class=\"sale-font-m \">{{sale.des}}</span>\n        <span class=\"dis-blk font-red font-l\">¥{{sale.price}}</span> \n        <a href=\"#\" v-link=\"{path:'http://localhost:3000/#!/details'}\">测试</a>\n   </div>      \n</div>\n\n<!--热销推荐-->\n<div class=\"weui_cells sale\" >\n    <div class=\"weui_cell\">\n        <div class=\"weui_cell_bd weui_cell_primary\">\n            <p class=\"sale-p\">特约推荐</p>\n        </div>\n    </div>\n</div>\n<div class=\"sale-info\" v-for=\"sale in saleTab\">\n    <div class=\"sale-img\">\n        <img :src=\"sale.url\">\n    </div>\n    <div class=\"sale-font pd-l-sm pd-r-ssm\">\n        <span class=\"sale-font-m pd-r-sm\">{{sale.name}}</span>\n        <span class=\"sale-font-m \">{{sale.des}}</span>\n        <span class=\"dis-blk font-red font-l\">¥{{sale.price}}</span> \n   </div>      \n</div>\n\n</div>\n</template>\n\n<script>\n  export default {\n\n  data () {\n  \treturn {\n  \t\tshowImg:[\n            {\n              name:'高级汤料',\n              des:'你还不来买我吗！',\n              url:'../assets/img/health02.jpg'\n            },\n            {\n              name:'家用汤料',\n              des:　'你在我心中是最美',\n              url:'../assets/img/health01.jpg',\n            },\n            {\n              name:'养生花茶',\n              des:'拒绝春日绵绵好睡眠花茶250g',\n              url:'../assets/img/health03.png'\n            }\n      ],\n      saleTab:[\n            {\n              name:'宁夏枸杞',\n              des:'宁安堡中宁枸杞250g',\n              price:22.50,\n              url:'../assets/img/gouqi.png'\n            },\n            {\n              name:'忆江南',\n              des:'一级碧螺春礼盒250g',\n              price:29.6,\n              url: '../assets/img/tea.png'\n            }\n      ],\n        slideUrl:'',\n        currentIndex:0,\n        count:0,\n        circles:[],\n        currentHours:null,\n        currentMinutes:null,\n        currentSeconds:null,\n        cnt:0,\n        leftTime:null,\n        showCntDown:true\n  \t}\n  },\n  ready () {\n\n    this.slideUrl=this.showImg[this.currentIndex].url\n    let imgCnt=this.showImg.length\n    this.count=imgCnt\n    let fragmentHtml=\" \"\n    let parentNode=document.getElementById('spanCnt')\n\n    //动态添加幻灯片的小圆圈\n    for(let i=0;i<imgCnt;i++){\n      fragmentHtml+='<span>'+ '</span>'\n    }\n    parentNode.innerHTML=fragmentHtml\n    //设置小圆圈的状态\n    let spanNodes=parentNode.getElementsByTagName(\"span\")\n        this.circles=spanNodes\n        spanNodes[0].className='active'\n\n    for(let i=1;i<imgCnt;i++){\n       spanNodes[i].className='positive'\n    }\n    this.waitForNext()\n\n    //特卖场倒计时\n    let date = new Date()\n    let y=date.getFullYear()\n    let month=date.getMonth()\n    let day=date.getDate()\n    let h=date.getHours()\n    let endH=17\n\n      let nowTimeStamp=(date.getTime())/1000\n      let endDate = new Date(y,month,day,endH,0,0)\n      let endTimeStamp = (endDate.getTime())/1000\n      this.leftTime = endTimeStamp - nowTimeStamp\n      if(this.leftTime > 0){\n        this.showCountDown()\n      }else{\n        this.showCntDown=false\n      }\n    this.$watch('currentSeconds',function(){\n      if(this.leftTime <= 0) {\n        this.showCntDown=false\n      }\n    })\n  },\n  methods: {\n      waitForNext() {\n        setInterval(this.next,1000 * 3) \n      },\n      next() {\n        this.currentIndex+=1\n        if(this.currentIndex >= this.count){\n          this.currentIndex=0\n        }\n        this.handleImg(this.currentIndex)\n      },\n      handleImg(index) {\n        this.slideUrl=this.showImg[index].url\n        this.circles[index].className='active'\n        for(let i=0;i<this.count;i++){\n          if(i!==index){\n            this.circles[i].className='positive'\n          }\n        }\n      },\n      showCountDown() {\n          setInterval(this.countDown,1000)\n      },\n      countDown() {\n         let leftSeconds = this.leftTime\n         let leftMinutes = leftSeconds/60\n         let leftHour = Math.floor(leftSeconds/3600)\n         let minutes = Math.floor(leftMinutes - leftHour*60)\n         let seconds = Math.floor(leftSeconds - leftHour*3600 - minutes*60)\n         this.leftTime-=1\n         if(parseInt(leftHour)<10) {\n          leftHour='0'+leftHour\n          // parseInt(leftHour)\n         }\n         if(parseInt(minutes)<10){\n          minutes='0'+minutes\n          // parseInt(minutes)\n         }\n         if(parseInt(seconds)<10){\n          seconds='0'+seconds\n          // parseInt(seconds)\n         }\n         this.currentHours=leftHour\n         this.currentMinutes=minutes\n         this.currentSeconds=seconds\n    },\n    goToDetails(name,des,price) {\n\n        this.$route.router.go({name:'details'})\n    },\n},\n  computed: {\n    showWidth () {\n      return this.showImg.length*25\n    }\n  }\n}\n\n\n</script>\n\n<style>\n#shouye {\n    background-color: #E0E0E0;\n    padding-bottom: 60px;\n}\n#shouye .weui_navbar_item {\n    padding: 5px 0;\n}\n.nav-icon{\n    width: 20px;\n    height: 20px;\n}\n.main-navbar span{\n    font-size: 10px;\n}\n.search-bar{\n    background-color: rgb(9,204,123);\n}\n.search-bar div , .search-input div{\n    display: inline-block;\n}\n.search-list{\n    margin: 10px 30px 10px 20px;\n}\n\n.search-input img {\n    width: 15px;\n    height: 15px;\n    padding:5px 5px 0 5px;\n}\n.search-input {\n    background-color: rgb(4,188,111);\n    width: 250px;\n}\n::-webkit-input-placeholder {\n    color:#F1EDED;\n}\n.show span{\n    display: block;\n    border-radius: 50%;   \n    width: 15px;\n    height: 15px;\n    float: left;\n    margin:4px;\n    z-index: 2;\n}\n.show img{\n    width: 100%;\n    height: 200px;\n}\n.show-icon {\n    /*margin-top: -30px;*/\n    position: relative;\n    width: 75px;\n    margin: -30px auto 0 auto;\n}\n.active{\n    background-color: #F7F7F7;\n}\n.positive{\n    background-color: rgba(255,255,255,.5);\n}\n.cate-grid.weui_grid_icon{\n    width: 60px;\n    height: 60px;\n}\n.cate-grid img {\n    border-radius: 50%;\n}\n.no-pd-btm.weui_grid{\n    padding-bottom: 0;\n}\n.no-pd-btm p {\n    color:#6D6B6B;\n}\n.m-t-sm {\n    margin-top: 9px;\n}\n.m-r-xm {\n    margin-right: 5px;\n}\n.pd-r-sm {\n    padding-right: 10px;\n}\n.pd-r-ssm {\n    padding-right: 5px;\n}\n.pd-l-sm {\n    padding-left: 5px;\n}\n.bgc-white {\n    background-color: white;\n}\n.sale-p{\n    margin:5px;\n}\n.cnt-area{\n    line-height: 30px;\n}\n.cnt-area span {\n    font-size: 18px;\n}\n.cnt {\n    display: inline-block;\n    width: 30px;\n    height: 30px;\n    background-color: red;\n    color:white;\n}\n.sale-img img {\n    width: 100%;\n    height: auto;\n}\n.sale-info {\n    background-color: #F7F6F6;\n    margin: 10px 5px 10px 10px;\n    width: 45%;\n    display: inline-block;\n}\n.sale-font {\n    font-size: 16px;\n}\n.dis-blk {\n    display: block;\n}\n.font-red {\n    color:red;\n}\n.font-l {\n    font-size: 18px;\n}\n.w-full {\n  width:100%;\n}\n.danger-text {\n  color:red;\n}\n</style>"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -12923,9 +12923,6 @@
 	//     </div>
 	//     <div class=" show-icon" :style="{width: showWidth+'px'}" >
 	//         <div style="margin:0 auto;" id="spanCnt">
-	//            <!--  <span class="active"></span>
-	//             <span class="positive"></span>
-	//             <span class="positive"></span> -->
 	//             <div class="clear-both"></div>
 	//         </div>
 	//     </div>      
@@ -13300,7 +13297,7 @@
 /* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "\n<div id=\"shouye\">\n<!--顶部搜索-->\n<div class=\"search-bar\">\n    <div class=\"search-list\">\n      <img src=\"" + __webpack_require__(12) + "\" class=\"nav-icon\">\n    </div>\n    <div class=\"search-input\">\n        <div class=\"search-img\">\n            <img src=\"" + __webpack_require__(13) + "\">\n        </div>\n        <div>\n            <input class=\"weui_input\" type=\"search\" placeholder=\"请输入商品\"/>\n        </div>\n        <div class=\"clear-both\"></div>\n    </div>\n</div>\n<!--图片轮播-->\n<div class=\"show\">\n    <div>\n        <img :src=\"slideUrl\">\n    </div>\n    <div class=\" show-icon\" :style=\"{width: showWidth+'px'}\" >\n        <div style=\"margin:0 auto;\" id=\"spanCnt\">\n           <!--  <span class=\"active\"></span>\n            <span class=\"positive\"></span>\n            <span class=\"positive\"></span> -->\n            <div class=\"clear-both\"></div>\n        </div>\n    </div>       \n</div>\n<!--小分类-->\n<div class=\"weui_grids m-t-sm bgc-white w-full\">\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"" + __webpack_require__(14) + "\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            汤料组合\n        </p>\n    </a>\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"" + __webpack_require__(15) + "\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            家庭常用\n        </p>\n    </a>\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"" + __webpack_require__(16) + "\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            办公常用\n        </p>\n    </a>\n</div>\n<!--特约专场-->\n<div class=\"weui_cells sale\" >\n    <div class=\"weui_cell\">\n        <div class=\"weui_cell_bd weui_cell_primary\">\n            <p class=\"sale-p\">特价专场</p>\n        </div>\n        <div class=\"weui_cell_ft\">\n            <div class=\"cnt-area\" v-show=\"showCntDown\">\n                <span class=\"pd-r-sm\">距离结束还有</span>\n                <span class=\"cnt text-center m-r-xm\">{{currentHours}}</span>:\n                <span class=\"cnt text-center m-r-xm\">{{currentMinutes}}</span>:\n                <span class=\"cnt text-center m-r-xm\">{{currentSeconds}}</span>\n            </div>\n            <div class=\"cnt-area danger-text\" v-else>已结束</div>\n        </div>\n    </div>\n</div>\n<!--特约专场缩略图-->\n<div class=\"sale-info\" v-for=\"sale in saleTab\" @click=\"goToDetails()\">\n    <div class=\"sale-img\">\n        <img :src=\"sale.url\">\n    </div>\n    <div class=\"sale-font pd-l-sm pd-r-ssm\">\n        <span class=\"sale-font-m pd-r-sm\">{{sale.name}}</span>\n        <span class=\"sale-font-m \">{{sale.des}}</span>\n        <span class=\"dis-blk font-red font-l\">¥{{sale.price}}</span> \n        <a href=\"#\" v-link=\"{path:'http://localhost:3000/#!/details'}\">测试</a>\n   </div>      \n</div>\n\n<!--热销推荐-->\n<div class=\"weui_cells sale\" >\n    <div class=\"weui_cell\">\n        <div class=\"weui_cell_bd weui_cell_primary\">\n            <p class=\"sale-p\">特约推荐</p>\n        </div>\n    </div>\n</div>\n<div class=\"sale-info\" v-for=\"sale in saleTab\">\n    <div class=\"sale-img\">\n        <img :src=\"sale.url\">\n    </div>\n    <div class=\"sale-font pd-l-sm pd-r-ssm\">\n        <span class=\"sale-font-m pd-r-sm\">{{sale.name}}</span>\n        <span class=\"sale-font-m \">{{sale.des}}</span>\n        <span class=\"dis-blk font-red font-l\">¥{{sale.price}}</span> \n   </div>      \n</div>\n\n</div>\n";
+	module.exports = "\n<div id=\"shouye\">\n<!--顶部搜索-->\n<div class=\"search-bar\">\n    <div class=\"search-list\">\n      <img src=\"" + __webpack_require__(12) + "\" class=\"nav-icon\">\n    </div>\n    <div class=\"search-input\">\n        <div class=\"search-img\">\n            <img src=\"" + __webpack_require__(13) + "\">\n        </div>\n        <div>\n            <input class=\"weui_input\" type=\"search\" placeholder=\"请输入商品\"/>\n        </div>\n        <div class=\"clear-both\"></div>\n    </div>\n</div>\n<!--图片轮播-->\n<div class=\"show\">\n    <div>\n        <img :src=\"slideUrl\">\n    </div>\n    <div class=\" show-icon\" :style=\"{width: showWidth+'px'}\" >\n        <div style=\"margin:0 auto;\" id=\"spanCnt\">\n            <div class=\"clear-both\"></div>\n        </div>\n    </div>       \n</div>\n<!--小分类-->\n<div class=\"weui_grids m-t-sm bgc-white w-full\">\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"" + __webpack_require__(14) + "\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            汤料组合\n        </p>\n    </a>\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"" + __webpack_require__(15) + "\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            家庭常用\n        </p>\n    </a>\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"" + __webpack_require__(16) + "\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            办公常用\n        </p>\n    </a>\n</div>\n<!--特约专场-->\n<div class=\"weui_cells sale\" >\n    <div class=\"weui_cell\">\n        <div class=\"weui_cell_bd weui_cell_primary\">\n            <p class=\"sale-p\">特价专场</p>\n        </div>\n        <div class=\"weui_cell_ft\">\n            <div class=\"cnt-area\" v-show=\"showCntDown\">\n                <span class=\"pd-r-sm\">距离结束还有</span>\n                <span class=\"cnt text-center m-r-xm\">{{currentHours}}</span>:\n                <span class=\"cnt text-center m-r-xm\">{{currentMinutes}}</span>:\n                <span class=\"cnt text-center m-r-xm\">{{currentSeconds}}</span>\n            </div>\n            <div class=\"cnt-area danger-text\" v-else>已结束</div>\n        </div>\n    </div>\n</div>\n<!--特约专场缩略图-->\n<div class=\"sale-info\" v-for=\"sale in saleTab\" @click=\"goToDetails()\">\n    <div class=\"sale-img\">\n        <img :src=\"sale.url\">\n    </div>\n    <div class=\"sale-font pd-l-sm pd-r-ssm\">\n        <span class=\"sale-font-m pd-r-sm\">{{sale.name}}</span>\n        <span class=\"sale-font-m \">{{sale.des}}</span>\n        <span class=\"dis-blk font-red font-l\">¥{{sale.price}}</span> \n        <a href=\"#\" v-link=\"{path:'http://localhost:3000/#!/details'}\">测试</a>\n   </div>      \n</div>\n\n<!--热销推荐-->\n<div class=\"weui_cells sale\" >\n    <div class=\"weui_cell\">\n        <div class=\"weui_cell_bd weui_cell_primary\">\n            <p class=\"sale-p\">特约推荐</p>\n        </div>\n    </div>\n</div>\n<div class=\"sale-info\" v-for=\"sale in saleTab\">\n    <div class=\"sale-img\">\n        <img :src=\"sale.url\">\n    </div>\n    <div class=\"sale-font pd-l-sm pd-r-ssm\">\n        <span class=\"sale-font-m pd-r-sm\">{{sale.name}}</span>\n        <span class=\"sale-font-m \">{{sale.des}}</span>\n        <span class=\"dis-blk font-red font-l\">¥{{sale.price}}</span> \n   </div>      \n</div>\n\n</div>\n";
 
 /***/ },
 /* 12 */
@@ -13394,21 +13391,276 @@
 
 /***/ },
 /* 50 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "\nHELLO\n";
+	module.exports = "\n  <div id=\"details\">\n\t<nav class=\"text-center\">\n\t\t<div class=\"pull-left big-font pd-l-m\">&lt;</div>\n\t\t<div class=\"pd-r-m\">商品详情</div>\n\t\t<div class=\"pull-right\">\n\t\t\t<img src=\"" + __webpack_require__(52) + "\" class=\"nav-img\">\n\t\t</div>\n\t\t<div class=\"clear-both\"></div>\n\t</nav>\n\t<div class=\"banner\">\n\t\t<carousel></carousel>\n\t\t<div class=\"pd-l-m bgc-white\">养生花茶  拒绝春日绵绵好睡眠花茶250g</div>\n\t\t<p class=\"pd-l-m danger-text bgc-white\">¥100</p>\n\t\t<div class=\"banner-font bgc-white\">\n\t\t\t<span class=\"pull-left pd-l-m\">原价：¥ 120</span>\n\t\t\t<span class=\"pull-right pd-r-m\">运费： ¥ 12</span>\n\t\t\t<div class=\"clear-both\"></div>\n\t\t</div>\n\t\t<div class=\"bgc-white m-t-sm\">\n\t\t\t<p class=\"pd-l-m\">属性： 寒性</p>\n\t\t\t<p class=\"pd-l-m\">产地： 珠穆朗玛峰</p>\n\t\t\t<p class=\"pd-l-m pd-r-m\">功效： 二羟丙茶碱注射液（又叫喘定）：适用于治疗支气管哮喘、喘息型支气管炎、阻塞性肺气肿等以缓解喘息症状。也用于心源性肺水肿引起的哮喘</p>\n\t\t\t<p class=\"pd-l-m pd-r-m\">用法： 二羟丙茶碱注射液（又叫喘定）：适用于治疗支气管哮喘、喘息型支气管炎、阻塞性肺气肿等以缓解喘息症状。也用于心源性肺水肿引起的哮喘</p>\n\t\t</div>\n\t</div>\n\t\n  </div>\n";
 
 /***/ },
 /* 51 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	// <template>
-	// 	HELLO
-	// </template>
-	// <script >
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _carousel = __webpack_require__(55);
+	
+	var _carousel2 = _interopRequireDefault(_carousel);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+		components: {
+			carousel: _carousel2.default
+		}
+	};
 	// </script>
 	/* generated by vue-loader */
-	"use strict";
+	// <template>
+	//   <div id="details">
+	// 	<nav class="text-center">
+	// 		<div class="pull-left big-font pd-l-m">&lt;</div>
+	// 		<div class="pd-r-m">商品详情</div>
+	// 		<div class="pull-right">
+	// 			<img src="../assets/img/cart.png" class="nav-img">
+	// 		</div>
+	// 		<div class="clear-both"></div>
+	// 	</nav>
+	// 	<div class="banner">
+	// 		<carousel></carousel>
+	// 		<div class="pd-l-m bgc-white">养生花茶  拒绝春日绵绵好睡眠花茶250g</div>
+	// 		<p class="pd-l-m danger-text bgc-white">¥100</p>
+	// 		<div class="banner-font bgc-white">
+	// 			<span class="pull-left pd-l-m">原价：¥ 120</span>
+	// 			<span class="pull-right pd-r-m">运费： ¥ 12</span>
+	// 			<div class="clear-both"></div>
+	// 		</div>
+	// 		<div class="bgc-white m-t-sm">
+	// 			<p class="pd-l-m">属性： 寒性</p>
+	// 			<p class="pd-l-m">产地： 珠穆朗玛峰</p>
+	// 			<p class="pd-l-m pd-r-m">功效： 二羟丙茶碱注射液（又叫喘定）：适用于治疗支气管哮喘、喘息型支气管炎、阻塞性肺气肿等以缓解喘息症状。也用于心源性肺水肿引起的哮喘</p>
+	// 			<p class="pd-l-m pd-r-m">用法： 二羟丙茶碱注射液（又叫喘定）：适用于治疗支气管哮喘、喘息型支气管炎、阻塞性肺气肿等以缓解喘息症状。也用于心源性肺水肿引起的哮喘</p>
+	// 		</div>
+	// 	</div>
+	//
+	//   </div>
+	// </template>
+	// <script >
+
+/***/ },
+/* 52 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,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"
+
+/***/ },
+/* 53 */,
+/* 54 */,
+/* 55 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(56)
+	__vue_script__ = __webpack_require__(58)
+	if (__vue_script__ &&
+	    __vue_script__.__esModule &&
+	    Object.keys(__vue_script__).length > 1) {
+	  console.warn("[vue-loader] src/components/carousel.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(59)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) {
+	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
+	}
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "/Users/simgyun/Desktop/Vue/src/components/carousel.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 56 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(57);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(9)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./carousel.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./carousel.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 57 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(8)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\r\n.show span{\r\n    display: block;\r\n    border-radius: 50%;   \r\n    width: 15px;\r\n    height: 15px;\r\n    float: left;\r\n    margin:4px;\r\n    z-index: 2;\r\n}\r\n.show img{\r\n    width: 100%;\r\n    height: 200px;\r\n}\r\n.show-icon {\r\n    /*margin-top: -30px;*/\r\n    position: relative;\r\n    width: 75px;\r\n    margin: -30px auto 0 auto;\r\n}\r\n.active{\r\n    background-color: #F7F7F7;\r\n}\r\n.positive{\r\n    background-color: rgba(255,255,255,.5);\r\n}\r\n.clear-both {\r\n\tclear: both;\r\n}\r\n", "", {"version":3,"sources":["/./src/components/carousel.vue?505bb708"],"names":[],"mappings":";AA6FA;IACA,eAAA;IACA,mBAAA;IACA,YAAA;IACA,aAAA;IACA,YAAA;IACA,WAAA;IACA,WAAA;CACA;AACA;IACA,YAAA;IACA,cAAA;CACA;AACA;IACA,sBAAA;IACA,mBAAA;IACA,YAAA;IACA,0BAAA;CACA;AACA;IACA,0BAAA;CACA;AACA;IACA,uCAAA;CACA;AACA;CACA,YAAA;CACA","file":"carousel.vue","sourcesContent":["<template>\r\n\t<div class=\"show\">\r\n    <div>\r\n        <img :src=\"slideUrl\">\r\n    </div>\r\n    <div class=\" show-icon\" :style=\"{width: showWidth+'px'}\" >\r\n        <div style=\"margin:0 auto;\" id=\"spanCnt\">\r\n            <div class=\"clear-both\"></div>\r\n        </div>\r\n    </div>       \r\n</div>\r\n</template>\r\n\r\n<script >\r\n\texport default {\r\n\r\n\tdata () {\r\n\t\treturn {\r\n\t\t  \t\tshowImg:[\r\n\t\t            {\r\n\t\t              name:'高级汤料',\r\n\t\t              des:'你还不来买我吗！',\r\n\t\t              url:'../assets/img/health02.jpg'\r\n\t\t            },\r\n\t\t            {\r\n\t\t              name:'家用汤料',\r\n\t\t              des:　'你在我心中是最美',\r\n\t\t              url:'../assets/img/health01.jpg',\r\n\t\t            },\r\n\t\t            {\r\n\t\t              name:'养生花茶',\r\n\t\t              des:'拒绝春日绵绵好睡眠花茶250g',\r\n\t\t              url:'../assets/img/health03.png'\r\n\t\t            }\r\n\t\t        ],\r\n\t\t        slideUrl:'',\r\n\t\t        currentIndex:0,\r\n\t\t        count:0,\r\n\t\t        circles:[]\r\n\t\t}\r\n\t},\r\n\tready () {\r\n\t  this.slideUrl=this.showImg[this.currentIndex].url\r\n\t  let imgCnt=this.showImg.length\r\n\t  this.count=imgCnt\r\n\t  let fragmentHtml=\" \"\r\n\t  let parentNode=document.getElementById('spanCnt')\r\n\r\n\t  //动态添加幻灯片的小圆圈\r\n\t  for(let i=0;i<imgCnt;i++){\r\n\t    fragmentHtml+='<span>'+ '</span>'\r\n\t  }\r\n\t  parentNode.innerHTML=fragmentHtml\r\n\t  //设置小圆圈的状态\r\n\t  let spanNodes=parentNode.getElementsByTagName(\"span\")\r\n\t      this.circles=spanNodes\r\n\t      spanNodes[0].className='active'\r\n\r\n\t  for(let i=1;i<imgCnt;i++){\r\n\t     spanNodes[i].className='positive'\r\n\t  }\r\n\t  this.waitForNext()\t\r\n\t},\r\n\tmethods: {\r\n\t\t  waitForNext() {\r\n\t\t    setInterval(this.next,1000 * 3) \r\n\t\t  },\r\n\t\t  next() {\r\n\t\t    this.currentIndex+=1\r\n\t\t    if(this.currentIndex >= this.count){\r\n\t\t      this.currentIndex=0\r\n\t\t    }\r\n\t\t    this.handleImg(this.currentIndex)\r\n\t\t  },\r\n\t\t  handleImg(index) {\r\n\t\t    this.slideUrl=this.showImg[index].url\r\n\t\t    this.circles[index].className='active'\r\n\t\t    for(let i=0;i<this.count;i++){\r\n\t\t      if(i!==index){\r\n\t\t        this.circles[i].className='positive'\r\n\t\t      }\r\n\t\t    }\r\n\t\t  }\r\n\t\t},\r\n\t\tcomputed: {\r\n\t\t\tshowWidth () {\r\n\t\t\t  return this.showImg.length*25\r\n\t\t\t},\r\n\t\t}\r\n\t}\r\n</script>\r\n\r\n<style >\r\n.show span{\r\n    display: block;\r\n    border-radius: 50%;   \r\n    width: 15px;\r\n    height: 15px;\r\n    float: left;\r\n    margin:4px;\r\n    z-index: 2;\r\n}\r\n.show img{\r\n    width: 100%;\r\n    height: 200px;\r\n}\r\n.show-icon {\r\n    /*margin-top: -30px;*/\r\n    position: relative;\r\n    width: 75px;\r\n    margin: -30px auto 0 auto;\r\n}\r\n.active{\r\n    background-color: #F7F7F7;\r\n}\r\n.positive{\r\n    background-color: rgba(255,255,255,.5);\r\n}\r\n.clear-both {\r\n\tclear: both;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 58 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	// <template>
+	// 	<div class="show">
+	//     <div>
+	//         <img :src="slideUrl">
+	//     </div>
+	//     <div class=" show-icon" :style="{width: showWidth+'px'}" >
+	//         <div style="margin:0 auto;" id="spanCnt">
+	//             <div class="clear-both"></div>
+	//         </div>
+	//     </div>      
+	// </div>
+	// </template>
+	//
+	// <script >
+	exports.default = {
+		data: function data() {
+			return {
+				showImg: [{
+					name: '高级汤料',
+					des: '你还不来买我吗！',
+					url: '../assets/img/health02.jpg'
+				}, {
+					name: '家用汤料',
+					des: '你在我心中是最美',
+					url: '../assets/img/health01.jpg'
+				}, {
+					name: '养生花茶',
+					des: '拒绝春日绵绵好睡眠花茶250g',
+					url: '../assets/img/health03.png'
+				}],
+				slideUrl: '',
+				currentIndex: 0,
+				count: 0,
+				circles: []
+			};
+		},
+		ready: function ready() {
+			this.slideUrl = this.showImg[this.currentIndex].url;
+			var imgCnt = this.showImg.length;
+			this.count = imgCnt;
+			var fragmentHtml = " ";
+			var parentNode = document.getElementById('spanCnt');
+	
+			//动态添加幻灯片的小圆圈
+			for (var i = 0; i < imgCnt; i++) {
+				fragmentHtml += '<span>' + '</span>';
+			}
+			parentNode.innerHTML = fragmentHtml;
+			//设置小圆圈的状态
+			var spanNodes = parentNode.getElementsByTagName("span");
+			this.circles = spanNodes;
+			spanNodes[0].className = 'active';
+	
+			for (var _i = 1; _i < imgCnt; _i++) {
+				spanNodes[_i].className = 'positive';
+			}
+			this.waitForNext();
+		},
+	
+		methods: {
+			waitForNext: function waitForNext() {
+				setInterval(this.next, 1000 * 3);
+			},
+			next: function next() {
+				this.currentIndex += 1;
+				if (this.currentIndex >= this.count) {
+					this.currentIndex = 0;
+				}
+				this.handleImg(this.currentIndex);
+			},
+			handleImg: function handleImg(index) {
+				this.slideUrl = this.showImg[index].url;
+				this.circles[index].className = 'active';
+				for (var i = 0; i < this.count; i++) {
+					if (i !== index) {
+						this.circles[i].className = 'positive';
+					}
+				}
+			}
+		},
+		computed: {
+			showWidth: function showWidth() {
+				return this.showImg.length * 25;
+			}
+		}
+	};
+	// </script>
+	//
+	// <style >
+	// .show span{
+	//     display: block;
+	//     border-radius: 50%;  
+	//     width: 15px;
+	//     height: 15px;
+	//     float: left;
+	//     margin:4px;
+	//     z-index: 2;
+	// }
+	// .show img{
+	//     width: 100%;
+	//     height: 200px;
+	// }
+	// .show-icon {
+	//     /*margin-top: -30px;*/
+	//     position: relative;
+	//     width: 75px;
+	//     margin: -30px auto 0 auto;
+	// }
+	// .active{
+	//     background-color: #F7F7F7;
+	// }
+	// .positive{
+	//     background-color: rgba(255,255,255,.5);
+	// }
+	// .clear-both {
+	// 	clear: both;
+	// }
+	// </style>
+
+	/* generated by vue-loader */
+
+/***/ },
+/* 59 */
+/***/ function(module, exports) {
+
+	module.exports = "\n\t<div class=\"show\">\n    <div>\n        <img :src=\"slideUrl\">\n    </div>\n    <div class=\" show-icon\" :style=\"{width: showWidth+'px'}\" >\n        <div style=\"margin:0 auto;\" id=\"spanCnt\">\n            <div class=\"clear-both\"></div>\n        </div>\n    </div>       \n</div>\n";
 
 /***/ }
 /******/ ]);
