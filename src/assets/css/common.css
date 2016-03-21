@@ -1,0 +1,13 @@
+#navbar-btm .weui_navbar_item {
+    padding: 5px 0;
+}
+.nav-icon{
+    width: 20px;
+    height: 20px;
+}
+#navbar-btm span {
+	font-size: 10px;
+}
+.text-center {
+	text-align: center;
+}
