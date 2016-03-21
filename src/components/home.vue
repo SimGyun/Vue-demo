@@ -71,7 +71,7 @@
     </div>
 </div>
 <!--特约专场缩略图-->
-<div class="sale-info" v-for="sale in saleTab" @click="goToDetails()">
+<div class="sale-info" v-for="sale in saleTab" @click="goToDetails(sale.name,sale.price,sale.url)">
     <div class="sale-img">
         <img :src="sale.url">
     </div>
@@ -102,10 +102,13 @@
    </div>      
 </div>
 
+<navbtm></navbtm>
+
 </div>
 </template>
 
 <script>
+import navbtm from './navBtm.vue'
   export default {
 
   data () {
@@ -152,6 +155,9 @@
         leftTime:null,
         showCntDown:true
   	}
+  },
+  components: {
+        navbtm
   },
   ready () {
 
@@ -245,9 +251,8 @@
          this.currentMinutes=minutes
          this.currentSeconds=seconds
     },
-    goToDetails(name,des,price) {
-
-        this.$route.router.go({name:'details'})
+    goToDetails(name,url,price) {
+        this.$route.router.go({name:'details',params:{name:name,imgUrl:url,price:price}})
     },
 },
   computed: {

@@ -54,3 +54,24 @@ nav {
 .banner p {
 	font-size: 10px;
 }
+.cart-cnt {
+	position: absolute;
+	top: 0px;
+	right: 10px;
+	margin-top: -7px;
+}
+.gray-font {
+	color:#808080;
+}
+.ps-a {
+	position: absolute;
+}
+.ps-r {
+	position: relative;
+}
+.del-line {
+	position: absolute;
+	top: 40%;
+	width: 100%;
+	border: 1px solid #E66B6B
+}

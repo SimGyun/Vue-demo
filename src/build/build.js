@@ -91,7 +91,7 @@
 	        name: 'home',
 	        component: _home2.default
 	    },
-	    '/details': {
+	    '/details/:name/:price/:imgUrl': {
 	        name: 'details',
 	        component: _details2.default
 	    },
@@ -106,7 +106,7 @@
 	});
 	
 	router.redirect({
-	    '*': '/news'
+	    '*': '/home'
 	});
 	
 	router.start(App, '#app');
@@ -12623,7 +12623,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n#shouye {\n    background-color: #E0E0E0;\n    padding-bottom: 60px;\n}\n#shouye .weui_navbar_item {\n    padding: 5px 0;\n}\n.nav-icon{\n    width: 20px;\n    height: 20px;\n}\n.main-navbar span{\n    font-size: 10px;\n}\n.search-bar{\n    background-color: rgb(9,204,123);\n}\n.search-bar div , .search-input div{\n    display: inline-block;\n}\n.search-list{\n    margin: 10px 30px 10px 20px;\n}\n\n.search-input img {\n    width: 15px;\n    height: 15px;\n    padding:5px 5px 0 5px;\n}\n.search-input {\n    background-color: rgb(4,188,111);\n    width: 250px;\n}\n::-webkit-input-placeholder {\n    color:#F1EDED;\n}\n.show span{\n    display: block;\n    border-radius: 50%;   \n    width: 15px;\n    height: 15px;\n    float: left;\n    margin:4px;\n    z-index: 2;\n}\n.show img{\n    width: 100%;\n    height: 200px;\n}\n.show-icon {\n    /*margin-top: -30px;*/\n    position: relative;\n    width: 75px;\n    margin: -30px auto 0 auto;\n}\n.active{\n    background-color: #F7F7F7;\n}\n.positive{\n    background-color: rgba(255,255,255,.5);\n}\n.cate-grid.weui_grid_icon{\n    width: 60px;\n    height: 60px;\n}\n.cate-grid img {\n    border-radius: 50%;\n}\n.no-pd-btm.weui_grid{\n    padding-bottom: 0;\n}\n.no-pd-btm p {\n    color:#6D6B6B;\n}\n.m-t-sm {\n    margin-top: 9px;\n}\n.m-r-xm {\n    margin-right: 5px;\n}\n.pd-r-sm {\n    padding-right: 10px;\n}\n.pd-r-ssm {\n    padding-right: 5px;\n}\n.pd-l-sm {\n    padding-left: 5px;\n}\n.bgc-white {\n    background-color: white;\n}\n.sale-p{\n    margin:5px;\n}\n.cnt-area{\n    line-height: 30px;\n}\n.cnt-area span {\n    font-size: 18px;\n}\n.cnt {\n    display: inline-block;\n    width: 30px;\n    height: 30px;\n    background-color: red;\n    color:white;\n}\n.sale-img img {\n    width: 100%;\n    height: auto;\n}\n.sale-info {\n    background-color: #F7F6F6;\n    margin: 10px 5px 10px 10px;\n    width: 45%;\n    display: inline-block;\n}\n.sale-font {\n    font-size: 16px;\n}\n.dis-blk {\n    display: block;\n}\n.font-red {\n    color:red;\n}\n.font-l {\n    font-size: 18px;\n}\n.w-full {\n  width:100%;\n}\n.danger-text {\n  color:red;\n}\n", "", {"version":3,"sources":["/./src/components/home.vue?2cd0ac66"],"names":[],"mappings":";AAuQA;IACA,0BAAA;IACA,qBAAA;CACA;AACA;IACA,eAAA;CACA;AACA;IACA,YAAA;IACA,aAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;IACA,iCAAA;CACA;AACA;IACA,sBAAA;CACA;AACA;IACA,4BAAA;CACA;;AAEA;IACA,YAAA;IACA,aAAA;IACA,sBAAA;CACA;AACA;IACA,iCAAA;IACA,aAAA;CACA;AACA;IACA,cAAA;CACA;AACA;IACA,eAAA;IACA,mBAAA;IACA,YAAA;IACA,aAAA;IACA,YAAA;IACA,WAAA;IACA,WAAA;CACA;AACA;IACA,YAAA;IACA,cAAA;CACA;AACA;IACA,sBAAA;IACA,mBAAA;IACA,YAAA;IACA,0BAAA;CACA;AACA;IACA,0BAAA;CACA;AACA;IACA,uCAAA;CACA;AACA;IACA,YAAA;IACA,aAAA;CACA;AACA;IACA,mBAAA;CACA;AACA;IACA,kBAAA;CACA;AACA;IACA,cAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;IACA,kBAAA;CACA;AACA;IACA,oBAAA;CACA;AACA;IACA,mBAAA;CACA;AACA;IACA,kBAAA;CACA;AACA;IACA,wBAAA;CACA;AACA;IACA,WAAA;CACA;AACA;IACA,kBAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;IACA,sBAAA;IACA,YAAA;IACA,aAAA;IACA,sBAAA;IACA,YAAA;CACA;AACA;IACA,YAAA;IACA,aAAA;CACA;AACA;IACA,0BAAA;IACA,2BAAA;IACA,WAAA;IACA,sBAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;IACA,eAAA;CACA;AACA;IACA,UAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;EACA,WAAA;CACA;AACA;EACA,UAAA;CACA","file":"home.vue","sourcesContent":["<template >\n<div id=\"shouye\">\n<!--顶部搜索-->\n<div class=\"search-bar\">\n    <div class=\"search-list\">\n      <img src=\"../assets/img/List.png\" class=\"nav-icon\">\n    </div>\n    <div class=\"search-input\">\n        <div class=\"search-img\">\n            <img src=\"../assets/img/search01.png\">\n        </div>\n        <div>\n            <input class=\"weui_input\" type=\"search\" placeholder=\"请输入商品\"/>\n        </div>\n        <div class=\"clear-both\"></div>\n    </div>\n</div>\n<!--图片轮播-->\n<div class=\"show\">\n    <div>\n        <img :src=\"slideUrl\">\n    </div>\n    <div class=\" show-icon\" :style=\"{width: showWidth+'px'}\" >\n        <div style=\"margin:0 auto;\" id=\"spanCnt\">\n            <div class=\"clear-both\"></div>\n        </div>\n    </div>       \n</div>\n<!--小分类-->\n<div class=\"weui_grids m-t-sm bgc-white w-full\">\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"../assets/img/show02.jpg\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            汤料组合\n        </p>\n    </a>\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"../assets/img/show01.jpeg\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            家庭常用\n        </p>\n    </a>\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"../assets/img/show03.jpeg\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            办公常用\n        </p>\n    </a>\n</div>\n<!--特约专场-->\n<div class=\"weui_cells sale\" >\n    <div class=\"weui_cell\">\n        <div class=\"weui_cell_bd weui_cell_primary\">\n            <p class=\"sale-p\">特价专场</p>\n        </div>\n        <div class=\"weui_cell_ft\">\n            <div class=\"cnt-area\" v-show=\"showCntDown\">\n                <span class=\"pd-r-sm\">距离结束还有</span>\n                <span class=\"cnt text-center m-r-xm\">{{currentHours}}</span>:\n                <span class=\"cnt text-center m-r-xm\">{{currentMinutes}}</span>:\n                <span class=\"cnt text-center m-r-xm\">{{currentSeconds}}</span>\n            </div>\n            <div class=\"cnt-area danger-text\" v-else>已结束</div>\n        </div>\n    </div>\n</div>\n<!--特约专场缩略图-->\n<div class=\"sale-info\" v-for=\"sale in saleTab\" @click=\"goToDetails()\">\n    <div class=\"sale-img\">\n        <img :src=\"sale.url\">\n    </div>\n    <div class=\"sale-font pd-l-sm pd-r-ssm\">\n        <span class=\"sale-font-m pd-r-sm\">{{sale.name}}</span>\n        <span class=\"sale-font-m \">{{sale.des}}</span>\n        <span class=\"dis-blk font-red font-l\">¥{{sale.price}}</span> \n        <a href=\"#\" v-link=\"{path:'http://localhost:3000/#!/details'}\">测试</a>\n   </div>      \n</div>\n\n<!--热销推荐-->\n<div class=\"weui_cells sale\" >\n    <div class=\"weui_cell\">\n        <div class=\"weui_cell_bd weui_cell_primary\">\n            <p class=\"sale-p\">特约推荐</p>\n        </div>\n    </div>\n</div>\n<div class=\"sale-info\" v-for=\"sale in saleTab\">\n    <div class=\"sale-img\">\n        <img :src=\"sale.url\">\n    </div>\n    <div class=\"sale-font pd-l-sm pd-r-ssm\">\n        <span class=\"sale-font-m pd-r-sm\">{{sale.name}}</span>\n        <span class=\"sale-font-m \">{{sale.des}}</span>\n        <span class=\"dis-blk font-red font-l\">¥{{sale.price}}</span> \n   </div>      \n</div>\n\n</div>\n</template>\n\n<script>\n  export default {\n\n  data () {\n  \treturn {\n  \t\tshowImg:[\n            {\n              name:'高级汤料',\n              des:'你还不来买我吗！',\n              url:'../assets/img/health02.jpg'\n            },\n            {\n              name:'家用汤料',\n              des:　'你在我心中是最美',\n              url:'../assets/img/health01.jpg',\n            },\n            {\n              name:'养生花茶',\n              des:'拒绝春日绵绵好睡眠花茶250g',\n              url:'../assets/img/health03.png'\n            }\n      ],\n      saleTab:[\n            {\n              name:'宁夏枸杞',\n              des:'宁安堡中宁枸杞250g',\n              price:22.50,\n              url:'../assets/img/gouqi.png'\n            },\n            {\n              name:'忆江南',\n              des:'一级碧螺春礼盒250g',\n              price:29.6,\n              url: '../assets/img/tea.png'\n            }\n      ],\n        slideUrl:'',\n        currentIndex:0,\n        count:0,\n        circles:[],\n        currentHours:null,\n        currentMinutes:null,\n        currentSeconds:null,\n        cnt:0,\n        leftTime:null,\n        showCntDown:true\n  \t}\n  },\n  ready () {\n\n    this.slideUrl=this.showImg[this.currentIndex].url\n    let imgCnt=this.showImg.length\n    this.count=imgCnt\n    let fragmentHtml=\" \"\n    let parentNode=document.getElementById('spanCnt')\n\n    //动态添加幻灯片的小圆圈\n    for(let i=0;i<imgCnt;i++){\n      fragmentHtml+='<span>'+ '</span>'\n    }\n    parentNode.innerHTML=fragmentHtml\n    //设置小圆圈的状态\n    let spanNodes=parentNode.getElementsByTagName(\"span\")\n        this.circles=spanNodes\n        spanNodes[0].className='active'\n\n    for(let i=1;i<imgCnt;i++){\n       spanNodes[i].className='positive'\n    }\n    this.waitForNext()\n\n    //特卖场倒计时\n    let date = new Date()\n    let y=date.getFullYear()\n    let month=date.getMonth()\n    let day=date.getDate()\n    let h=date.getHours()\n    let endH=17\n\n      let nowTimeStamp=(date.getTime())/1000\n      let endDate = new Date(y,month,day,endH,0,0)\n      let endTimeStamp = (endDate.getTime())/1000\n      this.leftTime = endTimeStamp - nowTimeStamp\n      if(this.leftTime > 0){\n        this.showCountDown()\n      }else{\n        this.showCntDown=false\n      }\n    this.$watch('currentSeconds',function(){\n      if(this.leftTime <= 0) {\n        this.showCntDown=false\n      }\n    })\n  },\n  methods: {\n      waitForNext() {\n        setInterval(this.next,1000 * 3) \n      },\n      next() {\n        this.currentIndex+=1\n        if(this.currentIndex >= this.count){\n          this.currentIndex=0\n        }\n        this.handleImg(this.currentIndex)\n      },\n      handleImg(index) {\n        this.slideUrl=this.showImg[index].url\n        this.circles[index].className='active'\n        for(let i=0;i<this.count;i++){\n          if(i!==index){\n            this.circles[i].className='positive'\n          }\n        }\n      },\n      showCountDown() {\n          setInterval(this.countDown,1000)\n      },\n      countDown() {\n         let leftSeconds = this.leftTime\n         let leftMinutes = leftSeconds/60\n         let leftHour = Math.floor(leftSeconds/3600)\n         let minutes = Math.floor(leftMinutes - leftHour*60)\n         let seconds = Math.floor(leftSeconds - leftHour*3600 - minutes*60)\n         this.leftTime-=1\n         if(parseInt(leftHour)<10) {\n          leftHour='0'+leftHour\n          // parseInt(leftHour)\n         }\n         if(parseInt(minutes)<10){\n          minutes='0'+minutes\n          // parseInt(minutes)\n         }\n         if(parseInt(seconds)<10){\n          seconds='0'+seconds\n          // parseInt(seconds)\n         }\n         this.currentHours=leftHour\n         this.currentMinutes=minutes\n         this.currentSeconds=seconds\n    },\n    goToDetails(name,des,price) {\n\n        this.$route.router.go({name:'details'})\n    },\n},\n  computed: {\n    showWidth () {\n      return this.showImg.length*25\n    }\n  }\n}\n\n\n</script>\n\n<style>\n#shouye {\n    background-color: #E0E0E0;\n    padding-bottom: 60px;\n}\n#shouye .weui_navbar_item {\n    padding: 5px 0;\n}\n.nav-icon{\n    width: 20px;\n    height: 20px;\n}\n.main-navbar span{\n    font-size: 10px;\n}\n.search-bar{\n    background-color: rgb(9,204,123);\n}\n.search-bar div , .search-input div{\n    display: inline-block;\n}\n.search-list{\n    margin: 10px 30px 10px 20px;\n}\n\n.search-input img {\n    width: 15px;\n    height: 15px;\n    padding:5px 5px 0 5px;\n}\n.search-input {\n    background-color: rgb(4,188,111);\n    width: 250px;\n}\n::-webkit-input-placeholder {\n    color:#F1EDED;\n}\n.show span{\n    display: block;\n    border-radius: 50%;   \n    width: 15px;\n    height: 15px;\n    float: left;\n    margin:4px;\n    z-index: 2;\n}\n.show img{\n    width: 100%;\n    height: 200px;\n}\n.show-icon {\n    /*margin-top: -30px;*/\n    position: relative;\n    width: 75px;\n    margin: -30px auto 0 auto;\n}\n.active{\n    background-color: #F7F7F7;\n}\n.positive{\n    background-color: rgba(255,255,255,.5);\n}\n.cate-grid.weui_grid_icon{\n    width: 60px;\n    height: 60px;\n}\n.cate-grid img {\n    border-radius: 50%;\n}\n.no-pd-btm.weui_grid{\n    padding-bottom: 0;\n}\n.no-pd-btm p {\n    color:#6D6B6B;\n}\n.m-t-sm {\n    margin-top: 9px;\n}\n.m-r-xm {\n    margin-right: 5px;\n}\n.pd-r-sm {\n    padding-right: 10px;\n}\n.pd-r-ssm {\n    padding-right: 5px;\n}\n.pd-l-sm {\n    padding-left: 5px;\n}\n.bgc-white {\n    background-color: white;\n}\n.sale-p{\n    margin:5px;\n}\n.cnt-area{\n    line-height: 30px;\n}\n.cnt-area span {\n    font-size: 18px;\n}\n.cnt {\n    display: inline-block;\n    width: 30px;\n    height: 30px;\n    background-color: red;\n    color:white;\n}\n.sale-img img {\n    width: 100%;\n    height: auto;\n}\n.sale-info {\n    background-color: #F7F6F6;\n    margin: 10px 5px 10px 10px;\n    width: 45%;\n    display: inline-block;\n}\n.sale-font {\n    font-size: 16px;\n}\n.dis-blk {\n    display: block;\n}\n.font-red {\n    color:red;\n}\n.font-l {\n    font-size: 18px;\n}\n.w-full {\n  width:100%;\n}\n.danger-text {\n  color:red;\n}\n</style>"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n#shouye {\n    background-color: #E0E0E0;\n    padding-bottom: 60px;\n}\n#shouye .weui_navbar_item {\n    padding: 5px 0;\n}\n.nav-icon{\n    width: 20px;\n    height: 20px;\n}\n.main-navbar span{\n    font-size: 10px;\n}\n.search-bar{\n    background-color: rgb(9,204,123);\n}\n.search-bar div , .search-input div{\n    display: inline-block;\n}\n.search-list{\n    margin: 10px 30px 10px 20px;\n}\n\n.search-input img {\n    width: 15px;\n    height: 15px;\n    padding:5px 5px 0 5px;\n}\n.search-input {\n    background-color: rgb(4,188,111);\n    width: 250px;\n}\n::-webkit-input-placeholder {\n    color:#F1EDED;\n}\n.show span{\n    display: block;\n    border-radius: 50%;   \n    width: 15px;\n    height: 15px;\n    float: left;\n    margin:4px;\n    z-index: 2;\n}\n.show img{\n    width: 100%;\n    height: 200px;\n}\n.show-icon {\n    /*margin-top: -30px;*/\n    position: relative;\n    width: 75px;\n    margin: -30px auto 0 auto;\n}\n.active{\n    background-color: #F7F7F7;\n}\n.positive{\n    background-color: rgba(255,255,255,.5);\n}\n.cate-grid.weui_grid_icon{\n    width: 60px;\n    height: 60px;\n}\n.cate-grid img {\n    border-radius: 50%;\n}\n.no-pd-btm.weui_grid{\n    padding-bottom: 0;\n}\n.no-pd-btm p {\n    color:#6D6B6B;\n}\n.m-t-sm {\n    margin-top: 9px;\n}\n.m-r-xm {\n    margin-right: 5px;\n}\n.pd-r-sm {\n    padding-right: 10px;\n}\n.pd-r-ssm {\n    padding-right: 5px;\n}\n.pd-l-sm {\n    padding-left: 5px;\n}\n.bgc-white {\n    background-color: white;\n}\n.sale-p{\n    margin:5px;\n}\n.cnt-area{\n    line-height: 30px;\n}\n.cnt-area span {\n    font-size: 18px;\n}\n.cnt {\n    display: inline-block;\n    width: 30px;\n    height: 30px;\n    background-color: red;\n    color:white;\n}\n.sale-img img {\n    width: 100%;\n    height: auto;\n}\n.sale-info {\n    background-color: #F7F6F6;\n    margin: 10px 5px 10px 10px;\n    width: 45%;\n    display: inline-block;\n}\n.sale-font {\n    font-size: 16px;\n}\n.dis-blk {\n    display: block;\n}\n.font-red {\n    color:red;\n}\n.font-l {\n    font-size: 18px;\n}\n.w-full {\n  width:100%;\n}\n.danger-text {\n  color:red;\n}\n", "", {"version":3,"sources":["/./src/components/home.vue?19d6c76c"],"names":[],"mappings":";AA4QA;IACA,0BAAA;IACA,qBAAA;CACA;AACA;IACA,eAAA;CACA;AACA;IACA,YAAA;IACA,aAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;IACA,iCAAA;CACA;AACA;IACA,sBAAA;CACA;AACA;IACA,4BAAA;CACA;;AAEA;IACA,YAAA;IACA,aAAA;IACA,sBAAA;CACA;AACA;IACA,iCAAA;IACA,aAAA;CACA;AACA;IACA,cAAA;CACA;AACA;IACA,eAAA;IACA,mBAAA;IACA,YAAA;IACA,aAAA;IACA,YAAA;IACA,WAAA;IACA,WAAA;CACA;AACA;IACA,YAAA;IACA,cAAA;CACA;AACA;IACA,sBAAA;IACA,mBAAA;IACA,YAAA;IACA,0BAAA;CACA;AACA;IACA,0BAAA;CACA;AACA;IACA,uCAAA;CACA;AACA;IACA,YAAA;IACA,aAAA;CACA;AACA;IACA,mBAAA;CACA;AACA;IACA,kBAAA;CACA;AACA;IACA,cAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;IACA,kBAAA;CACA;AACA;IACA,oBAAA;CACA;AACA;IACA,mBAAA;CACA;AACA;IACA,kBAAA;CACA;AACA;IACA,wBAAA;CACA;AACA;IACA,WAAA;CACA;AACA;IACA,kBAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;IACA,sBAAA;IACA,YAAA;IACA,aAAA;IACA,sBAAA;IACA,YAAA;CACA;AACA;IACA,YAAA;IACA,aAAA;CACA;AACA;IACA,0BAAA;IACA,2BAAA;IACA,WAAA;IACA,sBAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;IACA,eAAA;CACA;AACA;IACA,UAAA;CACA;AACA;IACA,gBAAA;CACA;AACA;EACA,WAAA;CACA;AACA;EACA,UAAA;CACA","file":"home.vue","sourcesContent":["<template >\n<div id=\"shouye\">\n<!--顶部搜索-->\n<div class=\"search-bar\">\n    <div class=\"search-list\">\n      <img src=\"../assets/img/List.png\" class=\"nav-icon\">\n    </div>\n    <div class=\"search-input\">\n        <div class=\"search-img\">\n            <img src=\"../assets/img/search01.png\">\n        </div>\n        <div>\n            <input class=\"weui_input\" type=\"search\" placeholder=\"请输入商品\"/>\n        </div>\n        <div class=\"clear-both\"></div>\n    </div>\n</div>\n<!--图片轮播-->\n<div class=\"show\">\n    <div>\n        <img :src=\"slideUrl\">\n    </div>\n    <div class=\" show-icon\" :style=\"{width: showWidth+'px'}\" >\n        <div style=\"margin:0 auto;\" id=\"spanCnt\">\n            <div class=\"clear-both\"></div>\n        </div>\n    </div>       \n</div>\n<!--小分类-->\n<div class=\"weui_grids m-t-sm bgc-white w-full\">\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"../assets/img/show02.jpg\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            汤料组合\n        </p>\n    </a>\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"../assets/img/show01.jpeg\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            家庭常用\n        </p>\n    </a>\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"../assets/img/show03.jpeg\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            办公常用\n        </p>\n    </a>\n</div>\n<!--特约专场-->\n<div class=\"weui_cells sale\" >\n    <div class=\"weui_cell\">\n        <div class=\"weui_cell_bd weui_cell_primary\">\n            <p class=\"sale-p\">特价专场</p>\n        </div>\n        <div class=\"weui_cell_ft\">\n            <div class=\"cnt-area\" v-show=\"showCntDown\">\n                <span class=\"pd-r-sm\">距离结束还有</span>\n                <span class=\"cnt text-center m-r-xm\">{{currentHours}}</span>:\n                <span class=\"cnt text-center m-r-xm\">{{currentMinutes}}</span>:\n                <span class=\"cnt text-center m-r-xm\">{{currentSeconds}}</span>\n            </div>\n            <div class=\"cnt-area danger-text\" v-else>已结束</div>\n        </div>\n    </div>\n</div>\n<!--特约专场缩略图-->\n<div class=\"sale-info\" v-for=\"sale in saleTab\" @click=\"goToDetails(sale.name,sale.price,sale.url)\">\n    <div class=\"sale-img\">\n        <img :src=\"sale.url\">\n    </div>\n    <div class=\"sale-font pd-l-sm pd-r-ssm\">\n        <span class=\"sale-font-m pd-r-sm\">{{sale.name}}</span>\n        <span class=\"sale-font-m \">{{sale.des}}</span>\n        <span class=\"dis-blk font-red font-l\">¥{{sale.price}}</span> \n        <a href=\"#\" v-link=\"{path:'http://localhost:3000/#!/details'}\">测试</a>\n   </div>      \n</div>\n\n<!--热销推荐-->\n<div class=\"weui_cells sale\" >\n    <div class=\"weui_cell\">\n        <div class=\"weui_cell_bd weui_cell_primary\">\n            <p class=\"sale-p\">特约推荐</p>\n        </div>\n    </div>\n</div>\n<div class=\"sale-info\" v-for=\"sale in saleTab\">\n    <div class=\"sale-img\">\n        <img :src=\"sale.url\">\n    </div>\n    <div class=\"sale-font pd-l-sm pd-r-ssm\">\n        <span class=\"sale-font-m pd-r-sm\">{{sale.name}}</span>\n        <span class=\"sale-font-m \">{{sale.des}}</span>\n        <span class=\"dis-blk font-red font-l\">¥{{sale.price}}</span> \n   </div>      \n</div>\n\n<navbtm></navbtm>\n\n</div>\n</template>\n\n<script>\nimport navbtm from './navBtm.vue'\n  export default {\n\n  data () {\n  \treturn {\n  \t\tshowImg:[\n            {\n              name:'高级汤料',\n              des:'你还不来买我吗！',\n              url:'../assets/img/health02.jpg'\n            },\n            {\n              name:'家用汤料',\n              des:　'你在我心中是最美',\n              url:'../assets/img/health01.jpg',\n            },\n            {\n              name:'养生花茶',\n              des:'拒绝春日绵绵好睡眠花茶250g',\n              url:'../assets/img/health03.png'\n            }\n      ],\n      saleTab:[\n            {\n              name:'宁夏枸杞',\n              des:'宁安堡中宁枸杞250g',\n              price:22.50,\n              url:'../assets/img/gouqi.png'\n            },\n            {\n              name:'忆江南',\n              des:'一级碧螺春礼盒250g',\n              price:29.6,\n              url: '../assets/img/tea.png'\n            }\n      ],\n        slideUrl:'',\n        currentIndex:0,\n        count:0,\n        circles:[],\n        currentHours:null,\n        currentMinutes:null,\n        currentSeconds:null,\n        cnt:0,\n        leftTime:null,\n        showCntDown:true\n  \t}\n  },\n  components: {\n        navbtm\n  },\n  ready () {\n\n    this.slideUrl=this.showImg[this.currentIndex].url\n    let imgCnt=this.showImg.length\n    this.count=imgCnt\n    let fragmentHtml=\" \"\n    let parentNode=document.getElementById('spanCnt')\n\n    //动态添加幻灯片的小圆圈\n    for(let i=0;i<imgCnt;i++){\n      fragmentHtml+='<span>'+ '</span>'\n    }\n    parentNode.innerHTML=fragmentHtml\n    //设置小圆圈的状态\n    let spanNodes=parentNode.getElementsByTagName(\"span\")\n        this.circles=spanNodes\n        spanNodes[0].className='active'\n\n    for(let i=1;i<imgCnt;i++){\n       spanNodes[i].className='positive'\n    }\n    this.waitForNext()\n\n    //特卖场倒计时\n    let date = new Date()\n    let y=date.getFullYear()\n    let month=date.getMonth()\n    let day=date.getDate()\n    let h=date.getHours()\n    let endH=17\n\n      let nowTimeStamp=(date.getTime())/1000\n      let endDate = new Date(y,month,day,endH,0,0)\n      let endTimeStamp = (endDate.getTime())/1000\n      this.leftTime = endTimeStamp - nowTimeStamp\n      if(this.leftTime > 0){\n        this.showCountDown()\n      }else{\n        this.showCntDown=false\n      }\n    this.$watch('currentSeconds',function(){\n      if(this.leftTime <= 0) {\n        this.showCntDown=false\n      }\n    })\n  },\n  methods: {\n      waitForNext() {\n        setInterval(this.next,1000 * 3) \n      },\n      next() {\n        this.currentIndex+=1\n        if(this.currentIndex >= this.count){\n          this.currentIndex=0\n        }\n        this.handleImg(this.currentIndex)\n      },\n      handleImg(index) {\n        this.slideUrl=this.showImg[index].url\n        this.circles[index].className='active'\n        for(let i=0;i<this.count;i++){\n          if(i!==index){\n            this.circles[i].className='positive'\n          }\n        }\n      },\n      showCountDown() {\n          setInterval(this.countDown,1000)\n      },\n      countDown() {\n         let leftSeconds = this.leftTime\n         let leftMinutes = leftSeconds/60\n         let leftHour = Math.floor(leftSeconds/3600)\n         let minutes = Math.floor(leftMinutes - leftHour*60)\n         let seconds = Math.floor(leftSeconds - leftHour*3600 - minutes*60)\n         this.leftTime-=1\n         if(parseInt(leftHour)<10) {\n          leftHour='0'+leftHour\n          // parseInt(leftHour)\n         }\n         if(parseInt(minutes)<10){\n          minutes='0'+minutes\n          // parseInt(minutes)\n         }\n         if(parseInt(seconds)<10){\n          seconds='0'+seconds\n          // parseInt(seconds)\n         }\n         this.currentHours=leftHour\n         this.currentMinutes=minutes\n         this.currentSeconds=seconds\n    },\n    goToDetails(name,url,price) {\n        this.$route.router.go({name:'details',params:{name:name,imgUrl:url,price:price}})\n    },\n},\n  computed: {\n    showWidth () {\n      return this.showImg.length*25\n    }\n  }\n}\n\n\n</script>\n\n<style>\n#shouye {\n    background-color: #E0E0E0;\n    padding-bottom: 60px;\n}\n#shouye .weui_navbar_item {\n    padding: 5px 0;\n}\n.nav-icon{\n    width: 20px;\n    height: 20px;\n}\n.main-navbar span{\n    font-size: 10px;\n}\n.search-bar{\n    background-color: rgb(9,204,123);\n}\n.search-bar div , .search-input div{\n    display: inline-block;\n}\n.search-list{\n    margin: 10px 30px 10px 20px;\n}\n\n.search-input img {\n    width: 15px;\n    height: 15px;\n    padding:5px 5px 0 5px;\n}\n.search-input {\n    background-color: rgb(4,188,111);\n    width: 250px;\n}\n::-webkit-input-placeholder {\n    color:#F1EDED;\n}\n.show span{\n    display: block;\n    border-radius: 50%;   \n    width: 15px;\n    height: 15px;\n    float: left;\n    margin:4px;\n    z-index: 2;\n}\n.show img{\n    width: 100%;\n    height: 200px;\n}\n.show-icon {\n    /*margin-top: -30px;*/\n    position: relative;\n    width: 75px;\n    margin: -30px auto 0 auto;\n}\n.active{\n    background-color: #F7F7F7;\n}\n.positive{\n    background-color: rgba(255,255,255,.5);\n}\n.cate-grid.weui_grid_icon{\n    width: 60px;\n    height: 60px;\n}\n.cate-grid img {\n    border-radius: 50%;\n}\n.no-pd-btm.weui_grid{\n    padding-bottom: 0;\n}\n.no-pd-btm p {\n    color:#6D6B6B;\n}\n.m-t-sm {\n    margin-top: 9px;\n}\n.m-r-xm {\n    margin-right: 5px;\n}\n.pd-r-sm {\n    padding-right: 10px;\n}\n.pd-r-ssm {\n    padding-right: 5px;\n}\n.pd-l-sm {\n    padding-left: 5px;\n}\n.bgc-white {\n    background-color: white;\n}\n.sale-p{\n    margin:5px;\n}\n.cnt-area{\n    line-height: 30px;\n}\n.cnt-area span {\n    font-size: 18px;\n}\n.cnt {\n    display: inline-block;\n    width: 30px;\n    height: 30px;\n    background-color: red;\n    color:white;\n}\n.sale-img img {\n    width: 100%;\n    height: auto;\n}\n.sale-info {\n    background-color: #F7F6F6;\n    margin: 10px 5px 10px 10px;\n    width: 45%;\n    display: inline-block;\n}\n.sale-font {\n    font-size: 16px;\n}\n.dis-blk {\n    display: block;\n}\n.font-red {\n    color:red;\n}\n.font-l {\n    font-size: 18px;\n}\n.w-full {\n  width:100%;\n}\n.danger-text {\n  color:red;\n}\n</style>"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -12908,121 +12908,20 @@
 
 /***/ },
 /* 10 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	// <template >
-	// <div id="shouye">
-	// <!--顶部搜索-->
-	// <div class="search-bar">
-	//     <div class="search-list">
-	//       <img src="../assets/img/List.png" class="nav-icon">
-	//     </div>
-	//     <div class="search-input">
-	//         <div class="search-img">
-	//             <img src="../assets/img/search01.png">
-	//         </div>
-	//         <div>
-	//             <input class="weui_input" type="search" placeholder="请输入商品"/>
-	//         </div>
-	//         <div class="clear-both"></div>
-	//     </div>
-	// </div>
-	// <!--图片轮播-->
-	// <div class="show">
-	//     <div>
-	//         <img :src="slideUrl">
-	//     </div>
-	//     <div class=" show-icon" :style="{width: showWidth+'px'}" >
-	//         <div style="margin:0 auto;" id="spanCnt">
-	//             <div class="clear-both"></div>
-	//         </div>
-	//     </div>      
-	// </div>
-	// <!--小分类-->
-	// <div class="weui_grids m-t-sm bgc-white w-full">
-	//     <a href="javascript:;" class="weui_grid no-pd-btm ">
-	//         <div class="weui_grid_icon cate-grid">
-	//             <img src="../assets/img/show02.jpg" >
-	//         </div>
-	//         <p class="weui_grid_label">
-	//             汤料组合
-	//         </p>
-	//     </a>
-	//     <a href="javascript:;" class="weui_grid no-pd-btm ">
-	//         <div class="weui_grid_icon cate-grid">
-	//             <img src="../assets/img/show01.jpeg" >
-	//         </div>
-	//         <p class="weui_grid_label">
-	//             家庭常用
-	//         </p>
-	//     </a>
-	//     <a href="javascript:;" class="weui_grid no-pd-btm ">
-	//         <div class="weui_grid_icon cate-grid">
-	//             <img src="../assets/img/show03.jpeg" >
-	//         </div>
-	//         <p class="weui_grid_label">
-	//             办公常用
-	//         </p>
-	//     </a>
-	// </div>
-	// <!--特约专场-->
-	// <div class="weui_cells sale" >
-	//     <div class="weui_cell">
-	//         <div class="weui_cell_bd weui_cell_primary">
-	//             <p class="sale-p">特价专场</p>
-	//         </div>
-	//         <div class="weui_cell_ft">
-	//             <div class="cnt-area" v-show="showCntDown">
-	//                 <span class="pd-r-sm">距离结束还有</span>
-	//                 <span class="cnt text-center m-r-xm">{{currentHours}}</span>:
-	//                 <span class="cnt text-center m-r-xm">{{currentMinutes}}</span>:
-	//                 <span class="cnt text-center m-r-xm">{{currentSeconds}}</span>
-	//             </div>
-	//             <div class="cnt-area danger-text" v-else>已结束</div>
-	//         </div>
-	//     </div>
-	// </div>
-	// <!--特约专场缩略图-->
-	// <div class="sale-info" v-for="sale in saleTab" @click="goToDetails()">
-	//     <div class="sale-img">
-	//         <img :src="sale.url">
-	//     </div>
-	//     <div class="sale-font pd-l-sm pd-r-ssm">
-	//         <span class="sale-font-m pd-r-sm">{{sale.name}}</span>
-	//         <span class="sale-font-m ">{{sale.des}}</span>
-	//         <span class="dis-blk font-red font-l">¥{{sale.price}}</span>
-	//         <a href="#" v-link="{path:'http://localhost:3000/#!/details'}">测试</a>
-	//    </div>     
-	// </div>
-	//
-	// <!--热销推荐-->
-	// <div class="weui_cells sale" >
-	//     <div class="weui_cell">
-	//         <div class="weui_cell_bd weui_cell_primary">
-	//             <p class="sale-p">特约推荐</p>
-	//         </div>
-	//     </div>
-	// </div>
-	// <div class="sale-info" v-for="sale in saleTab">
-	//     <div class="sale-img">
-	//         <img :src="sale.url">
-	//     </div>
-	//     <div class="sale-font pd-l-sm pd-r-ssm">
-	//         <span class="sale-font-m pd-r-sm">{{sale.name}}</span>
-	//         <span class="sale-font-m ">{{sale.des}}</span>
-	//         <span class="dis-blk font-red font-l">¥{{sale.price}}</span>
-	//    </div>     
-	// </div>
-	//
-	// </div>
-	// </template>
-	//
-	// <script>
+	
+	var _navBtm = __webpack_require__(72);
+	
+	var _navBtm2 = _interopRequireDefault(_navBtm);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
 	exports.default = {
 	  data: function data() {
 	    return {
@@ -13061,6 +12960,10 @@
 	      leftTime: null,
 	      showCntDown: true
 	    };
+	  },
+	
+	  components: {
+	    navbtm: _navBtm2.default
 	  },
 	  ready: function ready() {
 	
@@ -13155,9 +13058,8 @@
 	      this.currentMinutes = minutes;
 	      this.currentSeconds = seconds;
 	    },
-	    goToDetails: function goToDetails(name, des, price) {
-	
-	      this.$route.router.go({ name: 'details' });
+	    goToDetails: function goToDetails(name, url, price) {
+	      this.$route.router.go({ name: 'details', params: { name: name, imgUrl: url, price: price } });
 	    }
 	  },
 	  computed: {
@@ -13308,12 +13210,122 @@
 	// }
 	// </style>
 	/* generated by vue-loader */
+	// <template >
+	// <div id="shouye">
+	// <!--顶部搜索-->
+	// <div class="search-bar">
+	//     <div class="search-list">
+	//       <img src="../assets/img/List.png" class="nav-icon">
+	//     </div>
+	//     <div class="search-input">
+	//         <div class="search-img">
+	//             <img src="../assets/img/search01.png">
+	//         </div>
+	//         <div>
+	//             <input class="weui_input" type="search" placeholder="请输入商品"/>
+	//         </div>
+	//         <div class="clear-both"></div>
+	//     </div>
+	// </div>
+	// <!--图片轮播-->
+	// <div class="show">
+	//     <div>
+	//         <img :src="slideUrl">
+	//     </div>
+	//     <div class=" show-icon" :style="{width: showWidth+'px'}" >
+	//         <div style="margin:0 auto;" id="spanCnt">
+	//             <div class="clear-both"></div>
+	//         </div>
+	//     </div>      
+	// </div>
+	// <!--小分类-->
+	// <div class="weui_grids m-t-sm bgc-white w-full">
+	//     <a href="javascript:;" class="weui_grid no-pd-btm ">
+	//         <div class="weui_grid_icon cate-grid">
+	//             <img src="../assets/img/show02.jpg" >
+	//         </div>
+	//         <p class="weui_grid_label">
+	//             汤料组合
+	//         </p>
+	//     </a>
+	//     <a href="javascript:;" class="weui_grid no-pd-btm ">
+	//         <div class="weui_grid_icon cate-grid">
+	//             <img src="../assets/img/show01.jpeg" >
+	//         </div>
+	//         <p class="weui_grid_label">
+	//             家庭常用
+	//         </p>
+	//     </a>
+	//     <a href="javascript:;" class="weui_grid no-pd-btm ">
+	//         <div class="weui_grid_icon cate-grid">
+	//             <img src="../assets/img/show03.jpeg" >
+	//         </div>
+	//         <p class="weui_grid_label">
+	//             办公常用
+	//         </p>
+	//     </a>
+	// </div>
+	// <!--特约专场-->
+	// <div class="weui_cells sale" >
+	//     <div class="weui_cell">
+	//         <div class="weui_cell_bd weui_cell_primary">
+	//             <p class="sale-p">特价专场</p>
+	//         </div>
+	//         <div class="weui_cell_ft">
+	//             <div class="cnt-area" v-show="showCntDown">
+	//                 <span class="pd-r-sm">距离结束还有</span>
+	//                 <span class="cnt text-center m-r-xm">{{currentHours}}</span>:
+	//                 <span class="cnt text-center m-r-xm">{{currentMinutes}}</span>:
+	//                 <span class="cnt text-center m-r-xm">{{currentSeconds}}</span>
+	//             </div>
+	//             <div class="cnt-area danger-text" v-else>已结束</div>
+	//         </div>
+	//     </div>
+	// </div>
+	// <!--特约专场缩略图-->
+	// <div class="sale-info" v-for="sale in saleTab" @click="goToDetails(sale.name,sale.price,sale.url)">
+	//     <div class="sale-img">
+	//         <img :src="sale.url">
+	//     </div>
+	//     <div class="sale-font pd-l-sm pd-r-ssm">
+	//         <span class="sale-font-m pd-r-sm">{{sale.name}}</span>
+	//         <span class="sale-font-m ">{{sale.des}}</span>
+	//         <span class="dis-blk font-red font-l">¥{{sale.price}}</span>
+	//         <a href="#" v-link="{path:'http://localhost:3000/#!/details'}">测试</a>
+	//    </div>     
+	// </div>
+	//
+	// <!--热销推荐-->
+	// <div class="weui_cells sale" >
+	//     <div class="weui_cell">
+	//         <div class="weui_cell_bd weui_cell_primary">
+	//             <p class="sale-p">特约推荐</p>
+	//         </div>
+	//     </div>
+	// </div>
+	// <div class="sale-info" v-for="sale in saleTab">
+	//     <div class="sale-img">
+	//         <img :src="sale.url">
+	//     </div>
+	//     <div class="sale-font pd-l-sm pd-r-ssm">
+	//         <span class="sale-font-m pd-r-sm">{{sale.name}}</span>
+	//         <span class="sale-font-m ">{{sale.des}}</span>
+	//         <span class="dis-blk font-red font-l">¥{{sale.price}}</span>
+	//    </div>     
+	// </div>
+	//
+	// <navbtm></navbtm>
+	//
+	// </div>
+	// </template>
+	//
+	// <script>
 
 /***/ },
 /* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "\n<div id=\"shouye\">\n<!--顶部搜索-->\n<div class=\"search-bar\">\n    <div class=\"search-list\">\n      <img src=\"" + __webpack_require__(12) + "\" class=\"nav-icon\">\n    </div>\n    <div class=\"search-input\">\n        <div class=\"search-img\">\n            <img src=\"" + __webpack_require__(13) + "\">\n        </div>\n        <div>\n            <input class=\"weui_input\" type=\"search\" placeholder=\"请输入商品\"/>\n        </div>\n        <div class=\"clear-both\"></div>\n    </div>\n</div>\n<!--图片轮播-->\n<div class=\"show\">\n    <div>\n        <img :src=\"slideUrl\">\n    </div>\n    <div class=\" show-icon\" :style=\"{width: showWidth+'px'}\" >\n        <div style=\"margin:0 auto;\" id=\"spanCnt\">\n            <div class=\"clear-both\"></div>\n        </div>\n    </div>       \n</div>\n<!--小分类-->\n<div class=\"weui_grids m-t-sm bgc-white w-full\">\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"" + __webpack_require__(14) + "\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            汤料组合\n        </p>\n    </a>\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"" + __webpack_require__(15) + "\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            家庭常用\n        </p>\n    </a>\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"" + __webpack_require__(16) + "\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            办公常用\n        </p>\n    </a>\n</div>\n<!--特约专场-->\n<div class=\"weui_cells sale\" >\n    <div class=\"weui_cell\">\n        <div class=\"weui_cell_bd weui_cell_primary\">\n            <p class=\"sale-p\">特价专场</p>\n        </div>\n        <div class=\"weui_cell_ft\">\n            <div class=\"cnt-area\" v-show=\"showCntDown\">\n                <span class=\"pd-r-sm\">距离结束还有</span>\n                <span class=\"cnt text-center m-r-xm\">{{currentHours}}</span>:\n                <span class=\"cnt text-center m-r-xm\">{{currentMinutes}}</span>:\n                <span class=\"cnt text-center m-r-xm\">{{currentSeconds}}</span>\n            </div>\n            <div class=\"cnt-area danger-text\" v-else>已结束</div>\n        </div>\n    </div>\n</div>\n<!--特约专场缩略图-->\n<div class=\"sale-info\" v-for=\"sale in saleTab\" @click=\"goToDetails()\">\n    <div class=\"sale-img\">\n        <img :src=\"sale.url\">\n    </div>\n    <div class=\"sale-font pd-l-sm pd-r-ssm\">\n        <span class=\"sale-font-m pd-r-sm\">{{sale.name}}</span>\n        <span class=\"sale-font-m \">{{sale.des}}</span>\n        <span class=\"dis-blk font-red font-l\">¥{{sale.price}}</span> \n        <a href=\"#\" v-link=\"{path:'http://localhost:3000/#!/details'}\">测试</a>\n   </div>      \n</div>\n\n<!--热销推荐-->\n<div class=\"weui_cells sale\" >\n    <div class=\"weui_cell\">\n        <div class=\"weui_cell_bd weui_cell_primary\">\n            <p class=\"sale-p\">特约推荐</p>\n        </div>\n    </div>\n</div>\n<div class=\"sale-info\" v-for=\"sale in saleTab\">\n    <div class=\"sale-img\">\n        <img :src=\"sale.url\">\n    </div>\n    <div class=\"sale-font pd-l-sm pd-r-ssm\">\n        <span class=\"sale-font-m pd-r-sm\">{{sale.name}}</span>\n        <span class=\"sale-font-m \">{{sale.des}}</span>\n        <span class=\"dis-blk font-red font-l\">¥{{sale.price}}</span> \n   </div>      \n</div>\n\n</div>\n";
+	module.exports = "\n<div id=\"shouye\">\n<!--顶部搜索-->\n<div class=\"search-bar\">\n    <div class=\"search-list\">\n      <img src=\"" + __webpack_require__(12) + "\" class=\"nav-icon\">\n    </div>\n    <div class=\"search-input\">\n        <div class=\"search-img\">\n            <img src=\"" + __webpack_require__(13) + "\">\n        </div>\n        <div>\n            <input class=\"weui_input\" type=\"search\" placeholder=\"请输入商品\"/>\n        </div>\n        <div class=\"clear-both\"></div>\n    </div>\n</div>\n<!--图片轮播-->\n<div class=\"show\">\n    <div>\n        <img :src=\"slideUrl\">\n    </div>\n    <div class=\" show-icon\" :style=\"{width: showWidth+'px'}\" >\n        <div style=\"margin:0 auto;\" id=\"spanCnt\">\n            <div class=\"clear-both\"></div>\n        </div>\n    </div>       \n</div>\n<!--小分类-->\n<div class=\"weui_grids m-t-sm bgc-white w-full\">\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"" + __webpack_require__(14) + "\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            汤料组合\n        </p>\n    </a>\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"" + __webpack_require__(15) + "\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            家庭常用\n        </p>\n    </a>\n    <a href=\"javascript:;\" class=\"weui_grid no-pd-btm \">\n        <div class=\"weui_grid_icon cate-grid\">\n            <img src=\"" + __webpack_require__(16) + "\" >\n        </div>\n        <p class=\"weui_grid_label\">\n            办公常用\n        </p>\n    </a>\n</div>\n<!--特约专场-->\n<div class=\"weui_cells sale\" >\n    <div class=\"weui_cell\">\n        <div class=\"weui_cell_bd weui_cell_primary\">\n            <p class=\"sale-p\">特价专场</p>\n        </div>\n        <div class=\"weui_cell_ft\">\n            <div class=\"cnt-area\" v-show=\"showCntDown\">\n                <span class=\"pd-r-sm\">距离结束还有</span>\n                <span class=\"cnt text-center m-r-xm\">{{currentHours}}</span>:\n                <span class=\"cnt text-center m-r-xm\">{{currentMinutes}}</span>:\n                <span class=\"cnt text-center m-r-xm\">{{currentSeconds}}</span>\n            </div>\n            <div class=\"cnt-area danger-text\" v-else>已结束</div>\n        </div>\n    </div>\n</div>\n<!--特约专场缩略图-->\n<div class=\"sale-info\" v-for=\"sale in saleTab\" @click=\"goToDetails(sale.name,sale.price,sale.url)\">\n    <div class=\"sale-img\">\n        <img :src=\"sale.url\">\n    </div>\n    <div class=\"sale-font pd-l-sm pd-r-ssm\">\n        <span class=\"sale-font-m pd-r-sm\">{{sale.name}}</span>\n        <span class=\"sale-font-m \">{{sale.des}}</span>\n        <span class=\"dis-blk font-red font-l\">¥{{sale.price}}</span> \n        <a href=\"#\" v-link=\"{path:'http://localhost:3000/#!/details'}\">测试</a>\n   </div>      \n</div>\n\n<!--热销推荐-->\n<div class=\"weui_cells sale\" >\n    <div class=\"weui_cell\">\n        <div class=\"weui_cell_bd weui_cell_primary\">\n            <p class=\"sale-p\">特约推荐</p>\n        </div>\n    </div>\n</div>\n<div class=\"sale-info\" v-for=\"sale in saleTab\">\n    <div class=\"sale-img\">\n        <img :src=\"sale.url\">\n    </div>\n    <div class=\"sale-font pd-l-sm pd-r-ssm\">\n        <span class=\"sale-font-m pd-r-sm\">{{sale.name}}</span>\n        <span class=\"sale-font-m \">{{sale.des}}</span>\n        <span class=\"dis-blk font-red font-l\">¥{{sale.price}}</span> \n   </div>      \n</div>\n\n<navbtm></navbtm>\n\n</div>\n";
 
 /***/ },
 /* 12 */
@@ -13415,7 +13427,7 @@
 /* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "\n  <div id=\"details\">\n\t<nav class=\"text-center\">\n\t\t<div class=\"pull-left big-font pd-l-m\">&lt;</div>\n\t\t<div class=\"pd-r-m\">商品详情</div>\n\t\t<div class=\"pull-right\">\n\t\t\t<img src=\"" + __webpack_require__(52) + "\" class=\"nav-img\">\n\t\t</div>\n\t\t<div class=\"clear-both\"></div>\n\t</nav>\n\t<div class=\"banner\">\n\t\t<carousel></carousel>\n\t\t<div class=\"pd-l-m bgc-white\">养生花茶  拒绝春日绵绵好睡眠花茶250g</div>\n\t\t<p class=\"pd-l-m danger-text bgc-white\">¥100</p>\n\t\t<div class=\"banner-font bgc-white\">\n\t\t\t<span class=\"pull-left pd-l-m\">原价：¥ 120</span>\n\t\t\t<span class=\"pull-right pd-r-m\">运费： ¥ 12</span>\n\t\t\t<div class=\"clear-both\"></div>\n\t\t</div>\n\t\t<div class=\"bgc-white m-t-sm\">\n\t\t\t<p class=\"pd-l-m\">属性： 寒性</p>\n\t\t\t<p class=\"pd-l-m\">产地： 珠穆朗玛峰</p>\n\t\t\t<p class=\"pd-l-m pd-r-m\">功效： 二羟丙茶碱注射液（又叫喘定）：适用于治疗支气管哮喘、喘息型支气管炎、阻塞性肺气肿等以缓解喘息症状。也用于心源性肺水肿引起的哮喘</p>\n\t\t\t<p class=\"pd-l-m pd-r-m\">用法： 二羟丙茶碱注射液（又叫喘定）：适用于治疗支气管哮喘、喘息型支气管炎、阻塞性肺气肿等以缓解喘息症状。也用于心源性肺水肿引起的哮喘</p>\n\t\t</div>\n\t</div>\n\t\n  </div>\n";
+	module.exports = "\n  <div id=\"details\">\n\t<nav class=\"text-center\">\n\t\t<div class=\"pull-left big-font pd-l-m\" @click=\"goBack\">&lt;</div>\n\t\t<div class=\"pd-r-m\">商品详情</div>\n\t\t<div class=\"pull-right\">\n\t\t\t<img src=\"" + __webpack_require__(52) + "\" class=\"nav-img\">\n\t\t</div>\n\t\t<span class=\"danger-text cart-cnt\" v-show=\"cartCnt!==0\">{{cartCnt}}</span>\n\t\t<div class=\"clear-both\"></div>\n\t</nav>\n\t<div class=\"banner\">\n\t\t<carousel></carousel>\n\t\t<div class=\"pd-l-m bgc-white\">{{name}} 拒绝春日绵绵好睡眠花茶250g</div>\n\t\t<p class=\"pd-l-m danger-text bgc-white\">¥{{price}}</p>\n\t\t<div class=\"banner-font bgc-white\">\n\t\t\t<span class=\"pull-left pd-l-m gray-font ps-r\">原价：¥ 120\n\t\t\t\t<hr class=\"ps-a del-line\"/>\n\t\t\t</span>\n\t\t\t<span class=\"pull-right pd-r-m\">运费： ¥ 12</span>\n\t\t\t<div class=\"clear-both\"></div>\n\t\t</div>\n\t\t<div class=\"bgc-white m-t-sm\">\n\t\t\t<p class=\"pd-l-m\">属性： 寒性</p>\n\t\t\t<p class=\"pd-l-m\">产地： 珠穆朗玛峰</p>\n\t\t\t<p class=\"pd-l-m pd-r-m\">功效： 二羟丙茶碱注射液（又叫喘定）：适用于治疗支气管哮喘、喘息型支气管炎、阻塞性肺气肿等以缓解喘息症状。也用于心源性肺水肿引起的哮喘</p>\n\t\t\t<p class=\"pd-l-m pd-r-m\">用法： 二羟丙茶碱注射液（又叫喘定）：适用于治疗支气管哮喘、喘息型支气管炎、阻塞性肺气肿等以缓解喘息症状。也用于心源性肺水肿引起的哮喘</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"weui_cells sale text-center gray-font\" >\n    \t\t---- 其他热销同款 ----\n\t</div>\n\t<div class=\"sale-info\" v-for=\"sale in saleTab\">\n\t    <div class=\"sale-img\">\n\t        <img :src=\"sale.url\">\n\t    </div>\t\n\t    <div class=\"sale-font pd-l-sm pd-r-ssm\">\n\t        <span class=\"sale-font-m pd-r-sm\">{{sale.name}}</span>\n\t        <span class=\"sale-font-m \">{{sale.des}}</span>\n\t        <span class=\"dis-blk font-red font-l\">¥{{sale.price}}</span> \n\t   </div>      \n\t</div>\n\n  </div>\n";
 
 /***/ },
 /* 51 */
@@ -13434,8 +13446,43 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
+		data: function data() {
+			return {
+				saleTab: [{
+					name: '宁夏枸杞',
+					des: '宁安堡中宁枸杞250g',
+					price: 22.50,
+					url: '../assets/img/gouqi.png'
+				}, {
+					name: '忆江南',
+					des: '一级碧螺春礼盒250g',
+					price: 29.6,
+					url: '../assets/img/tea.png'
+				}],
+				name: null,
+				price: null,
+				imgUrl: null
+			};
+		},
+		ready: function ready() {
+			this.name = $route.params.name;
+			this.price = this.$route.params.price;
+			this.imgUrl = this.$route.params.imgUrl;
+			console.log(this.name);
+		},
+	
+		methods: {
+			goBack: function goBack() {
+				window.history.back();
+			}
+		},
 		components: {
 			carousel: _carousel2.default
+		},
+		computed: {
+			cartCnt: function cartCnt() {
+				return sessionStorage.length;
+			}
 		}
 	};
 	// </script>
@@ -13443,19 +13490,22 @@
 	// <template>
 	//   <div id="details">
 	// 	<nav class="text-center">
-	// 		<div class="pull-left big-font pd-l-m">&lt;</div>
+	// 		<div class="pull-left big-font pd-l-m" @click="goBack">&lt;</div>
 	// 		<div class="pd-r-m">商品详情</div>
 	// 		<div class="pull-right">
 	// 			<img src="../assets/img/cart.png" class="nav-img">
 	// 		</div>
+	// 		<span class="danger-text cart-cnt" v-show="cartCnt!==0">{{cartCnt}}</span>
 	// 		<div class="clear-both"></div>
 	// 	</nav>
 	// 	<div class="banner">
 	// 		<carousel></carousel>
-	// 		<div class="pd-l-m bgc-white">养生花茶  拒绝春日绵绵好睡眠花茶250g</div>
-	// 		<p class="pd-l-m danger-text bgc-white">¥100</p>
+	// 		<div class="pd-l-m bgc-white">{{name}} 拒绝春日绵绵好睡眠花茶250g</div>
+	// 		<p class="pd-l-m danger-text bgc-white">¥{{price}}</p>
 	// 		<div class="banner-font bgc-white">
-	// 			<span class="pull-left pd-l-m">原价：¥ 120</span>
+	// 			<span class="pull-left pd-l-m gray-font ps-r">原价：¥ 120
+	// 				<hr class="ps-a del-line"/>
+	// 			</span>
 	// 			<span class="pull-right pd-r-m">运费： ¥ 12</span>
 	// 			<div class="clear-both"></div>
 	// 		</div>
@@ -13465,6 +13515,20 @@
 	// 			<p class="pd-l-m pd-r-m">功效： 二羟丙茶碱注射液（又叫喘定）：适用于治疗支气管哮喘、喘息型支气管炎、阻塞性肺气肿等以缓解喘息症状。也用于心源性肺水肿引起的哮喘</p>
 	// 			<p class="pd-l-m pd-r-m">用法： 二羟丙茶碱注射液（又叫喘定）：适用于治疗支气管哮喘、喘息型支气管炎、阻塞性肺气肿等以缓解喘息症状。也用于心源性肺水肿引起的哮喘</p>
 	// 		</div>
+	// 	</div>
+	//
+	// 	<div class="weui_cells sale text-center gray-font" >
+	//     		---- 其他热销同款 ----
+	// 	</div>
+	// 	<div class="sale-info" v-for="sale in saleTab">
+	// 	    <div class="sale-img">
+	// 	        <img :src="sale.url">
+	// 	    </div>	
+	// 	    <div class="sale-font pd-l-sm pd-r-ssm">
+	// 	        <span class="sale-font-m pd-r-sm">{{sale.name}}</span>
+	// 	        <span class="sale-font-m ">{{sale.des}}</span>
+	// 	        <span class="dis-blk font-red font-l">¥{{sale.price}}</span>
+	// 	   </div>     
 	// 	</div>
 	//
 	//   </div>
@@ -14178,6 +14242,18 @@
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"det-container\">\n    <div class=\"det-header\">\n        <span class=\"det-icon det-head-left\">回</span>\n        <span class=\"det-icon det-head-right\">享</span>\n    </div>\n    <div class=\"det-main\">\n\n        <h2 class=\"det-title\">\n            这里是标题这里是标题这里是标题fg\n        </h2>\n        <article class=\"det-article\">\n            <p>\n                啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将afg阿什来得及阿散井的理解啊速度dsf啊数量单价阿斯顿\n            </p>\n            <p>\n                啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿\n            </p>\n\n            <p>\n                啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿\n            </p>\n        </article>\n\n    </div>\n    <div class=\"det-foot\">\n        <div class=\"det-input\">\n            <input type=\"text\" placeholder=\"写评论...\" v-model=\"newTodo\" v-on:keyup.enter=\"addTodo\">\n        </div>\n        <div class=\"det-discuss\">\n            <div>\n                <span>{{ todos.length }}</span>\n                <span class=\"det-icon\">评</span>\n            </div>\n            <div>\n                <span>0</span>\n                <span class=\"det-icon\">赞</span>\n            </div>\n        </div>\n    </div>\n</div>\n";
+
+/***/ },
+/* 72 */
+/***/ function(module, exports) {
+
+	var __vue_script__, __vue_template__
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) {
+	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
+	}
+
 
 /***/ }
 /******/ ]);
