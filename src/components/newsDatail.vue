@@ -21,14 +21,7 @@
                     啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿
                 </p>
             </article>
-            <div>
-                <ul>
-                    <li v-for="todo in todos">
-                        <span>{{ todo.text }}</span>
-                        <button v-on:click="removeTodo($index)">X</button>
-                    </li>
-                </ul>
-            </div>
+
         </div>
         <div class="det-foot">
             <div class="det-input">

@@ -1,24 +1,7 @@
-<template>
-    <div class="news-header">资讯</div>
-    <div class="weui_navbar news-navbar">
-        <div class="weui_navbar_item weui_bar_item_on" v-for="sort in newsSort">
-            {{sort}}
-        </div>
-    </div>
-    <div class="news-list" >
-        <div class="news-list-cell" v-for="cellInfo in newsCell">
-            <a class="nl-img"><img :src="cellInfo.href" alt=""></a>
-            <div class="nl-info">
-            <h3>{{cellInfo.title}}</h3>
-            <p>{{cellInfo.info}}</p>
-            <time>{{cellInfo.time}}</time>
-            </div>
-        </div>
-    </div>
-
-</template>
 
 <script>
+    import carousel from "./carousel.vue";
+
     export default {
 
         data () {
@@ -52,9 +35,33 @@
                 alert('this.msg is' + this.msg)
             }
         },
+        components:{
+            carousel
+        }
     }
 
 </script>
+<template>
+    <div class="news-header">资讯</div>
+    <div class="weui_navbar news-navbar">
+        <div class="weui_navbar_item weui_bar_item_on" v-for="sort in newsSort">
+            {{sort}}
+        </div>
+    </div>
+    <carousel></carousel>
+    <div class="news-list" >
+        <div class="news-list-cell" v-for="cellInfo in newsCell">
+            <a class="nl-img"><img :src="cellInfo.href" alt=""></a>
+            <div class="nl-info">
+            <h3>{{cellInfo.title}}</h3>
+            <p>{{cellInfo.info}}</p>
+            <time>{{cellInfo.time}}</time>
+            </div>
+        </div>
+    </div>
+
+</template>
+
 
 <style>
     .news-header{
