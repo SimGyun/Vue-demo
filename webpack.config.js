@@ -26,7 +26,7 @@ module.exports = {
       loader: 'style!css!autoprefixer'
     }, {
       test: /\.(png|jpg|jpeg)$/,
-      loader: 'url-loader?limit=8192'
+      loader: 'url-loader'
     }, {
       test: /\.scss$/,
       loader: 'style!css!sass?sourceMap'

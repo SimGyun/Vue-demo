@@ -53,7 +53,5 @@
 </template>
 
 <style lang="sass">
-div{
-    background-color:#ddd;
-}
+
 </style>
