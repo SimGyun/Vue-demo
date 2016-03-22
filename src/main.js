@@ -1,13 +1,17 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import Validator from "vue-validator";
 import home from './components/home.vue';
 import details from './components/details.vue';
 import news from './components/news.vue';
 import newsDetail from './components/newsDatail.vue';
-import newsDiscuss from './components/newsDiscuss.vue'
+import newsDiscuss from './components/newsDiscuss.vue';
+import register from './components/register.vue';
 //install router
 Vue.use(Router);
-
+//路由
+Vue.use(Validator);
+//表单验证！
 var App = Vue.extend({});
 //routing
 var router = new Router();
@@ -32,12 +36,16 @@ router.map({
     "/newsDiscuss": {
         name: "newsDiscuss",
         component: newsDiscuss
+    },
+    "register":{
+        name:"register",
+        component:register
     }
 });
 
 router.redirect({
 
-    '*': '/newsDetail'
+    '*': '/register'
 });
 
 router.start(App, '#app');

@@ -36,19 +36,15 @@
                     <div class="det-list-time">{{todo.date}}</div>
                 </div>
             </a>
-        </div>
-        <div class="det-foot">
-            <div class="det-input">
-                <input type="text" placeholder="写评论..." v-model="newTodo" v-on:keyup.enter="addTodo">
-            </div>
-            <div class="det-discuss">
-                <div>
-                    <span>{{ todos.length}}</span>
-                    <span class="det-icon">评</span>
+            <div class="det-foot">
+                <div class="det-input">
+                    <input type="text" placeholder="写评论..." v-model="newTodo" v-on:keyup.enter="addTodo">
                 </div>
-                <div>
-                    <span>0</span>
-                    <span class="det-icon">赞</span>
+                <div class="det-discuss">
+                    <div>
+                        <span>{{ todos.length}}</span>
+                        <span class="det-icon">评</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -82,6 +78,19 @@
         position:absolute;
         right:10px;
         bottom:10px;
+    }
+    .det-discuss div{
+        float:right;
+        font-size:0;
+        width:100%;
+    }
+    .det-discuss span{
+        display:inline-block;
+        width:50%;
+        text-align:center;
+        height:52px;
+        font-size:12px;
+        line-height:52px;
     }
 }
 
