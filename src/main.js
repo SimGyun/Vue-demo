@@ -17,7 +17,7 @@ router.map({
         name: 'home',
         component: home
     },
-    '/details': {
+    '/details/:name/:price/:imgUrl': {
         name: 'details',
         component: details
     },
@@ -36,7 +36,8 @@ router.map({
 });
 
 router.redirect({
-    '*': '/newsDiscuss'
+
+    '*': '/home'
 });
 
 router.start(App, '#app');
