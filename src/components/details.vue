@@ -34,12 +34,12 @@
 	<div class="sale-info" v-for="sale in saleTab">
 	    <div class="sale-img">
 	        <img :src="sale.url">
-	    </div>	
+	    </div>
 	    <div class="sale-font pd-l-sm pd-r-ssm">
 	        <span class="sale-font-m pd-r-sm">{{sale.name}}</span>
 	        <span class="sale-font-m ">{{sale.des}}</span>
-	        <span class="dis-blk font-red font-l">¥{{sale.price}}</span> 
-	   </div>      
+	        <span class="dis-blk font-red font-l">¥{{sale.price}}</span>
+	   </div>
 	</div>
 
   </div>
@@ -69,7 +69,7 @@ export default {
 		}
 	},
 	ready () {
-		this.name=$route.params.name
+		this.name=this.$route.params.name
 		this.price=this.$route.params.price
 		this.imgUrl=this.$route.params.imgUrl
 		console.log(this.name)

@@ -23,7 +23,8 @@ module.exports = {
       loader: 'babel'
     }, {
       test: /\.css$/,
-      loader: 'style!css!autoprefixer'
+      loader: 'style!css'
+      // !autoprefixer ，mac下用不了
     }, {
       test: /\.(png|jpg|jpeg)$/,
       loader: 'url-loader'
@@ -42,7 +43,8 @@ module.exports = {
   // .vue的配置。需要单独出来配置
   vue: {
     loaders: {
-      css: 'style!css!autoprefixer'
+      css: 'style!css'
+      // !autoprefixer
     }
   },
   // plugins: [

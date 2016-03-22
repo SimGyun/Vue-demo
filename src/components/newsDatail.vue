@@ -1,11 +1,47 @@
+
+<script>
+    export default {
+
+        data () {
+            return {
+                newTodo:"",
+                todos:[],
+                laud:0
+
+            }
+        },
+        methods : {
+            addTodo () {
+                let text = this.newTodo.trim();
+                if(text){
+                    this.todos.push({text:text,date:new Date().toLocaleString()});
+                    this.newTodo="";
+                    if(localStorage.getItem("loaclTodo")){
+                        localStorage.setItem("loaclTodo",JSON.stringify(this.todos.concat(JSON.parse(localStorage.getItem("loaclTodo")))));
+                    }else{
+                        localStorage.setItem("loaclTodo",JSON.stringify(this.todos));
+                    }
+                }
+                this.$route.router.go({name:"newsDiscuss"});
+            },
+            goNews () {
+                this.$route.router.go({name:"news"});
+            }
+        },
+        ready () {
+            if(JSON.parse(localStorage.getItem("loaclTodo"))){
+                this.todos=this.todos.concat(JSON.parse(localStorage.getItem("loaclTodo")));
+            }
+        }
+    }
+</script>
 <template>
     <div class="det-container">
         <div class="det-header">
-            <span class="det-icon det-head-left">回</span>
-            <span class="det-icon det-head-right">享</span>
+            <span class="det-icon det-head-left" @click="goNews()">&lt;</span >
+            <span class="det-icon det-head-right">&epsilon;</span>
         </div>
         <div class="det-main">
-
             <h2 class="det-title">
                 这里是标题这里是标题这里是标题fg
             </h2>
@@ -16,24 +52,23 @@
                 <p>
                     啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿
                 </p>
-
                 <p>
-                    啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿
+                    啊速度加啊四的理解阿什的啦开始觉得 啦时刻都将阿什来得及阿散井的理解啊速度啊数量单价阿斯顿结束了
                 </p>
             </article>
 
         </div>
         <div class="det-foot">
             <div class="det-input">
-                <input type="text" placeholder="写评论..." v-model="newTodo" v-on:keyup.enter="addTodo">
+                <input type="text" placeholder="写评论..." v-model="newTodo" v-on:keyup.enter="addTodo()">
             </div>
             <div class="det-discuss">
-                <div>
+                <div @click="this.$route.router.go({name:'newsDiscuss'});">
                     <span>{{ todos.length }}</span>
                     <span class="det-icon">评</span>
                 </div>
-                <div>
-                    <span>0</span>
+                <div @click="laud++">
+                    <span>{{ laud }}</span>
                     <span class="det-icon">赞</span>
                 </div>
             </div>
@@ -41,48 +76,15 @@
     </div>
 </template>
 
-
-<script>
-    export default {
-
-        data () {
-            return {
-                newTodo:"",
-                todos:[{text:"还没有一条评论呢!快来添加吧！"}],
-
-            }
-        },
-        methods : {
-            addTodo () {
-                let text = this.newTodo.trim();
-                if(text){
-                    this.todos.push({text:text});
-                    this.newTodo="";
-                    sessionStorage.setItem("loaclTodo", this.todos);
-                    var aaa = sessionStorage.getItem("loaclTodo");
-                    console.log(JSON.stringify(aaa));
-                }
-            },
-            removeTodo (index) {
-                this.todos.splice(index,1);
-            }
-        }
-    }
-</script>
 <style>
-    *{
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
+
     .det-container{
-        background-color:#eee;
-        position: absolute;
+        position:absolute;
         left: 0;
+        top: 0;
         right: 0;
-        top:0;
-        bottom: 0;
-        z-index: -1;
+        bottom:0;
+        background-color: #eee;
 
     }
     .det-header{
@@ -91,30 +93,36 @@
         line-height: 42px;
         font-weight: 700;
         overflow:hidden;
+        position: fixed;
+        width: 100%;
     }
     .det-icon{
         display: block;
         height: 22px;
         line-height: 22px;
-        margin:10px 0;
     }
     .det-head-left{
         float: left;
+
     }
     .det-head-left,.det-head-right{
         width:30px;
+        text-align: center;
+        padding:10px 0;
     }
     .det-head-right{
         float: right;
     }
     .det-main{
-        padding: 20px;
+        padding: 42px 20px 50px;
+        background-color: #eee;
     }
     .det-title{
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
     .det-article{
         text-indent:2em;
+
     }
     .det-foot{
         position: absolute;

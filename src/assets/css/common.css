@@ -1,77 +1,103 @@
 * {
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
 }
+
+*:after,*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 #navbar-btm .weui_navbar_item {
     padding: 5px 0;
 }
-.nav-icon{
+
+.nav-icon {
     width: 20px;
     height: 20px;
 }
+
 #navbar-btm span {
-	font-size: 10px;
+    font-size: 10px;
 }
+
 .text-center {
-	text-align: center;
+    text-align: center;
 }
+
 .clear-both {
-	clear: both
+    clear: both
 }
+
 .pull-left {
-	float: left;
+    float: left;
 }
+
 .pd-r-m {
-	padding-right: 15px;
+    padding-right: 15px;
 }
+
 .pd-l-m {
-	padding-left: 15px;
+    padding-left: 15px;
 }
+
 .pull-right {
-	float: right;
+    float: right;
 }
+
 .big-font {
-	font-size: 18px;
+    font-size: 18px;
 }
+
 nav {
-	padding-bottom: 5px;	
+    padding-bottom: 5px;
 }
-.nav-img{
-	width:30px;
-	height: 30px;
-	position: absolute;
-	top: 0;
-	right: 10px; 
+
+.nav-img {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    right: 10px;
 }
+
 #details {
-	background-color: #E0E0E0;
-	padding-bottom: 75px;
+    background-color: #E0E0E0;
+    padding-bottom: 75px;
 }
-.banner img{
+
+.banner img {
     width: 100%;
     height: 200px;
 }
+
 .banner p {
-	font-size: 10px;
+    font-size: 10px;
 }
+
 .cart-cnt {
-	position: absolute;
-	top: 0px;
-	right: 10px;
-	margin-top: -7px;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    margin-top: -7px;
 }
+
 .gray-font {
-	color:#808080;
+    color: #808080;
 }
+
 .ps-a {
-	position: absolute;
+    position: absolute;
 }
+
 .ps-r {
-	position: relative;
+    position: relative;
 }
+
 .del-line {
-	position: absolute;
-	top: 40%;
-	width: 100%;
-	border: 1px solid #E66B6B
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    border: 1px solid #E66B6B
 }
