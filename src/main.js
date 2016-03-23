@@ -6,6 +6,7 @@ import news from './components/news.vue';
 import newsDetail from './components/newsDatail.vue';
 import newsDiscuss from './components/newsDiscuss.vue';
 import register from './components/register.vue';
+import trolley from './components/trolley.vue'
 
 //install router
 Vue.use(Router);
@@ -42,6 +43,10 @@ router.map({
     "register":{
         name:"register",
         component:register
+    },
+    'trolley':{
+        name:'trolley',
+        component:trolley
     }
 });
 
