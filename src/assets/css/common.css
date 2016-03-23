@@ -2,102 +2,297 @@
     padding: 0;
     margin: 0;
 }
-
-*:after,*:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+#shouye {
+    background-color: #E0E0E0;
+    padding-bottom: 60px;
 }
-
-#navbar-btm .weui_navbar_item {
+#shouye .weui_navbar_item {
     padding: 5px 0;
 }
-
-.nav-icon {
+.nav-icon{
     width: 20px;
     height: 20px;
 }
+.main-navbar span{
+    font-size: 10px;
+}
+.search-bar{
+    background-color: rgb(9,204,123);
+}
+.search-bar div , .search-input div{
+    display: inline-block;
+}
+.search-list{
+    margin: 10px 30px 10px 20px;
+}
 
+.search-input img {
+    width: 15px;
+    height: 15px;
+    padding:5px 5px 0 5px;
+}
+.search-input {
+    background-color: rgb(4,188,111);
+    width: 250px;
+}
+::-webkit-input-placeholder {
+    color:#F1EDED;
+}
+.show span{
+    display: block;
+    border-radius: 50%;   
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin:4px;
+    z-index: 2;
+}
+.show img{
+    width: 100%;
+    height: 200px;
+}
+.show-icon {
+    /*margin-top: -30px;*/
+    position: relative;
+    width: 75px;
+    margin: -30px auto 0 auto;
+}
+.active{
+    background-color: #F7F7F7;
+}
+.positive{
+    background-color: rgba(255,255,255,.5);
+}
+.cate-grid.weui_grid_icon{
+    width: 60px;
+    height: 60px;
+}
+.cate-grid img {
+    border-radius: 50%;
+}
+.no-pd-btm.weui_grid{
+    padding-bottom: 0;
+}
+.no-pd-btm p {
+    color:#6D6B6B;
+}
+.m-t-sm {
+    margin-top: 9px;
+}
+.m-r-xm {
+    margin-right: 5px;
+}
+.m-r-m {
+    margin-right: 15px;
+}
+.m-r-xl {
+    margin-right: 30px;
+}
+.pd-r-sm {
+    padding-right: 10px;
+}
+.pd-r-ssm {
+    padding-right: 5px;
+}
+.pd-l-sm {
+    padding-left: 5px;
+}
+.bgc-white {
+    background-color: white;
+}
+.sale-p{
+    margin:5px;
+}
+.cnt-area{
+    line-height: 30px;
+}
+.cnt-area span {
+    font-size: 18px;
+}
+.cnt {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    color:white;
+}
+.sale-img img {
+    width: 100%;
+    height: auto;
+}
+.sale-info {
+    background-color: #F7F6F6;
+    margin: 10px 5px 10px 10px;
+    width: 45%;
+    display: inline-block;
+}
+.sale-font {
+    font-size: 16px;
+}
+.dis-blk {
+    display: block;
+}
+.font-red {
+    color:red;
+}
+.font-l {
+    font-size: 18px;
+}
+.w-full {
+  width:100%;
+}
+.danger-text {
+  color:red;
+}
+#navbar-btm .weui_navbar_item {
+    padding: 5px 0;
+}
+.nav-icon{
+    width: 20px;
+    height: 20px;
+}
 #navbar-btm span {
     font-size: 10px;
 }
-
 .text-center {
     text-align: center;
 }
-
 .clear-both {
     clear: both
 }
-
 .pull-left {
     float: left;
 }
-
 .pd-r-m {
     padding-right: 15px;
 }
-
 .pd-l-m {
     padding-left: 15px;
 }
-
 .pull-right {
     float: right;
 }
-
 .big-font {
     font-size: 18px;
 }
-
 nav {
-    padding-bottom: 5px;
+    padding-bottom: 5px;    
 }
-
-.nav-img {
-    width: 30px;
+.nav-img{
+    width:30px;
     height: 30px;
     position: absolute;
     top: 0;
-    right: 10px;
+    right: 10px; 
 }
-
 #details {
     background-color: #E0E0E0;
     padding-bottom: 75px;
 }
-
-.banner img {
+.banner img{
     width: 100%;
     height: 200px;
 }
-
 .banner p {
     font-size: 10px;
 }
-
 .cart-cnt {
     position: absolute;
     top: 0px;
     right: 10px;
     margin-top: -7px;
 }
-
 .gray-font {
-    color: #808080;
+    color:#808080;
 }
-
 .ps-a {
     position: absolute;
 }
-
 .ps-r {
     position: relative;
 }
-
 .del-line {
     position: absolute;
     top: 40%;
     width: 100%;
     border: 1px solid #E66B6B
 }
+.cartBtn {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0;
+}
+.cartBtn span ,.weui_actionsheet_action span{
+    display: inline-block;
+    width: 50%;
+    padding: 5px 0;
+    color: #fff;
+}
+.cart {
+    background-color: rgb(236,198,52);
+}
+.buy {
+    background-color: rgb(9,204,123);
+}
+.font-sm {
+    font-size: 12px;
+}
+.font-m.danger-text{
+    font-size: 16px;
+}
+.cart-img{
+    width:110px;
+    height: 110px;
+}
+.dis-blk {
+    display: block;
+}
+.dis-in-blk {
+    display: inline-block;
+}
+.text-left{
+    text-align: left;
+}
+.pd-full {
+    padding: 5px;
+}
+.pd-lr {   
+    padding:0 5px 0 5px;
+}
+.border {
+    border: 1px solid rgb(217,217,217);
+}
+.border-right {
+    border-right:1px solid rgb(217,217,217);
+}
+.border-left {
+    border-left:1px solid rgb(217,217,217);
+}
+.operate {
+    color:  rgb(217,217,217);
+}
+.font-no {
+    font-size: 0;
+}
+.no-m-t.weui_actionsheet_action{
+    margin-top: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,9 +6,14 @@ import news from './components/news.vue';
 import newsDetail from './components/newsDatail.vue';
 import newsDiscuss from './components/newsDiscuss.vue';
 import register from './components/register.vue';
+
 //install router
 Vue.use(Router);
-//路由
+Vue.use(require('vue-resource'));
+Vue.http.options.emulateJSON = true;
+
+//install router
+
 var App = Vue.extend({});
 //routing
 var router = new Router();
@@ -18,7 +23,7 @@ router.map({
         name: 'home',
         component: home
     },
-    '/details': {
+    '/details/:id': {
         name: 'details',
         component: details
     },
@@ -41,8 +46,7 @@ router.map({
 });
 
 router.redirect({
-
-    '*': '/register'
+    '*': '/home'
 });
 
 router.start(App, '#app');

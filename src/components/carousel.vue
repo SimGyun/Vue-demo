@@ -16,29 +16,42 @@
 
 	data () {
 		return {
-		  		showImg:[
-		            {
-		              name:'高级汤料',
-		              des:'你还不来买我吗！',
-		              url:'../assets/img/health02.jpg'
-		            },
-		            {
-		              name:'家用汤料',
-		              des:　'你在我心中是最美',
-		              url:'../assets/img/health01.jpg',
-		            },
-		            {
-		              name:'养生花茶',
-		              des:'拒绝春日绵绵好睡眠花茶250g',
-		              url:'../assets/img/health03.png'
-		            }
-		        ],
+				showImg:[
+					{
+						id:"01",
+						name:"养生花茶",
+						price:"22.50",
+						des:"拒绝春日绵绵好睡眠花茶250g",
+						url:"../assets/img/health03.png"
+					},
+					{
+						id:"02",
+						name:"雨前龙井",
+						price:"55.60",
+						des:"一级雨前龙井礼盒250g",
+						url:"../assets/img/health01.jpg"
+					},
+					{
+						id:"03",
+						name:"高汤滋补",
+						price:"67.80",
+						des:"家庭常用老火靓汤专用300g",
+						url:"../assets/img/health02.jpg"
+					},
+				],
 		        slideUrl:'',
 		        currentIndex:0,
 		        count:0,
 		        circles:[]
 		}
 	},
+	// props: {
+	// 	showImg: {
+	// 		type:Array,
+	// 		require:true
+	// 	},
+	// 	msg:''
+	// },
 	ready () {
 	  this.slideUrl=this.showImg[this.currentIndex].url
 	  let imgCnt=this.showImg.length
