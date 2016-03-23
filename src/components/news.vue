@@ -1,6 +1,8 @@
 
 <script>
     import carousel from "./carousel.vue";
+    import navbtm from './navBtm.vue'
+
 
     export default {
 
@@ -36,7 +38,8 @@
             }
         },
         components:{
-            carousel
+            carousel,
+            navbtm
         }
     }
 
@@ -59,6 +62,7 @@
             </div>
         </div>
     </div>
+    <navbtm></navbtm>
 
 </template>
 
@@ -72,12 +76,17 @@
         color:#fff;
         font-size: 18px;
         font-weight: 700;
+        width:100%;
+        position:fixed;
+        z-index: 2;
+
     }
     .weui_navbar.news-navbar{
         color:#333;
         position: relative;
         top: auto;
         background-color: #fff;
+            padding-top: 42px;
     }
     .weui_navbar.news-navbar:after{
         border:none;
@@ -91,6 +100,7 @@
     .news-list{
         width: 95%;
         margin: 0 auto;
+        padding-bottom: 61px;
     }
     /* 每一项 */
     .news-list-cell{
@@ -129,8 +139,8 @@
         position:absolute;
         color:#999;
         font-size: 12px;
-        right: 10px;
-        bottom:10px;
+        right: 6px;
+        bottom:4px;
         height:12px;
         line-height: 12px;
     }
