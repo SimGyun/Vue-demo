@@ -97,7 +97,6 @@
         <p v-if="!formAlert.passInfo" style="color:red;">密码必须大于8位，且两次密码输入一致</p>
         <button class="weui_btn  weui_btn_default" type="submit" disabled="{{submit}}" :class="{'weui_btn_disabled':submit,'weui_btn_primary':!submit}">提交</button>
     </div>
-    <pre>{{ $data.formAlert | json}}</pre>
 </template>
 <style lang="sass">
     $r-bgc :#FBF9FE;
