@@ -16,7 +16,7 @@
     </div>
 </div>
 <!--图片轮播-->
-<div class="show">
+<div class="show" @click=>
     <div>
         <img :src="slideUrl">
     </div>
@@ -71,7 +71,7 @@
     </div>
 </div>
 <!--特约专场缩略图-->
-<div class="sale-info" v-for="sale in saleTab" @click="goToDetails(sale.name,sale.price,sale.url)">
+<div class="sale-info" v-for="sale in saleTab" @click="goToDetails(sale.id)">
     <div class="sale-img">
         <img :src="sale.url">
     </div>
@@ -79,7 +79,6 @@
         <span class="sale-font-m pd-r-sm">{{sale.name}}</span>
         <span class="sale-font-m ">{{sale.des}}</span>
         <span class="dis-blk font-red font-l">¥{{sale.price}}</span> 
-        <a href="#" v-link="{path:'http://localhost:3000/#!/details'}">测试</a>
    </div>      
 </div>
 
@@ -112,39 +111,10 @@ import navbtm from './navBtm.vue'
   export default {
 
   data () {
-  	return {
-  		showImg:[
-            {
-              name:'高级汤料',
-              des:'你还不来买我吗！',
-              url:'../assets/img/health02.jpg'
-            },
-            {
-              name:'家用汤料',
-              des:　'你在我心中是最美',
-              url:'../assets/img/health01.jpg',
-            },
-            {
-              name:'养生花茶',
-              des:'拒绝春日绵绵好睡眠花茶250g',
-              url:'../assets/img/health03.png'
-            }
-      ],
-      saleTab:[
-            {
-              name:'宁夏枸杞',
-              des:'宁安堡中宁枸杞250g',
-              price:22.50,
-              url:'../assets/img/gouqi.png'
-            },
-            {
-              name:'忆江南',
-              des:'一级碧螺春礼盒250g',
-              price:29.6,
-              url: '../assets/img/tea.png'
-            }
-      ],
-        slideUrl:'',
+    return {
+        showImg:[],
+        saleTab:[],
+        slideUrl:null,
         currentIndex:0,
         count:0,
         circles:[],
@@ -154,33 +124,13 @@ import navbtm from './navBtm.vue'
         cnt:0,
         leftTime:null,
         showCntDown:true
-  	}
+    }
   },
   components: {
         navbtm
   },
   ready () {
-
-    this.slideUrl=this.showImg[this.currentIndex].url
-    let imgCnt=this.showImg.length
-    this.count=imgCnt
-    let fragmentHtml=" "
-    let parentNode=document.getElementById('spanCnt')
-
-    //动态添加幻灯片的小圆圈
-    for(let i=0;i<imgCnt;i++){
-      fragmentHtml+='<span>'+ '</span>'
-    }
-    parentNode.innerHTML=fragmentHtml
-    //设置小圆圈的状态
-    let spanNodes=parentNode.getElementsByTagName("span")
-        this.circles=spanNodes
-        spanNodes[0].className='active'
-
-    for(let i=1;i<imgCnt;i++){
-       spanNodes[i].className='positive'
-    }
-    this.waitForNext()
+    this.getProduct()
 
     //特卖场倒计时
     let date = new Date()
@@ -251,8 +201,59 @@ import navbtm from './navBtm.vue'
          this.currentMinutes=minutes
          this.currentSeconds=seconds
     },
-    goToDetails(name,url,price) {
-        this.$route.router.go({name:'details',params:{name:name,imgUrl:url,price:price}})
+    carousel() {
+      this.slideUrl=this.showImg[this.currentIndex].url
+      let imgCnt=this.showImg.length
+      this.count=imgCnt
+      let fragmentHtml=" "
+      let parentNode=document.getElementById('spanCnt')
+
+      //动态添加幻灯片的小圆圈
+      for(let i=0;i<imgCnt;i++){
+        fragmentHtml+='<span>'+ '</span>'
+      }
+      parentNode.innerHTML=fragmentHtml
+      //设置小圆圈的状态
+      let spanNodes=parentNode.getElementsByTagName("span")
+          this.circles=spanNodes
+          spanNodes[0].className='active'
+
+      for(let i=1;i<imgCnt;i++){
+         spanNodes[i].className='positive'
+      }
+      this.waitForNext()
+    },
+    getProduct() {
+      this.$http.get('../product.json',{}, {
+        headers: {
+            "X-Requested-With": "XMLHttpRequest"
+        },
+        emulateJSON: true
+
+      }).then(function(res) {
+         let productAry=res.data.data
+         for(let i =0,len=productAry.length;i<len;i++) {
+            switch(productAry[i].id)
+            {
+              case "01":
+              case "02":
+              case "03":
+                  this.showImg.push(productAry[i])
+                  break
+              default:
+                  this.saleTab.push(productAry[i])
+
+            }           
+         }
+         this.carousel()
+
+      },function(err) {
+        console.log(err)
+      })
+
+    },
+    goToDetails(id) {
+        this.$route.router.go({name:'details',params:{id:id}})
     },
 },
   computed: {
@@ -265,141 +266,3 @@ import navbtm from './navBtm.vue'
 
 </script>
 
-<style>
-#shouye {
-    background-color: #E0E0E0;
-    padding-bottom: 60px;
-}
-#shouye .weui_navbar_item {
-    padding: 5px 0;
-}
-.nav-icon{
-    width: 20px;
-    height: 20px;
-}
-.main-navbar span{
-    font-size: 10px;
-}
-.search-bar{
-    background-color: rgb(9,204,123);
-}
-.search-bar div , .search-input div{
-    display: inline-block;
-}
-.search-list{
-    margin: 10px 30px 10px 20px;
-}
-
-.search-input img {
-    width: 15px;
-    height: 15px;
-    padding:5px 5px 0 5px;
-}
-.search-input {
-    background-color: rgb(4,188,111);
-    width: 250px;
-}
-::-webkit-input-placeholder {
-    color:#F1EDED;
-}
-.show span{
-    display: block;
-    border-radius: 50%;   
-    width: 15px;
-    height: 15px;
-    float: left;
-    margin:4px;
-    z-index: 2;
-}
-.show img{
-    width: 100%;
-    height: 200px;
-}
-.show-icon {
-    /*margin-top: -30px;*/
-    position: relative;
-    width: 75px;
-    margin: -30px auto 0 auto;
-}
-.active{
-    background-color: #F7F7F7;
-}
-.positive{
-    background-color: rgba(255,255,255,.5);
-}
-.cate-grid.weui_grid_icon{
-    width: 60px;
-    height: 60px;
-}
-.cate-grid img {
-    border-radius: 50%;
-}
-.no-pd-btm.weui_grid{
-    padding-bottom: 0;
-}
-.no-pd-btm p {
-    color:#6D6B6B;
-}
-.m-t-sm {
-    margin-top: 9px;
-}
-.m-r-xm {
-    margin-right: 5px;
-}
-.pd-r-sm {
-    padding-right: 10px;
-}
-.pd-r-ssm {
-    padding-right: 5px;
-}
-.pd-l-sm {
-    padding-left: 5px;
-}
-.bgc-white {
-    background-color: white;
-}
-.sale-p{
-    margin:5px;
-}
-.cnt-area{
-    line-height: 30px;
-}
-.cnt-area span {
-    font-size: 18px;
-}
-.cnt {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background-color: red;
-    color:white;
-}
-.sale-img img {
-    width: 100%;
-    height: auto;
-}
-.sale-info {
-    background-color: #F7F6F6;
-    margin: 10px 5px 10px 10px;
-    width: 45%;
-    display: inline-block;
-}
-.sale-font {
-    font-size: 16px;
-}
-.dis-blk {
-    display: block;
-}
-.font-red {
-    color:red;
-}
-.font-l {
-    font-size: 18px;
-}
-.w-full {
-  width:100%;
-}
-.danger-text {
-  color:red;
-}
-</style>

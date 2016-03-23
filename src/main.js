@@ -4,9 +4,11 @@ import home from './components/home.vue';
 import details from './components/details.vue';
 import news from './components/news.vue';
 import newsDetail from './components/newsDatail.vue';
-import newsDiscuss from './components/newsDiscuss.vue'
+import newsDiscuss from './components/newsDiscuss.vue';
 //install router
 Vue.use(Router);
+Vue.use(require('vue-resource'));
+Vue.http.options.emulateJSON = true;
 
 var App = Vue.extend({});
 //routing
@@ -17,7 +19,7 @@ router.map({
         name: 'home',
         component: home
     },
-    '/details': {
+    '/details/:id': {
         name: 'details',
         component: details
     },
@@ -37,7 +39,7 @@ router.map({
 
 router.redirect({
 
-    '*': '/newsDetail'
+    '*': '/home'
 });
 
 router.start(App, '#app');
