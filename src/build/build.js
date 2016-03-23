@@ -81,12 +81,18 @@
 	
 	var _newsDiscuss2 = _interopRequireDefault(_newsDiscuss);
 	
+	var _register = __webpack_require__(105);
+	
+	var _register2 = _interopRequireDefault(_register);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	//install router
 	_vue2.default.use(_vueRouter2.default);
 	_vue2.default.use(__webpack_require__(47));
 	_vue2.default.http.options.emulateJSON = true;
+	
+	//install router
 	
 	var App = _vue2.default.extend({});
 	//routing
@@ -112,11 +118,14 @@
 	    "/newsDiscuss": {
 	        name: "newsDiscuss",
 	        component: _newsDiscuss2.default
+	    },
+	    "register": {
+	        name: "register",
+	        component: _register2.default
 	    }
 	});
 	
 	router.redirect({
-	
 	    '*': '/home'
 	});
 	
@@ -14036,8 +14045,11 @@
 	        }
 	    },
 	    ready: function ready() {
+	        console.log(JSON.parse(localStorage.getItem("loaclTodo")));
 	        if (JSON.parse(localStorage.getItem("loaclTodo"))) {
-	            this.todos = this.todos.concat(JSON.parse(localStorage.getItem("loaclTodo")));
+	            this.todos = JSON.parse(localStorage.getItem("loaclTodo"));
+	        } else {
+	            this.todos = [];
 	        }
 	    }
 	};
@@ -14267,7 +14279,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".det-foot {\n  position: fixed;\n  bottom: 0; }\n\n.weui_media_box.weui_media_appmsg .weui_media_bd {\n  overflow: hidden; }\n\n.det-list .weui_media_desc {\n  -webkit-line-clamp: 3;\n  color: #333; }\n\n.det-list .weui_media_box.weui_media_appmsg {\n  -webkit-box-align: flex-start;\n  -webkit-align-items: flex-start;\n  -ms-flex-align: flex-start;\n  -ms-grid-row-align: flex-start;\n      align-items: flex-start;\n  position: relative; }\n\n.det-list .det-list-time {\n  font-size: 13px;\n  color: #CECECE;\n  line-height: 1em;\n  list-style: none;\n  position: absolute;\n  right: 10px;\n  bottom: 10px; }\n", "", {"version":3,"sources":["/./src/components/newsDiscuss.vue"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,UAAU,EAAE;;AAEd;EACE,iBAAiB,EAAE;;AAErB;EACE,sBAAsB;EACtB,YAAY,EAAE;;AAEhB;EACE,8BAA8B;EAC9B,gCAAgC;EAChC,2BAA2B;EAC3B,+BAAwB;MAAxB,wBAAwB;EACxB,mBAAmB,EAAE;;AAEvB;EACE,gBAAgB;EAChB,eAAe;EACf,iBAAiB;EACjB,iBAAiB;EACjB,mBAAmB;EACnB,YAAY;EACZ,aAAa,EAAE","file":"newsDiscuss.vue","sourcesContent":[".det-foot {\n  position: fixed;\n  bottom: 0; }\n\n.weui_media_box.weui_media_appmsg .weui_media_bd {\n  overflow: hidden; }\n\n.det-list .weui_media_desc {\n  -webkit-line-clamp: 3;\n  color: #333; }\n\n.det-list .weui_media_box.weui_media_appmsg {\n  -webkit-box-align: flex-start;\n  -webkit-align-items: flex-start;\n  -ms-flex-align: flex-start;\n  align-items: flex-start;\n  position: relative; }\n\n.det-list .det-list-time {\n  font-size: 13px;\n  color: #CECECE;\n  line-height: 1em;\n  list-style: none;\n  position: absolute;\n  right: 10px;\n  bottom: 10px; }\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, ".det-foot {\n  position: fixed;\n  bottom: 0; }\n\n.weui_media_box.weui_media_appmsg .weui_media_bd {\n  overflow: hidden; }\n\n.det-list .weui_media_desc {\n  -webkit-line-clamp: 3;\n  color: #333; }\n\n.det-list .weui_media_box.weui_media_appmsg {\n  -webkit-box-align: flex-start;\n  -webkit-align-items: flex-start;\n  -ms-flex-align: flex-start;\n  -ms-grid-row-align: flex-start;\n      align-items: flex-start;\n  position: relative; }\n\n.det-list .det-list-time {\n  font-size: 13px;\n  color: #CECECE;\n  line-height: 1em;\n  list-style: none;\n  position: absolute;\n  right: 10px;\n  bottom: 10px; }\n\n.det-list .det-discuss div {\n  float: right;\n  font-size: 0;\n  width: 100%; }\n\n.det-list .det-discuss span {\n  display: inline-block;\n  width: 50%;\n  text-align: center;\n  height: 52px;\n  font-size: 12px;\n  line-height: 52px; }\n", "", {"version":3,"sources":["/./src/components/newsDiscuss.vue"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,UAAU,EAAE;;AAEd;EACE,iBAAiB,EAAE;;AAErB;EACE,sBAAsB;EACtB,YAAY,EAAE;;AAEhB;EACE,8BAA8B;EAC9B,gCAAgC;EAChC,2BAA2B;EAC3B,+BAAwB;MAAxB,wBAAwB;EACxB,mBAAmB,EAAE;;AAEvB;EACE,gBAAgB;EAChB,eAAe;EACf,iBAAiB;EACjB,iBAAiB;EACjB,mBAAmB;EACnB,YAAY;EACZ,aAAa,EAAE;;AAEjB;EACE,aAAa;EACb,aAAa;EACb,YAAY,EAAE;;AAEhB;EACE,sBAAsB;EACtB,WAAW;EACX,mBAAmB;EACnB,aAAa;EACb,gBAAgB;EAChB,kBAAkB,EAAE","file":"newsDiscuss.vue","sourcesContent":[".det-foot {\n  position: fixed;\n  bottom: 0; }\n\n.weui_media_box.weui_media_appmsg .weui_media_bd {\n  overflow: hidden; }\n\n.det-list .weui_media_desc {\n  -webkit-line-clamp: 3;\n  color: #333; }\n\n.det-list .weui_media_box.weui_media_appmsg {\n  -webkit-box-align: flex-start;\n  -webkit-align-items: flex-start;\n  -ms-flex-align: flex-start;\n  align-items: flex-start;\n  position: relative; }\n\n.det-list .det-list-time {\n  font-size: 13px;\n  color: #CECECE;\n  line-height: 1em;\n  list-style: none;\n  position: absolute;\n  right: 10px;\n  bottom: 10px; }\n\n.det-list .det-discuss div {\n  float: right;\n  font-size: 0;\n  width: 100%; }\n\n.det-list .det-discuss span {\n  display: inline-block;\n  width: 50%;\n  text-align: center;\n  height: 52px;\n  font-size: 12px;\n  line-height: 52px; }\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -14510,6 +14522,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	//
 	// <script>
 	exports.default = {
 	    data: function data() {
@@ -14546,19 +14559,15 @@
 	//                     <div class="det-list-time">{{todo.date}}</div>
 	//                 </div>
 	//             </a>
-	//         </div>
-	//         <div class="det-foot">
-	//             <div class="det-input">
-	//                 <input type="text" placeholder="写评论..." v-model="newTodo" v-on:keyup.enter="addTodo">
-	//             </div>
-	//             <div class="det-discuss">
-	//                 <div>
-	//                     <span>{{ todos.length}}</span>
-	//                     <span class="det-icon">评</span>
+	//             <div class="det-foot">
+	//                 <div class="det-input">
+	//                     <input type="text" placeholder="写评论..." v-model="newTodo" v-on:keyup.enter="addTodo">
 	//                 </div>
-	//                 <div>
-	//                     <span>0</span>
-	//                     <span class="det-icon">赞</span>
+	//                 <div class="det-discuss">
+	//                     <div>
+	//                         <span>{{ todos.length}}</span>
+	//                         <span class="det-icon">评</span>
+	//                     </div>
 	//                 </div>
 	//             </div>
 	//         </div>
@@ -14593,6 +14602,19 @@
 	//         right:10px;
 	//         bottom:10px;
 	//     }
+	//     .det-discuss div{
+	//         float:right;
+	//         font-size:0;
+	//         width:100%;
+	//     }
+	//     .det-discuss span{
+	//         display:inline-block;
+	//         width:50%;
+	//         text-align:center;
+	//         height:52px;
+	//         font-size:12px;
+	//         line-height:52px;
+	//     }
 	// }
 	//
 	// </style>
@@ -14603,7 +14625,7 @@
 /* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "\n<div class=\"det-list\">\n\n    <a href=\"javascript:void(0);\" class=\"weui_media_box weui_media_appmsg\" v-for=\"todo in todos\">\n        <div class=\"weui_media_hd\">\n            <img class=\"weui_media_appmsg_thumb\" src=\"" + __webpack_require__(46) + "\" alt=\"\">\n        </div>\n        <div class=\"weui_media_bd\">\n            <p class=\"weui_media_desc\">{{todo.text}}</p>\n            <div class=\"det-list-time\">{{todo.date}}</div>\n        </div>\n    </a>\n</div>\n<div class=\"det-foot\">\n    <div class=\"det-input\">\n        <input type=\"text\" placeholder=\"写评论...\" v-model=\"newTodo\" v-on:keyup.enter=\"addTodo\">\n    </div>\n    <div class=\"det-discuss\">\n        <div>\n            <span>{{ todos.length}}</span>\n            <span class=\"det-icon\">评</span>\n        </div>\n        <div>\n            <span>0</span>\n            <span class=\"det-icon\">赞</span>\n        </div>\n    </div>\n</div>\n";
+	module.exports = "\n<div class=\"det-list\">\n\n    <a href=\"javascript:void(0);\" class=\"weui_media_box weui_media_appmsg\" v-for=\"todo in todos\">\n        <div class=\"weui_media_hd\">\n            <img class=\"weui_media_appmsg_thumb\" src=\"" + __webpack_require__(46) + "\" alt=\"\">\n        </div>\n        <div class=\"weui_media_bd\">\n            <p class=\"weui_media_desc\">{{todo.text}}</p>\n            <div class=\"det-list-time\">{{todo.date}}</div>\n        </div>\n    </a>\n    <div class=\"det-foot\">\n        <div class=\"det-input\">\n            <input type=\"text\" placeholder=\"写评论...\" v-model=\"newTodo\" v-on:keyup.enter=\"addTodo\">\n        </div>\n        <div class=\"det-discuss\">\n            <div>\n                <span>{{ todos.length}}</span>\n                <span class=\"det-icon\">评</span>\n            </div>\n        </div>\n    </div>\n</div>\n";
 
 /***/ },
 /* 46 */
@@ -16234,6 +16256,268 @@
 	
 	module.exports = _.resource = Resource;
 
+
+/***/ },
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */,
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(106)
+	__vue_script__ = __webpack_require__(108)
+	if (__vue_script__ &&
+	    __vue_script__.__esModule &&
+	    Object.keys(__vue_script__).length > 1) {
+	  console.warn("[vue-loader] src/components/register.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(109)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) {
+	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
+	}
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "/Users/simgyun/Desktop/Vue-demo/src/components/register.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 106 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(107);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(43)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js!./../../node_modules/sass-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./register.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js!./../../node_modules/sass-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./register.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 107 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(8)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".register {\n  background-color: #FBF9FE;\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0; }\n\n.register .page_title {\n  text-align: center;\n  font-size: 34px;\n  color: #3cc51f;\n  font-weight: 400;\n  margin: 0 15%; }\n\n.register .weui_cells {\n  margin-top: 0; }\n\n.register .weui_btn {\n  width: 90%;\n  margin-top: 20px; }\n\n.register .weui_cells_title {\n  background-color: #FBF9FE;\n  padding-top: .77em;\n  padding-bottom: .3em;\n  margin: 0; }\n\n.register .error-show {\n  box-shadow: inset 0px 0px 1px 1px #F13535; }\n\n.register .succ-show {\n  box-shadow: inset 0px 0px 1px 1px green; }\n", "", {"version":3,"sources":["/./src/components/register.vue"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,mBAAmB;EACnB,QAAQ;EACR,SAAS;EACT,OAAO;EACP,UAAU,EAAE;;AAEd;EACE,mBAAmB;EACnB,gBAAgB;EAChB,eAAe;EACf,iBAAiB;EACjB,cAAc,EAAE;;AAElB;EACE,cAAc,EAAE;;AAElB;EACE,WAAW;EACX,iBAAiB,EAAE;;AAErB;EACE,0BAA0B;EAC1B,mBAAmB;EACnB,qBAAqB;EACrB,UAAU,EAAE;;AAEd;EACE,0CAA0C,EAAE;;AAE9C;EACE,wCAAwC,EAAE","file":"register.vue","sourcesContent":[".register {\n  background-color: #FBF9FE;\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0; }\n\n.register .page_title {\n  text-align: center;\n  font-size: 34px;\n  color: #3cc51f;\n  font-weight: 400;\n  margin: 0 15%; }\n\n.register .weui_cells {\n  margin-top: 0; }\n\n.register .weui_btn {\n  width: 90%;\n  margin-top: 20px; }\n\n.register .weui_cells_title {\n  background-color: #FBF9FE;\n  padding-top: .77em;\n  padding-bottom: .3em;\n  margin: 0; }\n\n.register .error-show {\n  box-shadow: inset 0px 0px 1px 1px #F13535; }\n\n.register .succ-show {\n  box-shadow: inset 0px 0px 1px 1px green; }\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 108 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	// <script>
+	// module.export={
+	exports.default = {
+	    data: function data() {
+	        return {
+	            formData: {
+	                "tel": "",
+	                "codes": "",
+	                "pass1": "",
+	                "pass2": ""
+	            },
+	            formAlert: {
+	                "tel": "",
+	                "codes": "",
+	                "passInfo": true
+	            },
+	            "submit": true
+	        };
+	    },
+	    methods: {
+	        "telblur": function telblur() {
+	            // va
+	            if (typeof this.formData.tel === "string") {
+	                this.formAlert.tel = "error-show";
+	            } else if (this.formData.tel.toString().length === 11) {
+	                this.formAlert.tel = "succ-show";
+	            } else {
+	                this.formAlert.tel = "error-show";
+	            }
+	        },
+	        "codesBlur": function codesBlur() {
+	            if (typeof this.formData.codes === "string") {
+	                this.formAlert.codes = "weui_cell_warn";
+	            } else if (this.formData.codes.toString().length === 4) {
+	                this.formAlert.codes = true;
+	            } else {
+	                this.formAlert.codes = "weui_cell_warn";
+	            }
+	        },
+	        "passBlur": function passBlur() {
+	            if (this.formData.pass2.length < 8 || this.formData.pass1 != this.formData.pass2) {
+	                this.formAlert.passInfo = false;
+	            } else {
+	                this.formAlert.passInfo = true;
+	            }
+	        }
+	    },
+	    ready: function ready() {
+	        this.$watch("formData.pass2", function () {
+	            if (this.formData.pass2 == this.formData.pass1) {
+	                this.submit = false;
+	            } else {
+	                this.submit = true;
+	            }
+	        });
+	    }
+	};
+	// </script>
+	// <template>
+	//     <div class="register"  >
+	//         <h1 class="page_title">注册</h1>
+	//         <div class="weui_cells weui_cells_form">
+	//         <div class="weui_cells_title">输入验证</div>
+	//             <div class="weui_cell" :class="formAlert.tel">
+	//                 <div class="weui_cell_hd"><label class="weui_label">手机号</label></div>
+	//                 <div class="weui_cell_bd weui_cell_primary">
+	//                     <input class="weui_input" type="tel" pattern="[0-9]*" placeholder="请输入手机号码"required v-model="formData.tel" minlength="11" maxlength="11" number @blur="telblur()">
+	//                 </div>
+	//             </div>
+	//             <div class="weui_cell weui_vcode " :class="formAlert.codes">
+	//                 <div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
+	//                 <div class="weui_cell_bd weui_cell_primary">
+	//                     <input class="weui_input" type="tel" placeholder="请输入验证码" v-model="formData.codes" number required  minlength="4" maxlength="4" @blur="codesBlur()">
+	//                 </div>
+	//
+	//                 <div class="weui_cell_ft">
+	//                     <i class="weui_icon_warn"></i>
+	//                     <img src="../assets/img/tea.png">
+	//                 </div>
+	//             </div>
+	//             <div class="weui_cells_title">设定密码</div>
+	//             <div class="weui_cell">
+	//                 <div class="weui_cell_hd"><label class="weui_label">密码</label></div>
+	//                 <div class="weui_cell_bd weui_cell_primary">
+	//                     <input class="weui_input" type="password" placeholder="请输入密码"v-model="formData.pass1" >
+	//                 </div>
+	//             </div>
+	//             <div class="weui_cell">
+	//                 <div class="weui_cell_hd"><label class="weui_label">密码</label></div>
+	//                 <div class="weui_cell_bd weui_cell_primary">
+	//                     <input class="weui_input" type="password"  placeholder="请再次输入密码"v-model="formData.pass2" @blur="passBlur()">
+	//                 </div>
+	//             </div>
+	//         </div>
+	//         <p v-if="!formAlert.passInfo" style="color:red;">密码必须大于8位，且两次密码输入一致</p>
+	//         <button class="weui_btn  weui_btn_default" type="submit" disabled="{{submit}}" :class="{'weui_btn_disabled':submit,'weui_btn_primary':!submit}">提交</button>
+	//     </div>
+	//     <pre>{{ $data.formAlert | json}}</pre>
+	// </template>
+	// <style lang="sass">
+	//     $r-bgc :#FBF9FE;
+	//
+	//     .register{
+	//         background-color:$r-bgc;
+	//         position:absolute;
+	//         left:0;
+	//         right:0;
+	//         top:0;
+	//         bottom:0;
+	//     }
+	//     .register{
+	//
+	//         .page_title{
+	//             text-align: center;
+	//             font-size: 34px;
+	//             color: #3cc51f;
+	//             font-weight: 400;
+	//             margin: 0 15%;
+	//         }
+	//         .weui_cells{
+	//             margin-top:0;
+	//         }
+	//         .weui_btn{
+	//             width: 90%;
+	//             margin-top: 20px;
+	//         }
+	//         .weui_cells_title{
+	//             background-color:$r-bgc;
+	//             padding-top: .77em;
+	//             padding-bottom: .3em;
+	//             margin:0;
+	//         }
+	//         .error-show{
+	//             box-shadow: inset 0px 0px 1px 1px #F13535;
+	//         }
+	//         .succ-show{
+	//             box-shadow: inset 0px 0px 1px 1px green;
+	//         }
+	//     }
+	// </style>
+	//
+
+	/* generated by vue-loader */
+
+/***/ },
+/* 109 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "\n<div class=\"register\"  >\n    <h1 class=\"page_title\">注册</h1>\n    <div class=\"weui_cells weui_cells_form\">\n    <div class=\"weui_cells_title\">输入验证</div>\n        <div class=\"weui_cell\" :class=\"formAlert.tel\">\n            <div class=\"weui_cell_hd\"><label class=\"weui_label\">手机号</label></div>\n            <div class=\"weui_cell_bd weui_cell_primary\">\n                <input class=\"weui_input\" type=\"tel\" pattern=\"[0-9]*\" placeholder=\"请输入手机号码\"required v-model=\"formData.tel\" minlength=\"11\" maxlength=\"11\" number @blur=\"telblur()\">\n            </div>\n        </div>\n        <div class=\"weui_cell weui_vcode \" :class=\"formAlert.codes\">\n            <div class=\"weui_cell_hd\"><label class=\"weui_label\">验证码</label></div>\n            <div class=\"weui_cell_bd weui_cell_primary\">\n                <input class=\"weui_input\" type=\"tel\" placeholder=\"请输入验证码\" v-model=\"formData.codes\" number required  minlength=\"4\" maxlength=\"4\" @blur=\"codesBlur()\">\n            </div>\n\n            <div class=\"weui_cell_ft\">\n                <i class=\"weui_icon_warn\"></i>\n                <img src=\"" + __webpack_require__(46) + "\">\n            </div>\n        </div>\n        <div class=\"weui_cells_title\">设定密码</div>\n        <div class=\"weui_cell\">\n            <div class=\"weui_cell_hd\"><label class=\"weui_label\">密码</label></div>\n            <div class=\"weui_cell_bd weui_cell_primary\">\n                <input class=\"weui_input\" type=\"password\" placeholder=\"请输入密码\"v-model=\"formData.pass1\" >\n            </div>\n        </div>\n        <div class=\"weui_cell\">\n            <div class=\"weui_cell_hd\"><label class=\"weui_label\">密码</label></div>\n            <div class=\"weui_cell_bd weui_cell_primary\">\n                <input class=\"weui_input\" type=\"password\"  placeholder=\"请再次输入密码\"v-model=\"formData.pass2\" @blur=\"passBlur()\">\n            </div>\n        </div>\n    </div>\n    <p v-if=\"!formAlert.passInfo\" style=\"color:red;\">密码必须大于8位，且两次密码输入一致</p>\n    <button class=\"weui_btn  weui_btn_default\" type=\"submit\" disabled=\"{{submit}}\" :class=\"{'weui_btn_disabled':submit,'weui_btn_primary':!submit}\">提交</button>\n</div>\n<pre>{{ $data.formAlert | json}}</pre>\n";
 
 /***/ }
 /******/ ]);
