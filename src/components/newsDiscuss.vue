@@ -1,3 +1,4 @@
+
 <script>
     export default{
         data () {
@@ -7,6 +8,7 @@
             }
         },
         methods : {
+
             addTodo () {
                 let text = this.newTodo.trim();
                 if(text){
