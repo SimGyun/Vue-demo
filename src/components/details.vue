@@ -101,11 +101,15 @@ export default {
 			saleTab:[],
 			count:1,
 			warn:false,
-			errMsg:null
+			errMsg:null,
+			cartCnt:0
 
 		}
 	},
 	ready () {
+		if(sessionStorage){
+			this.cartCnt=sessionStorage.length
+		}
 		this.getProduct()
 	},
 	methods: {
@@ -180,7 +184,9 @@ export default {
 		addCart() {
 			this.product.count=this.count
 			console.log(this.product)
-			sessionStorage.setItem(id,this.product)
+			sessionStorage.setItem(this.id,this.product)
+			this.cartCnt+=1
+			this.hideCart()
 		},
 		orderNow(id) {
 			this.$route.router.go()
@@ -189,10 +195,10 @@ export default {
 	components: {
 		carousel	
 	},
-	computed: {
-		cartCnt () {
-			return sessionStorage.length
-		}
-	}
+	// computed: {
+	// 	cartCnt () {
+	// 		return sessionStorage.length
+	// 	}
+	// }
 }
 </script>
