@@ -38,7 +38,7 @@
     "url": "git+https://github.com/SimGyun/Vue.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/SimGyun/Vue/issues"
   },

@@ -5,10 +5,14 @@ import details from './components/details.vue';
 import news from './components/news.vue';
 import newsDetail from './components/newsDatail.vue';
 import newsDiscuss from './components/newsDiscuss.vue';
+import register from './components/register.vue';
+
 //install router
 Vue.use(Router);
 Vue.use(require('vue-resource'));
 Vue.http.options.emulateJSON = true;
+
+//install router
 
 var App = Vue.extend({});
 //routing
@@ -34,11 +38,14 @@ router.map({
     "/newsDiscuss": {
         name: "newsDiscuss",
         component: newsDiscuss
+    },
+    "register":{
+        name:"register",
+        component:register
     }
 });
 
 router.redirect({
-
     '*': '/home'
 });
 

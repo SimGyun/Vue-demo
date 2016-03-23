@@ -29,8 +29,11 @@
             }
         },
         ready () {
+            console.log(JSON.parse(localStorage.getItem("loaclTodo")))
             if(JSON.parse(localStorage.getItem("loaclTodo"))){
-                this.todos=this.todos.concat(JSON.parse(localStorage.getItem("loaclTodo")));
+                this.todos=JSON.parse(localStorage.getItem("loaclTodo"));
+            }else{
+                this.todos=[];
             }
         }
     }
