@@ -1,17 +1,18 @@
 <template>
     <carousel></carousel>
-</template>
+</templat>
 
 <script>
-import carousel from "carousel.vue"
+import carousel from "./components/carousel.vue"
+
 export default {
     data () {
-        return {}
-    }
-    component:[
+        return {};
+    },
+    components:{
         carousel
-    ]
-}
+    }
+};
 
 </script>
 
