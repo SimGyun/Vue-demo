@@ -22,21 +22,21 @@
 						name:"养生花茶",
 						price:"22.50",
 						des:"拒绝春日绵绵好睡眠花茶250g",
-						url:"../assets/img/health03.png"
+						url:"http://ww1.sinaimg.cn/mw690/8c81192fjw1f298dmdib9j20hs0akwen.jpg"
 					},
 					{
 						id:"02",
 						name:"雨前龙井",
 						price:"55.60",
 						des:"一级雨前龙井礼盒250g",
-						url:"../assets/img/health01.jpg"
+						url:"http://ww1.sinaimg.cn/mw690/8c81192fjw1f298dmdib9j20hs0akwen.jpg"
 					},
 					{
 						id:"03",
 						name:"高汤滋补",
 						price:"67.80",
 						des:"家庭常用老火靓汤专用300g",
-						url:"../assets/img/health02.jpg"
+						url:"http://ww1.sinaimg.cn/mw690/8c81192fjw1f298dmdib9j20hs0akwen.jpg"
 					},
 				],
 		        slideUrl:'',
@@ -45,36 +45,32 @@
 		        circles:[]
 		}
 	},
-	// props: {
-	// 	showImg: {
-	// 		type:Array,
-	// 		require:true
-	// 	},
-	// 	msg:''
-	// },
 	ready () {
-	  this.slideUrl=this.showImg[this.currentIndex].url
-	  let imgCnt=this.showImg.length
-	  this.count=imgCnt
-	  let fragmentHtml=" "
-	  let parentNode=document.getElementById('spanCnt')
-
-	  //动态添加幻灯片的小圆圈
-	  for(let i=0;i<imgCnt;i++){
-	    fragmentHtml+='<span>'+ '</span>'
-	  }
-	  parentNode.innerHTML=fragmentHtml
-	  //设置小圆圈的状态
-	  let spanNodes=parentNode.getElementsByTagName("span")
-	      this.circles=spanNodes
-	      spanNodes[0].className='active'
-
-	  for(let i=1;i<imgCnt;i++){
-	     spanNodes[i].className='positive'
-	  }
-	  this.waitForNext()
+		this.initCarousel()
 	},
 	methods: {
+		 initCarousel() {
+		 	this.slideUrl=this.showImg[this.currentIndex].url
+		 	let imgCnt=this.showImg.length
+		 	this.count=imgCnt
+		 	let fragmentHtml=" "
+		 	let parentNode=document.getElementById('spanCnt')
+
+		 	//动态添加幻灯片的小圆圈
+		 	for(let i=0;i<imgCnt;i++){
+		 	  fragmentHtml+='<span>'+ '</span>'
+		 	}
+		 	parentNode.innerHTML=fragmentHtml
+		 	//设置小圆圈的状态
+		 	let spanNodes=parentNode.getElementsByTagName("span")
+		 	    this.circles=spanNodes
+		 	    this.circles[0].className='active'
+
+		 	for(let i=1;i<imgCnt;i++){
+		 	   this.circles[i].className='positive'
+		 	}
+		 	this.waitForNext()
+		 },
 		  waitForNext() {
 		    setInterval(this.next,1000 * 3)
 		  },
