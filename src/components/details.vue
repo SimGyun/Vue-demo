@@ -3,7 +3,7 @@
 	<nav class="text-center">
 		<div class="pull-left big-font pd-l-m" @click="goBack">&lt;</div>
 		<div class="pd-r-m">商品详情</div>
-		<div class="pull-right">
+		<div class="pull-right" @click="goTrolley">
 			<img src="../assets/img/cart.png" class="nav-img">
 		</div>
 		<span class="danger-text cart-cnt" v-show="cartCnt!==0">{{cartCnt}}</span>
@@ -150,7 +150,9 @@ export default {
 		goBack() {
 			window.history.back()
 		},
-
+		goTrolley() {
+			this.$route.router.go({name:'trolley'})
+		},
 		showCart(id) {
 			//显示购物sheet
 			let mask=document.getElementById('mask')
@@ -183,8 +185,7 @@ export default {
 		},
 		addCart() {
 			this.product.count=this.count
-			console.log(this.product)
-			sessionStorage.setItem(this.id,this.product)
+			sessionStorage.setItem('product',JSON.stringify(this.product))
 			this.cartCnt+=1
 			this.hideCart()
 		},

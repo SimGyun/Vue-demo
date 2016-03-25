@@ -16,7 +16,7 @@
     </div>
 </div>
 <!--图片轮播-->
-<div class="show" @click=>
+<!-- <div class="show" @click=>
     <div>
         <img :src="slideUrl">
     </div>
@@ -25,7 +25,8 @@
             <div class="clear-both"></div>
         </div>
     </div>       
-</div>
+</div> -->
+<carousel></carousel>
 <!--小分类-->
 <div class="weui_grids m-t-sm bgc-white w-full">
     <a href="javascript:;" class="weui_grid no-pd-btm ">
@@ -107,6 +108,7 @@
 </template>
 
 <script>
+import carousel from './carousel.vue'
 import navbtm from './navBtm.vue'
   export default {
 
@@ -127,7 +129,8 @@ import navbtm from './navBtm.vue'
     }
   },
   components: {
-        navbtm
+        navbtm,
+        carousel
   },
   ready () {
     this.getProduct()
@@ -156,25 +159,25 @@ import navbtm from './navBtm.vue'
     })
   },
   methods: {
-      waitForNext() {
-        setInterval(this.next,1000 * 3) 
-      },
-      next() {
-        this.currentIndex+=1
-        if(this.currentIndex >= this.count){
-          this.currentIndex=0
-        }
-        this.handleImg(this.currentIndex)
-      },
-      handleImg(index) {
-        this.slideUrl=this.showImg[index].url
-        this.circles[index].className='active'
-        for(let i=0;i<this.count;i++){
-          if(i!==index){
-            this.circles[i].className='positive'
-          }
-        }
-      },
+      // waitForNext() {
+      //   setInterval(this.next,1000 * 3) 
+      // },
+      // next() {
+      //   this.currentIndex+=1
+      //   if(this.currentIndex >= this.count){
+      //     this.currentIndex=0
+      //   }
+      //   this.handleImg(this.currentIndex)
+      // },
+      // handleImg(index) {
+      //   this.slideUrl=this.showImg[index].url
+      //   this.circles[index].className='active'
+      //   for(let i=0;i<this.count;i++){
+      //     if(i!==index){
+      //       this.circles[i].className='positive'
+      //     }
+      //   }
+      // },
       showCountDown() {
           setInterval(this.countDown,1000)
       },
@@ -201,28 +204,28 @@ import navbtm from './navBtm.vue'
          this.currentMinutes=minutes
          this.currentSeconds=seconds
     },
-    carousel() {
-      this.slideUrl=this.showImg[this.currentIndex].url
-      let imgCnt=this.showImg.length
-      this.count=imgCnt
-      let fragmentHtml=" "
-      let parentNode=document.getElementById('spanCnt')
+    // carousel() {
+    //   this.slideUrl=this.showImg[this.currentIndex].url
+    //   let imgCnt=this.showImg.length
+    //   this.count=imgCnt
+    //   let fragmentHtml=" "
+    //   let parentNode=document.getElementById('spanCnt')
 
-      //动态添加幻灯片的小圆圈
-      for(let i=0;i<imgCnt;i++){
-        fragmentHtml+='<span>'+ '</span>'
-      }
-      parentNode.innerHTML=fragmentHtml
-      //设置小圆圈的状态
-      let spanNodes=parentNode.getElementsByTagName("span")
-          this.circles=spanNodes
-          spanNodes[0].className='active'
+    //   //动态添加幻灯片的小圆圈
+    //   for(let i=0;i<imgCnt;i++){
+    //     fragmentHtml+='<span>'+ '</span>'
+    //   }
+    //   parentNode.innerHTML=fragmentHtml
+    //   //设置小圆圈的状态
+    //   let spanNodes=parentNode.getElementsByTagName("span")
+    //       this.circles=spanNodes
+    //       spanNodes[0].className='active'
 
-      for(let i=1;i<imgCnt;i++){
-         spanNodes[i].className='positive'
-      }
-      this.waitForNext()
-    },
+    //   for(let i=1;i<imgCnt;i++){
+    //      spanNodes[i].className='positive'
+    //   }
+    //   this.waitForNext()
+    // },
     getProduct() {
       this.$http.get('../product.json',{}, {
         headers: {
@@ -245,7 +248,7 @@ import navbtm from './navBtm.vue'
 
             }           
          }
-         this.carousel()
+         // this.carousel()
 
       },function(err) {
         console.log(err)

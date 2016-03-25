@@ -278,7 +278,15 @@ nav {
 .no-m-t.weui_actionsheet_action{
     margin-top: 0;
 }
-
+.no-pro {
+    background-color: #E0E0E0;
+    padding-bottom: 30px;
+}
+.big-cart {
+    width: 150px;
+    height: 150px;
+    margin: 30px 30% 10px;
+}
 
 
 
