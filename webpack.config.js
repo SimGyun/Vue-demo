@@ -41,12 +41,12 @@ module.exports = {
     grogress: true,
   },
   // .vue的配置。需要单独出来配置
-  vue: {
-    loaders: {
-      css: 'style!css'
-      // !autoprefixer
-    }
-  },
+  // vue: {
+  //   loaders: {
+  //     css: 'style!css'
+  //     // !autoprefixer
+  //   }
+  // },
   // plugins: [
   //       new webpack.DefinePlugin({   
   //           'process.env.NODE_ENV': '"development"'
