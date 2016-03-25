@@ -1,19 +1,20 @@
-<style>
 
-</style>
+<script>
+import carousel from "./components/carousel.vue"
+
+export default {
+    data () {
+        return {};
+    },
+    components:{
+        carousel
+    }
+};
+
+</script>
 <template>
     <carousel></carousel>
 </template>
+<style>
 
-<script>
-import carousel from "carousel.vue"
-export default {
-    data () {
-        return {}
-    }
-    component:[
-        carousel
-    ]
-}
-
-</script>
+</style>
