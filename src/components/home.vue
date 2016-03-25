@@ -1,6 +1,3 @@
-<style>
-
-</style>
 <template>
     <carousel></carousel>
 </template>
@@ -17,3 +14,7 @@ export default {
 }
 
 </script>
+
+<style>
+
+</style>
