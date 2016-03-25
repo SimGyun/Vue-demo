@@ -98,7 +98,7 @@
         <button class="weui_btn  weui_btn_default" type="submit" disabled="{{submit}}" :class="{'weui_btn_disabled':submit,'weui_btn_primary':!submit}">提交</button>
     </div>
 </template>
-<style lang="sass">
+<style lang="sass" >
     $r-bgc :#FBF9FE;
 
     .register{

@@ -102,10 +102,12 @@
    </div>      
 </div>
 
-<navbtm></navbtm>
+<navbtm>
+</navbtm>
 
 </div>
 </template>
+
 
 <script>
 import carousel from './carousel.vue'

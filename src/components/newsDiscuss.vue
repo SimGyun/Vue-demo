@@ -52,7 +52,7 @@
         </div>
 </template>
 
-<style lang="sass">
+<style lang="sass" >
 .det-foot{
     position: fixed;
     bottom:0;

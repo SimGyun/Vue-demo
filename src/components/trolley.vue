@@ -53,10 +53,9 @@ export default {
 	ready() {
 		if(sessionStorage.length>0){
 			this.empty=false
-			for(let i=0,len=sessionStorage.length;i<len;i++) {
-				let product=JSON.parse(sessionStorag.getItem('product')
-				this.products.push(product)
-			}
+			let product=JSON.parse(sessionStorag.getItem('product'))
+			this.products.push(product)
+			console.log(this.products)
 			console.log(this.products.id)
 		}else{
 			this.empty=true

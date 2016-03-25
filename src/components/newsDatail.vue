@@ -79,7 +79,7 @@
     </div>
 </template>
 
-<style>
+<style >
 
     .det-container{
         position:absolute;

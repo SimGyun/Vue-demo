@@ -45,36 +45,32 @@
 		        circles:[]
 		}
 	},
-	// props: {
-	// 	showImg: {
-	// 		type:Array,
-	// 		require:true
-	// 	},
-	// 	msg:''
-	// },
 	ready () {
-	  this.slideUrl=this.showImg[this.currentIndex].url
-	  let imgCnt=this.showImg.length
-	  this.count=imgCnt
-	  let fragmentHtml=" "
-	  let parentNode=document.getElementById('spanCnt')
-
-	  //动态添加幻灯片的小圆圈
-	  for(let i=0;i<imgCnt;i++){
-	    fragmentHtml+='<span>'+ '</span>'
-	  }
-	  parentNode.innerHTML=fragmentHtml
-	  //设置小圆圈的状态
-	  let spanNodes=parentNode.getElementsByTagName("span")
-	      this.circles=spanNodes
-	      spanNodes[0].className='active'
-
-	  for(let i=1;i<imgCnt;i++){
-	     spanNodes[i].className='positive'
-	  }
-	  this.waitForNext()
+		this.initCarousel()
 	},
 	methods: {
+		 initCarousel() {
+		 	this.slideUrl=this.showImg[this.currentIndex].url
+		 	let imgCnt=this.showImg.length
+		 	this.count=imgCnt
+		 	let fragmentHtml=" "
+		 	let parentNode=document.getElementById('spanCnt')
+
+		 	//动态添加幻灯片的小圆圈
+		 	for(let i=0;i<imgCnt;i++){
+		 	  fragmentHtml+='<span>'+ '</span>'
+		 	}
+		 	parentNode.innerHTML=fragmentHtml
+		 	//设置小圆圈的状态
+		 	let spanNodes=parentNode.getElementsByTagName("span")
+		 	    this.circles=spanNodes
+		 	    this.circles[0].className='active'
+
+		 	for(let i=1;i<imgCnt;i++){
+		 	   this.circles[i].className='positive'
+		 	}
+		 	this.waitForNext()
+		 },
 		  waitForNext() {
 		    setInterval(this.next,1000 * 3)
 		  },

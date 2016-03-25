@@ -67,7 +67,7 @@
 </template>
 
 
-<style>
+<style >
     .news-header{
         background-color: #09CC7B;
         height: 42px;
