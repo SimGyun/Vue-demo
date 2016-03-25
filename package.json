@@ -30,8 +30,9 @@
     "webpack-dev-server": "^1.14.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --hot --inline"
+    "test": "node index.js",
+    "start": "webpack  --watch",
+    "dev": "npm run start && npm run test"
   },
   "repository": {
     "type": "git",

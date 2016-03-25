@@ -22,21 +22,21 @@
 						name:"养生花茶",
 						price:"22.50",
 						des:"拒绝春日绵绵好睡眠花茶250g",
-						url:"../assets/img/health03.png"
+						url:"http://ww1.sinaimg.cn/mw690/8c81192fjw1f298dmdib9j20hs0akwen.jpg"
 					},
 					{
 						id:"02",
 						name:"雨前龙井",
 						price:"55.60",
 						des:"一级雨前龙井礼盒250g",
-						url:"../assets/img/health01.jpg"
+						url:"http://ww1.sinaimg.cn/mw690/8c81192fjw1f298dmdib9j20hs0akwen.jpg"
 					},
 					{
 						id:"03",
 						name:"高汤滋补",
 						price:"67.80",
 						des:"家庭常用老火靓汤专用300g",
-						url:"../assets/img/health02.jpg"
+						url:"http://ww1.sinaimg.cn/mw690/8c81192fjw1f298dmdib9j20hs0akwen.jpg"
 					},
 				],
 		        slideUrl:'',
